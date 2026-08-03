@@ -39,3 +39,12 @@ jobs:
 
       - name: Format check
         run: pnpm format
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      # The gate the entries actually need: the schema plus the cross-file
+      # checks it cannot express. Without it a mistyped category or technology
+      # drops a project off the page, silently.
+      - name: Validate entries
+        run: pnpm validate
