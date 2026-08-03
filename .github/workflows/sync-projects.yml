@@ -1,0 +1,105 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+# Rebuilds projects.json — the one file kirch.dev fetches — and proposes the
+# result as a pull request rather than committing to main directly, so a change
+# in the facts is reviewed like any other.
+#
+# It needs no PAT: the built-in GITHUB_TOKEN reads public repository metadata,
+# which is all this repository ever reads. Entries that opt out via
+# `"github": false` are never fetched at all.
+name: Sync Projects
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - projects/**
+      - schema/**
+      - scripts/**
+      - .github/workflows/sync-projects.yml
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-projects
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Rebuild projects.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # The entries have to be sound before their facts are worth fetching — a
+      # rebuild off a broken entry would propose a PR that drops a project.
+      - name: Validate entries
+        run: pnpm validate
+
+      - name: Build projects.json
+        run: pnpm build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open or update sync PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if [[ -z "$(git status --porcelain projects.json)" ]]; then
+            echo "No changes."
+            exit 0
+          fi
+
+          branch=bot/sync-projects
+          base_sha=$(git rev-parse HEAD)
+
+          # (Re)point the branch at the current main tip so it carries exactly
+          # one commit on top of main, however many runs went into it.
+          if gh api "repos/$GH_REPO/git/refs/heads/$branch" >/dev/null 2>&1; then
+            gh api -X PATCH "repos/$GH_REPO/git/refs/heads/$branch" \
+              -f sha="$base_sha" -F force=true >/dev/null
+          else
+            gh api -X POST "repos/$GH_REPO/git/refs" \
+              -f ref="refs/heads/$branch" -f sha="$base_sha" >/dev/null
+          fi
+
+          # Commit through the Contents API rather than `git push`: commits made
+          # this way with GITHUB_TOKEN are signed by GitHub and count as
+          # "Verified", which a required_signatures rule on main insists on.
+          file_sha=$(gh api "repos/$GH_REPO/contents/projects.json?ref=$branch" --jq '.sha')
+          gh api -X PUT "repos/$GH_REPO/contents/projects.json" \
+            -f message="chore: sync projects.json" \
+            -f branch="$branch" \
+            -f sha="$file_sha" \
+            -f content="$(base64 -w0 projects.json)" >/dev/null
+
+          existing=$(gh pr list --base main --head "$branch" --state open --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            echo "PR #$existing already open — updated it via the API."
+            exit 0
+          fi
+
+          gh pr create \
+            --base main \
+            --head "$branch" \
+            --title "chore: sync projects.json" \
+            --body "Automated rebuild of \`projects.json\` from the curated entries under \`projects/\` plus live GitHub repository metadata." \
+            --assignee TitusKirch
