@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
+
+    // Node 24 runs these files by stripping the types, with no build step and
+    // no emitted JavaScript. Two options keep that true: imports carry the real
+    // `.ts` extension because that is the file Node opens, and
+    // `erasableSyntaxOnly` rejects the TypeScript that would need generating
+    // rather than erasing — `enum`, `namespace`, parameter properties. Without
+    // it `tsc` would happily accept code that Node then refuses to run.
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "skipLibCheck": true
+  },
+  "include": ["scripts/**/*.ts", "*.config.js"]
+}

@@ -1,32 +1,25 @@
 {
   "$schema": "https://www.schemastore.org/package.json",
-  "name": "scaffold",
-  "version": "0.2.0",
-  "description": "Language-agnostic baseline template for new kirchDev repositories.",
+  "name": "meta",
+  "private": true,
+  "description": "Source of the projects listed on kirch.dev — curated entries plus GitHub facts, built into projects.json.",
   "keywords": [
-    "commitlint",
-    "conventional-commits",
-    "dependabot",
-    "github-template",
-    "husky",
+    "curated-data",
+    "github-actions",
+    "json-schema",
     "kirchdev",
     "nodejs",
-    "oxfmt",
-    "oxlint",
-    "pnpm",
-    "release-please",
-    "scaffold",
-    "template"
+    "projects"
   ],
-  "homepage": "https://github.com/TitusKirch/scaffold#readme",
+  "homepage": "https://github.com/kirchDev/meta#readme",
   "bugs": {
-    "url": "https://github.com/TitusKirch/scaffold/issues"
+    "url": "https://github.com/kirchDev/meta/issues"
   },
   "license": "MIT",
   "author": "Titus Kirch <titus.kirch@kirch.dev>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TitusKirch/scaffold.git"
+    "url": "git+https://github.com/kirchDev/meta.git"
   },
   "type": "module",
   "scripts": {
@@ -34,8 +27,11 @@
     "lint:fix": "oxlint . --fix --deny-warnings",
     "format": "oxfmt --check .",
     "format:fix": "oxfmt .",
-    "check": "pnpm lint && pnpm format",
+    "check": "pnpm lint && pnpm format && pnpm typecheck && pnpm validate",
     "check:fix": "pnpm lint:fix && pnpm format:fix",
+    "typecheck": "tsc --noEmit",
+    "validate": "node scripts/validate.ts",
+    "build": "node scripts/build.ts && oxfmt projects.json",
     "skills:update": "pnpm dlx skills@latest update -p -y",
     "taze": "taze",
     "taze:w": "taze -w",
@@ -44,11 +40,15 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.1",
     "@commitlint/config-conventional": "^21.2.0",
+    "@types/node": "^24.10.1",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.1.0",
     "oxfmt": "0.59.0",
     "oxlint": "1.74.0",
-    "taze": "^19.15.1"
+    "taze": "^19.15.1",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=24"
