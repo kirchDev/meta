@@ -5,10 +5,6 @@
   "verify": "pnpm check",
   "trustedBots": [
     {
-      "id": 287319172,
-      "login": "kirchdev-release[bot]"
-    },
-    {
       "id": 49699333,
       "login": "dependabot[bot]"
     }
@@ -18,16 +14,12 @@
     "scopes": "auto"
   },
   "pr": {
-    "base": "dev",
+    "base": "main",
     "title": {
       "convention": "conventional"
     }
   },
-  "release": {
-    "promote": "auto",
-    "stages": ["dev", "main"],
-    "timeout": 600
-  },
+  "release": false,
   "mergeDeps": {
     "merge": false,
     "confirm": "major",
@@ -50,13 +42,11 @@
       "template": null
     }
   },
-  "docs": {
-    "preset": "library"
-  },
+  "docs": false,
   "work": {
     "tracker": "github",
     "cap": 10,
-    "branch": "branch:dev",
+    "branch": "branch:main",
     "parallel": false,
     "labels": {
       "ready": "ai: ready",
