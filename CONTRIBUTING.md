@@ -1,4 +1,4 @@
-# Contributing to scaffold
+# Contributing to meta
 
 Thanks for taking the time to contribute! 🛠️ This document covers what you need to get a PR landed.
 
@@ -9,8 +9,8 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 ## Reporting issues
 
 - **Questions & ideas, or something that might be a bug**: start in the [Discord forum](https://discord.kirch.dev/) — that's where the low-friction, unconfirmed stuff lives.
-- **Confirmed bugs**: open a [Bug report](https://github.com/TitusKirch/scaffold/issues/new?template=bug_report.yml) with a minimal reproduction if at all possible.
-- **Feature requests**: open a [Feature request](https://github.com/TitusKirch/scaffold/issues/new?template=feature_request.yml).
+- **Confirmed bugs**: open a [Bug report](https://github.com/kirchDev/meta/issues/new?template=bug_report.yml) with a minimal reproduction if at all possible.
+- **Feature requests**: open a [Feature request](https://github.com/kirchDev/meta/issues/new?template=feature_request.yml).
 - **Security vulnerabilities**: **do not** open a public issue. Follow [SECURITY.md](SECURITY.md).
 
 ## Development setup
@@ -23,29 +23,36 @@ Requirements:
 Clone and install:
 
 ```bash
-git clone https://github.com/TitusKirch/scaffold.git
-cd scaffold
+git clone https://github.com/kirchDev/meta.git
+cd meta
 pnpm install   # wires husky hooks
 ```
 
 ## Running the suite
 
-| Command          | What it does                              |
-| :--------------- | :---------------------------------------- |
-| `pnpm lint`      | oxlint across the repo.                   |
-| `pnpm format`    | oxfmt check across JS / JSON / YAML / MD. |
-| `pnpm check`     | Runs `lint` and `format`.                 |
-| `pnpm check:fix` | Auto-fix lint + format issues.            |
+| Command          | What it does                                                     |
+| :--------------- | :--------------------------------------------------------------- |
+| `pnpm check`     | `lint` + `format` + `typecheck` + `validate` — the full CI gate. |
+| `pnpm validate`  | Schema and cross-file checks over every project entry. Offline.  |
+| `pnpm build`     | Fetch GitHub facts and write `projects.json`. Needs network.     |
+| `pnpm lint`      | oxlint across the repo.                                          |
+| `pnpm format`    | oxfmt check across TS / JSON / YAML / MD.                        |
+| `pnpm typecheck` | `tsc --noEmit`.                                                  |
+| `pnpm check:fix` | Auto-fix lint + format issues.                                   |
 
 The same commands run in CI — keep them green before you push.
+
+`pnpm validate` is the one to run after touching anything under `projects/` or `schema/`. It catches what a schema alone cannot: a caption without its code block, a code sample present in one language and not the other.
+
+There is no test suite — `pnpm validate` stands in for one.
 
 ## Branching & PRs
 
 1. **Don't push directly to `main`.** Branch off `main` for every change.
 2. **Conventional Commits required.** Commitlint enforces this on every commit. Examples:
-   - `feat: add new GitHub workflow`
-   - `fix(ci): correct pnpm cache key`
-   - `docs(readme): clarify template usage steps`
+   - `feat(projects): add glimpse`
+   - `fix(schema): allow the docs link type`
+   - `docs(readme): clarify how a private entry works`
    - `chore(deps): bump oxlint to 1.67`
    - Breaking changes: `feat!: ...` or include `BREAKING CHANGE:` in the body.
 3. **One concern per PR.** Smaller PRs land faster.

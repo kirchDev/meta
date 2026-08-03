@@ -2,23 +2,23 @@
 
 ## Scope
 
-`scaffold` is a **template repository** — it contains configuration files, GitHub workflows, and meta documents that are copied into new repositories. It is not a runtime package and has no users in the traditional sense.
+`meta` is a **data repository** — curated project entries, a JSON Schema, and the workflow that assembles them into the `projects.json` served to [kirch.dev](https://kirch.dev). It is not a published package.
 
-The supported "version" is always the **tip of `main`**. There are no historical branches to back-port fixes to; downstream repositories should re-pull the relevant file(s) from `main` if a vulnerability is discovered in the shipped templates.
+The supported "version" is always the **tip of `main`**. Nothing here is consumed by version, so there are no historical branches to back-port fixes to.
 
 ## Reporting a Vulnerability
 
 **Please do not file a public GitHub issue for security problems.**
 
-In the context of this template, a "vulnerability" typically means:
+In the context of this repository, a "vulnerability" typically means:
 
 - An insecure default in a shipped workflow (e.g. overly broad `permissions`).
-- A misconfigured Action that could leak secrets.
+- A misconfigured Action that could leak secrets, or a change that would make the sync read private repository data.
 - A dependency in `package.json` that introduces a known CVE.
 
 Use one of the following private channels:
 
-1. **GitHub Private Vulnerability Reporting** (preferred): open a private advisory at <https://github.com/TitusKirch/scaffold/security/advisories/new>.
+1. **GitHub Private Vulnerability Reporting** (preferred): open a private advisory at <https://github.com/kirchDev/meta/security/advisories/new>.
 2. **Email**: [titus.kirch@kirch.dev](mailto:titus.kirch@kirch.dev). PGP available on request.
 
 Please include:

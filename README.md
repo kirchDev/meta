@@ -1,119 +1,175 @@
 <div align="center">
 
-# 🏗️ scaffold
+# 🗂️ meta
 
-**The kirchDev baseline — everything a new repo should ship with on day one, nothing more**
+**The source of the projects listed on [kirch.dev/projekte](https://kirch.dev/projekte) — curated by hand, kept current by CI**
 
 </div>
 
 ---
 
 ```bash
-gh repo create my-new-repo --template TitusKirch/scaffold
+curl -s https://raw.githubusercontent.com/kirchDev/meta/main/projects.json | jq '.projects[].slug'
 ```
 
-That's it. Click **Use this template** (or use `gh`), edit a handful of placeholders, and the meta layer — lint, format, commit hooks, CI, CodeQL, Dependabot, release-please — is already wired up.
+One file, no token, no rate limit. The site fetches exactly that and nothing else.
 
-## ✨ What's in the box
+## ✨ What this is
 
-- **🟢 Node + pnpm pinned** — `.nvmrc` (Node 24), `pnpm-workspace.yaml` (pnpm 11 with sane defaults), `package.json` with `packageManager`.
-- **🧹 Lint & format via oxc** — `.oxlintrc.json`, `.oxfmtrc.json`, single `pnpm check` gate.
-- **🪝 Commit hooks** — Husky + `lint-staged` + `commitlint` enforcing Conventional Commits.
-- **🤖 Dependency PRs** — Dependabot (npm weekly, actions monthly) + `taze.config.js` for interactive upgrades.
-- **🔁 release-please** — full workflow + config + manifest so the new repo can publish from its first commit.
-- **🛡️ GitHub workflows** — `ci.yml` (lint + format check on PR), `codeql.yml` (push/PR + weekly).
-- **📋 Issue / PR templates** — bug report, feature request, question (`.yml` forms) + PR checklist.
-- **📄 Standard meta** — `LICENSE`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `SECURITY.md`.
-- **🤖 Agent-ready** — `CLAUDE.md` + `AGENTS.md` (kept in sync), `.tituskirch-skills.json`, baseline `.claude/settings.json` permissions, `pnpm skills:update` wiring.
+Data and a build, not an application. Everything about a project falls into one of three parts, and keeping them apart is the whole design:
 
-The actual project code can be anything — PHP, Go, Rust, Vue, plain shell. `scaffold` only owns the meta layer that sits on top.
+| What                                                        | Lives in       | Changes by                             |
+| :---------------------------------------------------------- | :------------- | :------------------------------------- |
+| **Facts** — licence, stars, last push, archived             | GitHub API     | The sync workflow, daily + on dispatch |
+| **Editorial** — category, technologies, prose, code samples | Here, by hand  | A commit                               |
+| **Presentation** — labels, icons, colours, layout           | `kirchDev/app` | A deploy                               |
 
-## 🚀 Setup
-
-After clicking **Use this template**:
-
-1. Clone your new repo.
-2. Replace the placeholders listed in [Customising the template](#-customising-the-template).
-3. Reset release-please as described in [Resetting release-please](#-resetting-release-please) (only if you want to start at `v0.0.0`).
-4. `pnpm install` — Husky activates the hooks via the `prepare` script.
-5. Add your project code and ship the first commit:
-
-   ```bash
-   git commit -m "chore: initial commit from scaffold"
-   ```
-
-## 🤖 AI & skills
-
-Every repo from this template is agent-ready on day one:
-
-- **`CLAUDE.md` + `AGENTS.md`** — one set of guidance for Claude Code and vendor-neutral agent tools (Codex, OpenCode, Cursor, Copilot). Kept **byte-identical** — edit one, edit the other.
-- **`.claude/settings.json`** — baseline permissions: read-only git and the `pnpm` scripts are allowed; destructive git (`push`, `reset --hard`, `clean -f`, …) is denied.
-- **`.tituskirch-skills.json`** — configures the [TitusKirch skills](https://github.com/TitusKirch/skills) (commit, PR, issue, release, docs) per repo.
-
-Install the skill bundle, then keep project-scoped skills fresh:
-
-```bash
-pnpm dlx skills add TitusKirch/skills   # add the bundle — npx / yarn dlx / bunx work too
-pnpm skills:update                       # refresh project-scoped skills
-```
-
-## 🧰 Customising the template
-
-Every file below references `TitusKirch/scaffold`, the maintainer's name, or the maintainer's email. Search-and-replace these to your repo's identity before the first push.
-
-| File                                  | Replace                                                                          |
-| :------------------------------------ | :------------------------------------------------------------------------------- |
-| `package.json`                        | `name`, `description`, `homepage`, `bugs.url`, `repository.url`, `author`        |
-| `README.md`                           | Project title, tagline, hook snippet, every `TitusKirch/scaffold` link           |
-| `LICENSE`                             | Copyright year + holder                                                          |
-| `CODE_OF_CONDUCT.md`                  | Enforcement contact email                                                        |
-| `CONTRIBUTING.md`                     | Every `TitusKirch/scaffold` link, the development setup section                  |
-| `SECURITY.md`                         | Advisory URL, contact email, scope wording                                       |
-| `.github/ISSUE_TEMPLATE/*.yml`        | Generic as shipped. `config.yml` links questions/ideas/possible-bugs to the Discord forum — private repos without a forum drop that block; optionally add stack-specific version fields to `bug_report.yml` |
-| `.github/pull_request_template.md`    | Example commit message in the title hint                                         |
-| `release-please-config.json`          | `packages["."]["package-name"]`                                                  |
-| `CLAUDE.md` + `AGENTS.md`             | **Delete both** and regenerate with `/init` in Claude Code — scaffold-specific, keep byte-identical |
+Categories and technologies travel as **keys** (`cli`, `typescript`), never as labels. What `cli` is called in German and which icon it gets belongs to the app — otherwise it would be maintained in two places.
 
 > [!TIP]
-> A quick `grep -rn "TitusKirch/scaffold" .` catches every reference in one sweep.
+> The point of a separate repository isn't tidiness. It's that the **GitHub token moves out of the web app and into an Actions secret** — a publicly reachable site then needs none at all.
+
+## 🚀 Adding a project
+
+One directory per project. Creating it *is* the act of inclusion — there is no topic scanning and no discovery, so the default is "does not appear" rather than "appears by accident".
+
+```bash
+mkdir -p projects/TitusKirch/my-tool
+```
+
+**`project.json`** — only what the page filters on:
+
+```json
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "cli",
+  "technologies": ["typescript", "nodejs"],
+  "links": [{ "type": "npm", "url": "https://www.npmjs.com/package/my-tool" }]
+}
+```
+
+**`de.md` and `en.md`** — everything a reader actually sees, written as a shortened README for the project and laid out the same way for every project. Both are mandatory; a missing file is an error, not a fallback to the other language.
+
+````markdown
+# Eine Zeile, die das Projekt erklärt
+
+Ein Absatz Zusammenfassung — das Einzige, was auf der Karte steht.
+
+## why
+
+Warum es das Ding gibt, das Problem dahinter.
+
+## quickstart
+
+```bash
+$ my-tool --help
+```
+
+Eine Zeile dazu, was man da sieht.
+
+## features
+
+- **Erste Funktion** — eine Zeile Erklärung.
+- **Zweite Funktion** — noch eine.
+
+## scope
+
+Was es bewusst nicht tut.
+
+## install
+
+```bash
+npm install -g my-tool
+```
+````
+
+A `##` heading is a **key, not a title** — "Quickstart" and "Schnellstart" are the same section, and what it is called lives in the app beside the category names. The canonical order is `why` → `quickstart` → `features` → `scope` → `install`; every section is optional, but a file has to keep them in that order.
+
+Inside a section anything goes: paragraphs, `- **Term** — text` lists, fenced code. A fence carries only its language — no role, because the section already says whether it is an installation command or a sample.
+
+The prose is **plain text**: the app renders it without a Markdown renderer, so emphasis or backticks would reach the page literally. Only three things are parsed as structure — the `##` keys, the fences, and the `**Term** —` of a list item.
+
+Then:
+
+```bash
+pnpm validate
+```
+
+<details>
+<summary><b>Why the code samples sit in the language files</b></summary>
+
+Because a sample isn't language-neutral — `bunx envprism  # ohne Installation` carries a German comment, and its English counterpart reads `# without installing`. Holding samples in the shared `project.json` made that inexpressible.
+
+The cost is that each language repeats the sample. `pnpm validate` closes that gap: the _content_ of a block may differ between languages, but the **structure may not** — same sections in the same order, same blocks inside them, same number of list items.
+
+Owner and slug come from the directory path rather than from `project.json`, for the same reason: a field restating what the path already says is a field that can disagree with it. The GitHub link is derived too, and listing it is rejected.
+
+</details>
 
 > [!IMPORTANT]
-> **Private repo?** Two defaults are public-only. Delete `.github/workflows/codeql.yml` (CodeQL needs GitHub Advanced Security — free only on public repos), and swap the MIT `LICENSE` + README footer for a proprietary notice with `package.json` `"license": "UNLICENSED"`.
+> `kind`, `category`, `maturity`, `activity`, `technologies` and `links[].type` are **closed vocabularies** enforced by `schema/project.schema.json`. Extending one is a deliberate edit to that file — a free string list turns one typo into a second filter chip on the page (`TypeScript` and `Typescript` side by side), with no error and nothing to notice.
+>
+> A new category or technology also needs its label and icon in `kirchDev/app` before it renders.
 
-## 🔁 Resetting release-please
+## Lifecycle
 
-`scaffold` ships with an initial manifest pinned at `0.0.0`. For most cases you can leave it alone — release-please will simply propose a first release PR after your first conventional commit on `main`. If you want a truly clean slate:
+Two fields, because the values answer two different questions:
 
-1. **Manifest** — make sure `.release-please-manifest.json` is `{ ".": "0.0.0" }` (the default).
-2. **Changelog** — delete `CHANGELOG.md` if your fresh repo somehow inherited one.
-3. **Config** — update `release-please-config.json` → `packages["."]["package-name"]` to your repo name.
-4. **Workflow permissions** — in **Settings → Actions → General → Workflow permissions**, enable **Read and write permissions** so release-please can open its PR.
-5. **Tags & releases (optional)** — if you copied the repo with history, drop old tags:
+| Field      | Question            | Values               | Omitted means       |
+| :--------- | :------------------ | :------------------- | :------------------ |
+| `maturity` | How finished is it? | `wip`                | stable              |
+| `activity` | Is work happening?  | `paused`, `legacy`   | actively maintained |
 
-   ```bash
-   git tag -l | xargs -r git tag -d
-   ```
+They are independent, so they combine: `wip` + `paused` is an early prototype currently resting. `paused` and `legacy` cannot combine — they sit on the same axis and contradict each other, and only one value fits in the field.
 
-   …and clear any stale entries on the GitHub **Releases** tab.
+<details>
+<summary><b>Why two fields instead of one list of tags</b></summary>
 
-6. **First commit** — push a Conventional Commit on `main` (`feat: …`, `fix: …`). release-please opens the initial release PR; merge it and your first tagged release ships.
+A set like `["wip", "paused"]` would also admit `["paused", "legacy"]` — one claims the work resumes, the other that it does not. Two fields make that unsayable rather than merely discouraged.
 
-## 💡 Why "scaffold" and not "template-\*"
+**`legacy` is GitHub's `archived`**, which the sync reads, so writing it by hand as well would be a second truth free to disagree with the first. Archiving the repository is the one action that makes it true everywhere at once. The schema therefore accepts `activity: "legacy"` only on a `github: false` entry — a private project has no repository to archive and has to say so itself. The build also rejects `paused` on a repository GitHub reports as archived.
 
-Single word, brandable, language-neutral. Future stack-specific templates can sit next to it as `scaffold-laravel`, `scaffold-nuxt`, etc.
+**`paused` ages against you.** It is a claim about the future; left standing for years it reads as abandoned-but-unadmitted, while `updatedAt` already says how long a project has been quiet — verifiably, and without upkeep.
+
+</details>
+
+## 🔒 Private projects
+
+**Private repositories are never read.** A private project gets an entry with `"github": false`, which means the sync never calls the API for it, it gets no repository link, and it must state its own `license` — there is no repository to read one from. The page can't tell that a repository exists behind it at all; it sees an entry without a GitHub button.
+
+This is why no secret with access to private repositories exists anywhere in this repo. The built-in `GITHUB_TOKEN` reads public metadata, which is all the sync ever needs.
+
+## 🔁 How `projects.json` is built
+
+`.github/workflows/sync-projects.yml` runs daily, on `workflow_dispatch`, and on any push that touches an entry. It validates, fetches the facts, and opens a pull request against `main` — never a direct push, so a change in the numbers is reviewed like any other.
+
+Two properties worth knowing:
+
+- **All-or-nothing.** If a single API call fails, nothing is written. A partial file is worse than a stale one: the site's fallback chain can serve the last good copy, but it can't tell that a project vanished because one call errored.
+- **Commits go through the Contents API**, not `git push`. Commits made that way with `GITHUB_TOKEN` are signed by GitHub and count as _Verified_, which the `required_signatures` rule on `main` insists on.
+
+```bash
+pnpm build   # the same thing locally — needs network
+```
+
+## 🛠️ Development
+
+| Command          | What it does                                              |
+| :--------------- | :-------------------------------------------------------- |
+| `pnpm install`   | Install deps and wire the husky hooks                     |
+| `pnpm check`     | `lint` + `format` + `typecheck` + `validate` — the CI gate |
+| `pnpm validate`  | Schema **and** cross-file checks over every entry. Offline |
+| `pnpm build`     | Fetch facts and write `projects.json`. Needs network       |
+| `pnpm check:fix` | Auto-fix lint + format                                    |
+
+The scripts are TypeScript run directly by Node 24, which strips types natively — no build step and no emitted JavaScript.
+
+There are no releases here and no `CHANGELOG.md`. This repository isn't consumed by version — the app reads the file at HEAD, and `generatedAt` is the only stamp the data needs.
 
 ## 🤝 Contributing
 
-PRs welcome. Conventional Commits required (enforced via commitlint). Husky runs the project's linters/formatters on `git commit`.
-
-> [!TIP]
-> Run `pnpm check:fix` before pushing — CI will catch what husky missed.
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the full workflow.
-
-## 🛣️ Versioning
-
-[Semantic Versioning](https://semver.org/) via [release-please](https://github.com/googleapis/release-please) — see [CHANGELOG.md](CHANGELOG.md).
+Branch off `main`, PR into `main`. Conventional Commits are enforced by commitlint, and `pnpm check` has to pass. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 📄 License
 
