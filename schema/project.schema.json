@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/kirchDev/meta/main/schema/project.schema.json",
+  "title": "Project",
+  "description": "One curated project entry. Lives at projects/<owner>/<slug>/project.json — owner and slug come from that path and are deliberately absent here, so they cannot drift from it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "category", "technologies"],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "kind": {
+      "description": "Which collection the entry belongs to — the axis above category and technology.",
+      "enum": ["oss", "own"]
+    },
+    "category": {
+      "description": "Exactly one. Mirrors CategoryKey in the app; a value added here needs a label in the app's locale files before it renders.",
+      "enum": [
+        "cli",
+        "desktop",
+        "app",
+        "laravel",
+        "iac",
+        "template",
+        "ai",
+        "other"
+      ]
+    },
+    "technologies": {
+      "description": "Closed vocabulary, first entry is the primary language. The values are exactly the cases of app/Enums/Technology.php in kirchDev/app — this list is a copy of that one, and a value added there has to be added here before an entry can use it. Extending it is a deliberate commit: a free string list turns one typo into a second filter chip on the page, silently.",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "better-stack",
+          "biome",
+          "bun",
+          "claude-code",
+          "cloudflare",
+          "directus",
+          "docker",
+          "git",
+          "github",
+          "github-actions",
+          "go",
+          "graphql",
+          "hetzner-cloud",
+          "inertia",
+          "javascript",
+          "laravel",
+          "linear",
+          "linux",
+          "mariadb",
+          "nginx",
+          "node",
+          "notion",
+          "nuxt",
+          "octokit",
+          "opencode",
+          "opentofu",
+          "opentui",
+          "oxc",
+          "pest",
+          "php",
+          "pnpm",
+          "postgresql",
+          "redis",
+          "shadcn-vue",
+          "strapi",
+          "stryker",
+          "tailwind-css",
+          "tauri",
+          "terraform",
+          "typescript",
+          "vite",
+          "vitest",
+          "vue"
+        ]
+      }
+    },
+    "maturity": {
+      "description": "How finished the project is. Omit for anything stable.\n\nOne of the two lifecycle axes, and independent of the other: a project can be early AND paused, or early AND archived, because being unfinished says nothing about whether work is happening. Keeping the two apart is why this is not a single field holding a set — a set would also admit \"paused\" together with \"legacy\", which contradict each other.",
+      "enum": ["wip"]
+    },
+    "activity": {
+      "description": "Whether work is happening. Omit for anything actively maintained.\n\nThe second lifecycle axis. Its values are mutually exclusive by construction, since only one fits in the field: \"paused\" claims the work resumes, \"legacy\" claims it does not.\n\n\"legacy\" is only accepted on an entry with `github: false`. For a public repository the truth is GitHub's own `archived` flag, which the sync reads — archiving is the one action that makes it true everywhere at once (GitHub's UI, the API, the page), instead of in a second place free to disagree. A private project has no repository to archive, so it has to say so here.",
+      "enum": ["paused", "legacy"]
+    },
+    "github": {
+      "description": "Whether the sync may read this repository. Public repositories get their facts (description fallback, licence, stars, last push) and their repository link from the GitHub API. A private project sets this to false: it is never read, gets no repository link, and the page cannot tell that a repository exists at all.",
+      "type": "boolean",
+      "default": true
+    },
+    "license": {
+      "description": "Only for github:false entries — otherwise the sync fills it. SPDX identifier.",
+      "type": "string",
+      "minLength": 1
+    },
+    "links": {
+      "description": "Where the project can be reached, besides its repository. The GitHub link is derived from the path and must not be listed here. `type` maps to a label and an icon in the app — those are presentation and stay there.",
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "url"],
+        "properties": {
+          "type": {
+            "enum": [
+              "npm",
+              "packagist",
+              "opentofu",
+              "terraform",
+              "website",
+              "docs",
+              "discord"
+            ]
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https://"
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "description": "A licence cannot be read off a repository the sync never touches, so an entry that opts out of GitHub has to state one itself.",
+      "if": {
+        "properties": {
+          "github": {
+            "const": false
+          }
+        },
+        "required": ["github"]
+      },
+      "then": {
+        "required": ["license"],
+        "properties": {
+          "license": {
+            "$ref": "#/properties/license"
+          }
+        }
+      },
+      "else": {
+        "not": {
+          "required": ["license"]
+        }
+      }
+    },
+    {
+      "description": "For a public repository, legacy means archived on GitHub — the sync reads it. Stating it here as well would be a second truth free to disagree with the first, so it is only accepted where no repository is read at all.",
+      "if": {
+        "properties": {
+          "activity": {
+            "const": "legacy"
+          }
+        },
+        "required": ["activity"]
+      },
+      "then": {
+        "required": ["github"],
+        "properties": {
+          "github": {
+            "const": false
+          }
+        }
+      }
+    }
+  ]
+}
