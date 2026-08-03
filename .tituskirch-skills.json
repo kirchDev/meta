@@ -31,20 +31,23 @@
     "protect": []
   },
   "issue": {
-    "tracker": "github",
+    "tracker": "linear",
     "title": {
       "convention": "plain"
     },
     "labels": {
       "exclude": ["stack:*", "autorelease:*", "dependencies"]
     },
-    "github": {
-      "template": null
+    "linear": {
+      "team": "ENG",
+      "project": null,
+      "priority": null,
+      "defaultState": null
     }
   },
   "docs": false,
   "work": {
-    "tracker": "github",
+    "tracker": "linear",
     "cap": 10,
     "branch": "branch:main",
     "parallel": false,
@@ -57,7 +60,8 @@
       "needsHuman": "ai: needs human",
       "done": "ai: done",
       "blocked": "ai: blocked",
-      "repo": false
+      "repo": "repo: kirchDev/meta",
+      "needsTriage": "needs triage"
     },
     "review": {
       "maxRounds": 3
@@ -67,6 +71,19 @@
       "priority: high",
       "priority: medium",
       "priority: low"
-    ]
+    ],
+    "linear": {
+      "team": "ENG",
+      "statuses": ["Todo", "In Progress", "In Review", "Ready"],
+      "states": {
+        "ready": "Todo",
+        "working": "In Progress",
+        "reviewRequested": "In Review",
+        "changesRequested": "In Progress",
+        "needsHuman": "In Review",
+        "accepted": "Ready",
+        "done": "Done"
+      }
+    }
   }
 }
