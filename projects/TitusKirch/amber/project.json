@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "cli",
+  "maturity": "wip",
+  "technologies": ["javascript", "node", "octokit"]
+}

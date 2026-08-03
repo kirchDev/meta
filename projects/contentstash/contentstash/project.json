@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "app",
+  "activity": "paused",
+  "technologies": ["php", "laravel", "vue", "inertia", "tailwind-css"]
+}

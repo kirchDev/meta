@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "template",
+  "technologies": ["javascript", "node", "pnpm"]
+}

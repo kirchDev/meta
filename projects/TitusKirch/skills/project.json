@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "ai",
+  "technologies": ["typescript", "node", "pnpm"],
+  "links": [
+    {
+      "type": "website",
+      "url": "https://skills.sh"
+    }
+  ]
+}

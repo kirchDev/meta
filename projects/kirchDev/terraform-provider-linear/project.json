@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "iac",
+  "technologies": ["go", "terraform", "opentofu"],
+  "links": [
+    {
+      "type": "terraform",
+      "url": "https://registry.terraform.io/providers/kirchDev/linear"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "iac",
+  "technologies": ["go", "terraform", "opentofu"],
+  "links": [
+    {
+      "type": "opentofu",
+      "url": "https://search.opentofu.org/provider/kirchdev/discord"
+    },
+    {
+      "type": "terraform",
+      "url": "https://registry.terraform.io/providers/kirchDev/discord"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "laravel",
+  "technologies": ["php", "laravel"],
+  "links": [
+    {
+      "type": "packagist",
+      "url": "https://packagist.org/packages/kirchdev/laravel-pbac"
+    }
+  ]
+}
