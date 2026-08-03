@@ -85,5 +85,14 @@
         "done": "Done"
       }
     }
+  },
+  "profiles": {
+    "fleet": {
+      "work": {
+        "concurrency": 8,
+        "branch": "worktree",
+        "parallel": true
+      }
+    }
   }
 }
