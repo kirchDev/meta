@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03",
+  "generatedAt": "2026-08-04",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -7,7 +7,7 @@
       "owner": "TitusKirch",
       "kind": "oss",
       "category": "cli",
-      "technologies": ["javascript", "node", "octokit"],
+      "technologies": ["javascript", "node", "github"],
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
@@ -18,11 +18,11 @@
       "i18n": {
         "de": {
           "tagline": "Backup-Werkzeug für Git und GitHub",
-          "description": "Sichert Git-Repositories samt vollständiger Forge-Metadaten — Issues, Pull Requests, Releases, Labels — nicht nur die git-Historie.",
+          "description": "Soll Git-Repositories samt vollständiger Forge-Metadaten sichern — Issues, Pull Requests, Releases, Labels — und nicht nur die git-Historie.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Sichert Git-Repositories samt vollständiger Forge-Metadaten — Issues, Pull Requests, Releases, Labels — nicht nur die git-Historie."
+              "text": "Soll Git-Repositories samt vollständiger Forge-Metadaten sichern — Issues, Pull Requests, Releases, Labels — und nicht nur die git-Historie."
             }
           ],
           "sections": [
@@ -35,61 +35,16 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Genau diesen Teil sichert amber mit. Das Repository wird als vollständiger Spiegel geklont, die Metadaten werden als JSON danebengelegt, und ein Manifest hält fest, was wann gesichert wurde. Die Ablage bleibt bewusst als Dateien und Ordner lesbar, statt in einem eigenen Archivformat zu verschwinden."
+                  "text": "Genau diesen Teil soll amber mitsichern. Vorgesehen ist ein vollständiger git-Spiegel mit allen Branches und Tags, daneben die Metadaten als JSON, dazu ein Manifest mit Integritäts-Hashes und inkrementelle Läufe, die beim zweiten Durchgang nur noch Geändertes holen. Die Ablage soll als gewöhnliche Ordner lesbar bleiben, damit Wiederherstellen schlicht Kopieren heißt."
                 }
               ]
             },
             {
-              "key": "quickstart",
+              "key": "scope",
               "blocks": [
-                {
-                  "type": "code",
-                  "language": "bash",
-                  "code": "amber backup --token $GITHUB_TOKEN --out ./backups"
-                },
                 {
                   "type": "paragraph",
-                  "text": "Legt je Repository ein Verzeichnis mit dem git-Spiegel und den Metadaten an, dazu ein Manifest im Wurzelverzeichnis."
-                }
-              ]
-            },
-            {
-              "key": "features",
-              "blocks": [
-                {
-                  "type": "list",
-                  "items": [
-                    {
-                      "term": "Vollständiger git-Spiegel",
-                      "text": "als Mirror geklont, also mit allen Branches, Tags und Refs statt nur dem Standard-Branch."
-                    },
-                    {
-                      "term": "Metadaten, nicht nur Code",
-                      "text": "Issues, Pull Requests samt Kommentaren, Labels, Meilensteine und Releases werden als JSON exportiert; genau das, was beim Verlust eines Kontos sonst weg ist."
-                    },
-                    {
-                      "term": "Inkrementelle Läufe",
-                      "text": "spätere Durchgänge holen anhand von Zeitstempeln nur, was sich seit dem letzten geändert hat."
-                    },
-                    {
-                      "term": "Prüfbares Manifest",
-                      "text": "ein Index im Wurzelverzeichnis hält fest, was wann gesichert wurde, mit Integritäts-Hashes je Artefakt."
-                    },
-                    {
-                      "term": "Als Dateien lesbar",
-                      "text": "der Spiegel und die JSON-Exporte liegen als gewöhnliche Ordner auf der Platte, nicht in einem eigenen Archivformat; wiederherstellen heißt kopieren."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "key": "install",
-              "blocks": [
-                {
-                  "type": "code",
-                  "language": "bash",
-                  "code": "git clone https://github.com/TitusKirch/amber.git\ncd amber\npnpm install"
+                  "text": "Bisher steht nur das Projektgerüst: Linting, Formatierung, Commit-Hooks und CI. Die Umsetzung hat noch nicht begonnen, es gibt also weder ein Kommando noch ein installierbares Paket — der Abschnitt oben beschreibt das Vorhaben, nicht den heutigen Funktionsumfang."
                 }
               ]
             }
@@ -97,11 +52,11 @@
         },
         "en": {
           "tagline": "Backup tool for Git and GitHub",
-          "description": "Back up Git repositories and their full forge metadata — issues, PRs, releases, labels — not just the git history.",
+          "description": "Aims to back up Git repositories and their full forge metadata — issues, pull requests, releases, labels — not just the git history.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Back up Git repositories and their full forge metadata — issues, PRs, releases, labels — not just the git history."
+              "text": "Aims to back up Git repositories and their full forge metadata — issues, pull requests, releases, labels — not just the git history."
             }
           ],
           "sections": [
@@ -114,61 +69,16 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "That is the part amber captures too. The repository is cloned as a full mirror, the metadata is written as JSON beside it, and a manifest records what was backed up and when. Storage stays deliberately readable as files and folders instead of disappearing into an archive format of its own."
+                  "text": "That is the part amber is meant to capture. The plan is a full git mirror with every branch and tag, the metadata as JSON beside it, a manifest with integrity hashes, and incremental runs that fetch only what changed on the second pass. Storage should stay readable as ordinary folders, so restoring is simply copying."
                 }
               ]
             },
             {
-              "key": "quickstart",
+              "key": "scope",
               "blocks": [
-                {
-                  "type": "code",
-                  "language": "bash",
-                  "code": "amber backup --token $GITHUB_TOKEN --out ./backups"
-                },
                 {
                   "type": "paragraph",
-                  "text": "Creates one directory per repository holding the git mirror and the metadata, plus a manifest at the root."
-                }
-              ]
-            },
-            {
-              "key": "features",
-              "blocks": [
-                {
-                  "type": "list",
-                  "items": [
-                    {
-                      "term": "Full git mirror",
-                      "text": "cloned as a mirror, so every branch, tag and ref comes along, not just the default branch."
-                    },
-                    {
-                      "term": "Metadata, not just code",
-                      "text": "issues, pull requests with their comments, labels, milestones and releases are exported as JSON; exactly what is otherwise gone when an account is lost."
-                    },
-                    {
-                      "term": "Incremental re-runs",
-                      "text": "later runs use timestamps to fetch only what changed since the last one."
-                    },
-                    {
-                      "term": "Verifiable manifest",
-                      "text": "an index at the root records what was backed up and when, with integrity hashes per artifact."
-                    },
-                    {
-                      "term": "Readable as files",
-                      "text": "the mirror and the JSON exports sit on disk as ordinary folders rather than in an archive format of their own; restoring means copying."
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "key": "install",
-              "blocks": [
-                {
-                  "type": "code",
-                  "language": "bash",
-                  "code": "git clone https://github.com/TitusKirch/amber.git\ncd amber\npnpm install"
+                  "text": "So far only the project scaffolding exists: linting, formatting, commit hooks and CI. Implementation has not started, so there is neither a command nor an installable package — the section above describes the intent, not today's feature set."
                 }
               ]
             }
@@ -535,7 +445,7 @@
       "owner": "TitusKirch",
       "kind": "oss",
       "category": "cli",
-      "technologies": ["typescript", "node", "github"],
+      "technologies": ["typescript", "node", "github", "git"],
       "license": "MIT",
       "stars": 0,
       "updatedAt": "2026-08-03",
@@ -737,12 +647,46 @@
       "owner": "TitusKirch",
       "kind": "oss",
       "category": "desktop",
-      "technologies": ["vue", "nuxt", "tauri", "typescript"],
+      "technologies": [
+        "typescript",
+        "vue",
+        "nuxt",
+        "tauri",
+        "tailwind-css",
+        "shadcn-vue"
+      ],
       "license": "MIT",
       "stars": 0,
       "updatedAt": "2026-08-03",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
+      "version": "v0.12.2",
+      "downloads": [
+        {
+          "platform": "linux",
+          "format": "rpm",
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse-0.12.2-1.x86_64.rpm",
+          "size": 8028346
+        },
+        {
+          "platform": "linux",
+          "format": "appimage",
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse_0.12.2_amd64.AppImage",
+          "size": 82090488
+        },
+        {
+          "platform": "linux",
+          "format": "deb",
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse_0.12.2_amd64.deb",
+          "size": 8029728
+        },
+        {
+          "platform": "windows",
+          "format": "exe",
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse_0.12.2_x64-setup.exe",
+          "size": 4875312
+        }
+      ],
       "links": [],
       "i18n": {
         "de": {
@@ -765,20 +709,6 @@
                 {
                   "type": "paragraph",
                   "text": "glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten Konfiguration, Hooks und Anmeldedaten unverändert weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse. Die Oberfläche läuft in der WebView des Betriebssystems statt in einem mitgelieferten Browser."
-                }
-              ]
-            },
-            {
-              "key": "quickstart",
-              "blocks": [
-                {
-                  "type": "code",
-                  "language": "bash",
-                  "code": "sudo apt install ./glimpse_*_amd64.deb"
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Builds für Windows, Linux und macOS liegen als Release bereit; von dort aktualisiert sich die Anwendung selbst."
                 }
               ]
             },
@@ -823,6 +753,15 @@
                   ]
                 }
               ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Windows als .exe, Linux als .deb, .rpm oder AppImage — die zum System passende Datei herunterladen und ausführen. Ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell; einen Paketmanager-Eintrag gibt es nicht."
+                }
+              ]
             }
           ]
         },
@@ -846,20 +785,6 @@
                 {
                   "type": "paragraph",
                   "text": "glimpse shells out to your real git binary and parses its output. Config, hooks and credentials apply unchanged, signing works as configured, and the client stores no secrets of its own. The interface runs in the OS-native WebView rather than a bundled browser."
-                }
-              ]
-            },
-            {
-              "key": "quickstart",
-              "blocks": [
-                {
-                  "type": "code",
-                  "language": "bash",
-                  "code": "sudo apt install ./glimpse_*_amd64.deb"
-                },
-                {
-                  "type": "paragraph",
-                  "text": "Builds for Windows, Linux and macOS ship as releases; from there the application updates itself."
                 }
               ]
             },
@@ -904,6 +829,15 @@
                   ]
                 }
               ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Windows as .exe, Linux as .deb, .rpm or AppImage — download the file matching your system and run it. From there the built-in updater keeps the application current; there is no package-manager entry."
+                }
+              ]
             }
           ]
         }
@@ -929,11 +863,11 @@
       "i18n": {
         "de": {
           "tagline": "Gerätegebundene Login-Sessions für Laravel",
-          "description": "Gerätegebundene Login-Sessions für Laravel: Remember-Me-Token pro Gerät, eine Geräteliste „Wo bin ich angemeldet“ sowie Abmelden und Umbenennen — datensparsam und Fortify-unabhängig.",
+          "description": "Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer — mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Gerätegebundene Login-Sessions für Laravel: Remember-Me-Token pro Gerät, eine Geräteliste „Wo bin ich angemeldet“ sowie Abmelden und Umbenennen — datensparsam und Fortify-unabhängig."
+              "text": "Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer — mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig."
             }
           ],
           "sections": [
@@ -1016,11 +950,11 @@
         },
         "en": {
           "tagline": "Device-bound login sessions for Laravel",
-          "description": "Device-bound login sessions for Laravel: per-device remember-me tokens, a \"where am I signed in\" device list, and revoke/rename — privacy-respecting and Fortify-agnostic.",
+          "description": "One remember-me token per device instead of a single one per user — with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Device-bound login sessions for Laravel: per-device remember-me tokens, a \"where am I signed in\" device list, and revoke/rename — privacy-respecting and Fortify-agnostic."
+              "text": "One remember-me token per device instead of a single one per user — with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic."
             }
           ],
           "sections": [
@@ -1123,11 +1057,11 @@
       "i18n": {
         "de": {
           "tagline": "Policy-basierte Zugriffssteuerung für Laravel",
-          "description": "Policy-basierte Zugriffssteuerung für Laravel: Rollen, Berechtigungen, organisationsbezogene Autorisierung, Gate-Integration und ein Entscheidungs-Cache.",
+          "description": "Rollen und Berechtigungen an einer Stelle statt verstreut im Code — mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Policy-basierte Zugriffssteuerung für Laravel: Rollen, Berechtigungen, organisationsbezogene Autorisierung, Gate-Integration und ein Entscheidungs-Cache."
+              "text": "Rollen und Berechtigungen an einer Stelle statt verstreut im Code — mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage."
             }
           ],
           "sections": [
@@ -1210,11 +1144,11 @@
         },
         "en": {
           "tagline": "Policy-based access control for Laravel",
-          "description": "Policy-based access control for Laravel: roles, permissions, organisation-scoped authorization, Gate integration, and a decision cache.",
+          "description": "Roles and permissions in one place instead of scattered through the code — with tenant scoping, Laravel Gate integration and a per-request cache.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Policy-based access control for Laravel: roles, permissions, organisation-scoped authorization, Gate integration, and a decision cache."
+              "text": "Roles and permissions in one place instead of scattered through the code — with tenant scoping, Laravel Gate integration and a per-request cache."
             }
           ],
           "sections": [
@@ -1302,7 +1236,7 @@
       "owner": "TitusKirch",
       "kind": "oss",
       "category": "template",
-      "technologies": ["javascript", "node", "pnpm"],
+      "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
       "updatedAt": "2026-08-03",
@@ -1497,7 +1431,7 @@
       "owner": "TitusKirch",
       "kind": "oss",
       "category": "ai",
-      "technologies": ["typescript", "node", "pnpm"],
+      "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
       "updatedAt": "2026-08-03",
@@ -1754,6 +1688,16 @@
                   ]
                 }
               ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    discord = {\n      source  = \"kirchdev/discord\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"discord\" {\n  token = var.discord_token # oder DISCORD_TOKEN\n}"
+                }
+              ]
             }
           ]
         },
@@ -1817,6 +1761,16 @@
                       "text": "the client honours the wait Discord asks for after a throttle and retries transient errors by itself."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    discord = {\n      source  = \"kirchdev/discord\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"discord\" {\n  token = var.discord_token # or set DISCORD_TOKEN\n}"
                 }
               ]
             }
@@ -1904,6 +1858,16 @@
                   ]
                 }
               ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    laravelforge = {\n      source  = \"kirchdev/laravelforge\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"laravelforge\" {\n  token = var.forge_token # oder FORGE_TOKEN\n}"
+                }
+              ]
             }
           ]
         },
@@ -1965,6 +1929,16 @@
                   ]
                 }
               ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    laravelforge = {\n      source  = \"kirchdev/laravelforge\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"laravelforge\" {\n  token = var.forge_token # or set FORGE_TOKEN\n}"
+                }
+              ]
             }
           ]
         }
@@ -1975,7 +1949,7 @@
       "owner": "kirchDev",
       "kind": "oss",
       "category": "iac",
-      "technologies": ["go", "terraform", "opentofu"],
+      "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
       "stars": 0,
       "updatedAt": "2026-08-03",
@@ -2063,6 +2037,16 @@
                   "text": "Der Geltungsbereich ist bewusst die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt — sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei."
                 }
               ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    linear = {\n      source  = \"kirchdev/linear\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"linear\" {\n  token = var.linear_token # oder LINEAR_TOKEN\n}"
+                }
+              ]
             }
           ]
         },
@@ -2139,6 +2123,16 @@
                 {
                   "type": "paragraph",
                   "text": "Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content — they belong in Linear's UI and its API, not in a state file."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    linear = {\n      source  = \"kirchdev/linear\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"linear\" {\n  token = var.linear_token # or set LINEAR_TOKEN\n}"
                 }
               ]
             }
