@@ -35,3 +35,20 @@ A shared view as code — rather than clicked together in the UI and documented 
 ## scope
 
 Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content — they belong in Linear's UI and its API, not in a state file.
+
+## install
+
+```hcl
+terraform {
+  required_providers {
+    linear = {
+      source  = "kirchdev/linear"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "linear" {
+  token = var.linear_token # or set LINEAR_TOKEN
+}
+```

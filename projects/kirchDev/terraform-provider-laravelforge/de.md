@@ -27,3 +27,20 @@ Eine Site als Ressource — mit demselben Plan- und Apply-Zyklus wie die übrige
 - **Forge als Code** — Server, Sites, Datenbanken, Daemons, geplante Aufgaben, SSL-Zertifikate und mehr in HCL.
 - **Vollständige API-Abdeckung** — rund 57 Ressourcen und 83 Datenquellen über praktisch jede Entität, die Forge verwalten lässt.
 - **Einfache Authentifizierung** — ein einziges Forge-Token, per Attribut oder Umgebungsvariable.
+
+## install
+
+```hcl
+terraform {
+  required_providers {
+    laravelforge = {
+      source  = "kirchdev/laravelforge"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "laravelforge" {
+  token = var.forge_token # oder FORGE_TOKEN
+}
+```

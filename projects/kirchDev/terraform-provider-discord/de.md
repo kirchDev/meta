@@ -27,3 +27,20 @@ Die Berechtigungen kommen aus einer Datenquelle mit benannten Rechten, statt als
 - **Breite API-Abdeckung** — rund 24 Ressourcen und 9 Datenquellen über die Verwaltung einer Guild.
 - **Handhabbare Berechtigungen** — eine Datenquelle übersetzt benannte Rechte in die Bitfelder, die Discord erwartet; niemand rechnet Zahlen von Hand zusammen.
 - **Rate-Limits berücksichtigt** — der Client beachtet die von Discord genannte Wartezeit nach einer Drosselung und wiederholt vorübergehende Fehler von selbst.
+
+## install
+
+```hcl
+terraform {
+  required_providers {
+    discord = {
+      source  = "kirchdev/discord"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "discord" {
+  token = var.discord_token # oder DISCORD_TOKEN
+}
+```

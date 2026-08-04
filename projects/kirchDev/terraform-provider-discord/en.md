@@ -27,3 +27,20 @@ Permissions come from a data source of named rights, instead of a hand-computed 
 - **Broad API coverage** — around 24 resources and 9 data sources across guild management.
 - **Ergonomic permissions** — a data source turns named rights into the bitfields Discord expects; nobody adds numbers by hand.
 - **Rate-limit aware** — the client honours the wait Discord asks for after a throttle and retries transient errors by itself.
+
+## install
+
+```hcl
+terraform {
+  required_providers {
+    discord = {
+      source  = "kirchdev/discord"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "discord" {
+  token = var.discord_token # or set DISCORD_TOKEN
+}
+```

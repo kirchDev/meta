@@ -27,3 +27,20 @@ A site as a resource — on the same plan-and-apply cycle as the rest of your in
 - **Forge as code** — servers, sites, databases, daemons, scheduled jobs, SSL certificates and more in HCL.
 - **Full API coverage** — around 57 resources and 83 data sources across essentially every entity Forge lets you manage.
 - **Simple auth** — a single Forge token, by attribute or environment variable.
+
+## install
+
+```hcl
+terraform {
+  required_providers {
+    laravelforge = {
+      source  = "kirchdev/laravelforge"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "laravelforge" {
+  token = var.forge_token # or set FORGE_TOKEN
+}
+```

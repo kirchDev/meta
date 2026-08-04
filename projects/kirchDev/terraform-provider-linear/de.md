@@ -35,3 +35,20 @@ Eine geteilte Ansicht als Code — statt in der Oberfläche zusammengeklickt und
 ## scope
 
 Der Geltungsbereich ist bewusst die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt — sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei.
+
+## install
+
+```hcl
+terraform {
+  required_providers {
+    linear = {
+      source  = "kirchdev/linear"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "linear" {
+  token = var.linear_token # oder LINEAR_TOKEN
+}
+```
