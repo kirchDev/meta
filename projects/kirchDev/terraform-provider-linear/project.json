@@ -2,7 +2,7 @@
   "$schema": "../../../schema/project.schema.json",
   "kind": "oss",
   "category": "iac",
-  "technologies": ["go", "terraform", "opentofu"],
+  "technologies": ["go", "terraform", "opentofu", "linear"],
   "links": [
     {
       "type": "terraform",

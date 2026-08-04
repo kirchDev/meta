@@ -2,7 +2,7 @@
   "$schema": "../../../schema/project.schema.json",
   "kind": "oss",
   "category": "ai",
-  "technologies": ["typescript", "node", "pnpm"],
+  "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
   "links": [
     {
       "type": "website",
