@@ -1,6 +1,6 @@
 # Policy-based access control for Laravel
 
-Policy-based access control for Laravel: roles, permissions, organisation-scoped authorization, Gate integration, and a decision cache.
+Roles and permissions in one place instead of scattered through the code — with tenant scoping, Laravel Gate integration and a per-request cache.
 
 ## why
 

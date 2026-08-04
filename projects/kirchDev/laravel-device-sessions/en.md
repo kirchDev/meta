@@ -1,6 +1,6 @@
 # Device-bound login sessions for Laravel
 
-Device-bound login sessions for Laravel: per-device remember-me tokens, a "where am I signed in" device list, and revoke/rename — privacy-respecting and Fortify-agnostic.
+One remember-me token per device instead of a single one per user — with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic.
 
 ## why
 

@@ -1,6 +1,6 @@
 # Gerätegebundene Login-Sessions für Laravel
 
-Gerätegebundene Login-Sessions für Laravel: Remember-Me-Token pro Gerät, eine Geräteliste „Wo bin ich angemeldet“ sowie Abmelden und Umbenennen — datensparsam und Fortify-unabhängig.
+Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer — mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig.
 
 ## why
 

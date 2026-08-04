@@ -1,6 +1,6 @@
 # Policy-basierte Zugriffssteuerung für Laravel
 
-Policy-basierte Zugriffssteuerung für Laravel: Rollen, Berechtigungen, organisationsbezogene Autorisierung, Gate-Integration und ein Entscheidungs-Cache.
+Rollen und Berechtigungen an einer Stelle statt verstreut im Code — mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage.
 
 ## why
 
