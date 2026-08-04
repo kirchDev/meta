@@ -3,5 +3,5 @@
   "kind": "oss",
   "category": "cli",
   "maturity": "wip",
-  "technologies": ["javascript", "node", "octokit"]
+  "technologies": ["javascript", "node", "github"]
 }
