@@ -9,5 +9,6 @@
     "tauri",
     "tailwind-css",
     "shadcn-vue"
-  ]
+  ],
+  "downloads": true
 }

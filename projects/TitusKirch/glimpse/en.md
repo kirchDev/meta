@@ -8,14 +8,6 @@ Most git GUIs reimplement git: they ship their own implementation and diverge ex
 
 glimpse shells out to your real git binary and parses its output. Config, hooks and credentials apply unchanged, signing works as configured, and the client stores no secrets of its own. The interface runs in the OS-native WebView rather than a bundled browser.
 
-## quickstart
-
-```bash
-sudo apt install ./glimpse_*_amd64.deb
-```
-
-Builds for Windows, Linux and macOS ship as releases; from there the application updates itself.
-
 ## features
 
 - **Small and quick** — the application uses the OS-native WebView instead of bringing its own browser, which keeps both the download and the memory it needs small.
@@ -26,3 +18,7 @@ Builds for Windows, Linux and macOS ship as releases; from there the application
 - **Stage down to the line** — by file, hunk or single line, plus amend and a three-way editor that resolves conflicts region by region.
 - **Changelists** — group pending changes into named sets and commit one at a time; membership lives as a readable JSON file in the repository and is reachable from a bundled CLI, so scripts and agents can drive it too.
 - **Advanced git** — rebase interactively or onto a ref, guided bisect, reflog recovery with undo, export and apply patches, plus worktrees, submodules and sparse-checkout.
+
+## install
+
+Windows as .exe, Linux as .deb, .rpm or AppImage — download the file matching your system and run it. From there the built-in updater keeps the application current; there is no package-manager entry.

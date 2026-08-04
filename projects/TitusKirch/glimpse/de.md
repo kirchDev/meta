@@ -8,14 +8,6 @@ Die meisten git-Oberflächen bauen git nach: Sie bringen eine eigene Implementie
 
 glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten Konfiguration, Hooks und Anmeldedaten unverändert weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse. Die Oberfläche läuft in der WebView des Betriebssystems statt in einem mitgelieferten Browser.
 
-## quickstart
-
-```bash
-sudo apt install ./glimpse_*_amd64.deb
-```
-
-Builds für Windows, Linux und macOS liegen als Release bereit; von dort aktualisiert sich die Anwendung selbst.
-
 ## features
 
 - **Klein und schnell** — die Anwendung nutzt die WebView des Betriebssystems, statt einen eigenen Browser mitzubringen; das spart Platz auf der Platte und Arbeitsspeicher im Betrieb.
@@ -26,3 +18,7 @@ Builds für Windows, Linux und macOS liegen als Release bereit; von dort aktuali
 - **Bis auf die Zeile stagen** — nach Datei, Hunk oder einzelner Zeile, dazu Amend und ein Drei-Wege-Editor, der Konflikte Abschnitt für Abschnitt auflöst.
 - **Changelists** — offene Änderungen in benannte Gruppen legen und eine davon committen; die Zuordnung liegt als lesbare JSON-Datei im Repository und ist über eine mitgelieferte CLI auch für Skripte und Agenten erreichbar.
 - **Fortgeschrittenes git** — Rebase interaktiv oder auf eine Referenz, geführtes Bisect, Reflog-Wiederherstellung mit Rückgängig, Patches exportieren und anwenden, dazu Worktrees, Submodule und Sparse-Checkout.
+
+## install
+
+Windows als .exe, Linux als .deb, .rpm oder AppImage — die zum System passende Datei herunterladen und ausführen. Ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell; einen Paketmanager-Eintrag gibt es nicht.
