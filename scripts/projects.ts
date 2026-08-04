@@ -91,7 +91,18 @@ export interface Project {
   activity?: Activity;
   github?: boolean;
   license?: string;
+  downloads?: boolean;
   links?: ProjectLink[];
+}
+
+/** One installer from the latest release, as the page offers it. */
+export interface Download {
+  platform: 'windows' | 'linux' | 'macos';
+  /** The file kind, so a page can label two Linux downloads apart. */
+  format: string;
+  url: string;
+  /** Bytes, for showing a size beside the button. */
+  size: number;
 }
 
 /**

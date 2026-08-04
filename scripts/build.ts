@@ -1,6 +1,12 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { LOCALES, type Locale, ROOT, loadProjects } from './projects.ts';
+import {
+  type Download,
+  LOCALES,
+  type Locale,
+  ROOT,
+  loadProjects
+} from './projects.ts';
 
 /**
  * Builds `projects.json` — the one file the app fetches.
@@ -63,6 +69,76 @@ const fetchRepo = async (owner: string, slug: string): Promise<RepoFacts> => {
   };
 };
 
+/**
+ * The installers of the latest release, for a project shipped as a download.
+ *
+ * Fetched rather than committed because the asset names carry the version, so
+ * a URL written into an entry would point at an old build the day after the
+ * next release — and GitHub's `/releases/latest/download/<name>` shortcut only
+ * works when the name is constant, which it is not here.
+ */
+const PLATFORMS: [RegExp, Download['platform'], string][] = [
+  [/\.exe$/i, 'windows', 'exe'],
+  [/\.msi$/i, 'windows', 'msi'],
+  [/\.deb$/i, 'linux', 'deb'],
+  [/\.rpm$/i, 'linux', 'rpm'],
+  [/\.appimage$/i, 'linux', 'appimage'],
+  [/\.dmg$/i, 'macos', 'dmg'],
+  [/\.app\.tar\.gz$/i, 'macos', 'app']
+];
+
+const fetchDownloads = async (
+  owner: string,
+  slug: string
+): Promise<{ version: string; downloads: Download[] }> => {
+  const response = await fetch(
+    `https://api.github.com/repos/${owner}/${slug}/releases/latest`,
+    {
+      headers: {
+        accept: 'application/vnd.github+json',
+        'user-agent': 'kirchDev-meta-sync',
+        ...(token ? { authorization: `Bearer ${token}` } : {})
+      }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      `${owner}/${slug} sets "downloads": true but has no published release (GitHub API ${response.status})`
+    );
+  }
+
+  const release = (await response.json()) as {
+    tag_name: string;
+    assets: { name: string; size: number; browser_download_url: string }[];
+  };
+
+  const downloads: Download[] = [];
+
+  for (const asset of release.assets) {
+    // Signatures and the updater manifest sit beside the installers.
+    if (/\.sig$/i.test(asset.name) || asset.name === 'latest.json') continue;
+
+    const match = PLATFORMS.find(([pattern]) => pattern.test(asset.name));
+    if (!match) continue;
+
+    downloads.push({
+      platform: match[1],
+      format: match[2],
+      url: asset.browser_download_url,
+      size: asset.size
+    });
+  }
+
+  if (downloads.length === 0) {
+    throw new Error(
+      `${owner}/${slug} release ${release.tag_name} has no recognised installer among: ${release.assets.map((a) => a.name).join(', ')}`
+    );
+  }
+
+  return { version: release.tag_name, downloads };
+};
+
 const entries = loadProjects();
 const projects: Record<string, unknown>[] = [];
 const failures: string[] = [];
@@ -94,6 +170,17 @@ for (const { owner, slug, project, i18n } of entries) {
     continue;
   }
 
+  let release: { version: string; downloads: Download[] } | null = null;
+
+  if (project.downloads) {
+    try {
+      release = await fetchDownloads(owner, slug);
+    } catch (error) {
+      failures.push(error instanceof Error ? error.message : String(error));
+      continue;
+    }
+  }
+
   projects.push({
     slug,
     owner,
@@ -104,6 +191,7 @@ for (const { owner, slug, project, i18n } of entries) {
     ...(project.activity && { activity: project.activity }),
     ...facts,
     ...(usesGithub && { repository: `https://github.com/${owner}/${slug}` }),
+    ...(release && { version: release.version, downloads: release.downloads }),
     links: project.links ?? [],
     i18n: Object.fromEntries(
       LOCALES.map((locale: Locale) => [

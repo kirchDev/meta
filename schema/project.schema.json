@@ -98,6 +98,11 @@
       "type": "string",
       "minLength": 1
     },
+    "downloads": {
+      "description": "Set on a project distributed as a release rather than through a package manager. The sync then reads the latest release and writes one entry per installer, so the page can link the file itself instead of a releases page.\n\nIt has to be fetched rather than written down: the asset names carry the version (glimpse_0.12.2_x64-setup.exe), so GitHub's /releases/latest/download/<name> shortcut does not apply and any URL committed here would rot with the next release.",
+      "type": "boolean",
+      "default": false
+    },
     "links": {
       "description": "Where the project can be reached, besides its repository. The GitHub link is derived from the path and must not be listed here. `type` maps to a label and an icon in the app — those are presentation and stay there.",
       "type": "array",
