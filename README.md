@@ -20,7 +20,7 @@ Data and a build, not an application. Everything about a project falls into one 
 
 | What                                                        | Lives in       | Changes by                             |
 | :---------------------------------------------------------- | :------------- | :------------------------------------- |
-| **Facts** — licence, stars, last push, archived             | GitHub API     | The sync workflow, daily + on dispatch |
+| **Facts** — licence, stars, last push, archived             | GitHub API     | The sync workflow, every 6h + on dispatch |
 | **Editorial** — category, technologies, prose, code samples | Here, by hand  | A commit                               |
 | **Presentation** — labels, icons, colours, layout           | `kirchDev/app` | A deploy                               |
 
@@ -84,11 +84,15 @@ npm install -g my-tool
 ```
 ````
 
-A `##` heading is a **key, not a title** — "Quickstart" and "Schnellstart" are the same section, and what it is called lives in the app beside the category names. The canonical order is `why` → `quickstart` → `features` → `scope` → `install`; every section is optional, but a file has to keep them in that order.
+A `##` heading is a **key, not a title** — "Quickstart" and "Schnellstart" are the same section, and what it is called lives in the app beside the category names. The canonical order is `about`/`why` → `quickstart` → `features` → `scope` → `install`; every section is optional, but a file has to keep them in that order.
+
+`about` and `why` are one slot and an entry carries at most one: `why` answers a problem, which is the ordinary case, while `about` is for the entry that solves nothing and simply is.
 
 Inside a section anything goes: paragraphs, `- **Term** — text` lists, fenced code. A fence carries only its language — no role, because the section already says whether it is an installation command or a sample.
 
 The prose is **plain text**: the app renders it without a Markdown renderer, so emphasis or backticks would reach the page literally. Only three things are parsed as structure — the `##` keys, the fences, and the `**Term** —` of a list item.
+
+The prose carries **no em dash**. It is syntax in `- **Term** —` and a tic everywhere else, where a colon, a semicolon or a full stop does the job and sounds like a person wrote it.
 
 Then:
 
@@ -136,13 +140,13 @@ A set like `["wip", "paused"]` would also admit `["paused", "legacy"]` — one c
 
 ## 🔒 Private projects
 
-**Private repositories are never read.** A private project gets an entry with `"github": false`, which means the sync never calls the API for it, it gets no repository link, and it must state its own `license` — there is no repository to read one from. The page can't tell that a repository exists behind it at all; it sees an entry without a GitHub button.
+**Private repositories are never read.** A private project gets an entry with `"github": false`, which means the sync never calls the API for it and it gets no repository link. It also carries no licence, stars or last-push date — those come from the API, and a private product has no licence the public has any use for. The page can't tell that a repository exists behind it at all; it sees an entry without a GitHub button.
 
 This is why no secret with access to private repositories exists anywhere in this repo. The built-in `GITHUB_TOKEN` reads public metadata, which is all the sync ever needs.
 
 ## 🔁 How `projects.json` is built
 
-`.github/workflows/sync-projects.yml` runs daily, on `workflow_dispatch`, and on any push that touches an entry. It validates, fetches the facts, and opens a pull request against `main` — never a direct push, so a change in the numbers is reviewed like any other.
+`.github/workflows/sync-projects.yml` runs every six hours, on `workflow_dispatch`, and on any push that touches an entry. It validates, fetches the facts, and opens a pull request against `main` that merges itself once CI is green — a direct push would be rejected by the signature rule, and the PR keeps CI as a gate.
 
 Two properties worth knowing:
 

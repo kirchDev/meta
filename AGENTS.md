@@ -26,7 +26,7 @@ Everything about a project falls into exactly one of these, and the split is the
 
 | What                                                        | Lives in                | Changes by                              |
 | :---------------------------------------------------------- | :---------------------- | :-------------------------------------- |
-| **Facts** — licence, stars, last push, archived             | GitHub API              | The sync workflow, daily + on dispatch  |
+| **Facts** — licence, stars, last push, archived             | GitHub API              | The sync workflow, every 6h + on dispatch |
 | **Editorial** — category, technologies, prose, code samples | Here, by hand           | A commit                                |
 | **Presentation** — labels, icons, colours, layout           | `kirchDev/app`          | A deploy                                |
 
@@ -83,7 +83,7 @@ projects.json                GENERATED — the file the app fetches. Never edit 
 `kind`, `category`, `maturity`, `activity`, `technologies` and `links[].type` are **closed vocabularies** enforced by the schema. Extending one is a deliberate edit to `schema/project.schema.json`, and that is the point: a free string list turns one typo into a second filter chip on the page — `TypeScript` and `Typescript` side by side, no error, nothing to notice. This is the single reason the schema exists; don't loosen it.
 
 > [!IMPORTANT]
-> **`technologies` is a copy of `app/Enums/Technology.php` in `kirchDev/app`** — the same 43 keys, and that enum is the original. A technology has to exist there first; adding one only here ships a key the app cannot label or give an icon to. Keep the two in step, and never invent a key: it is `node`, not `nodejs`, and `tailwind-css`, not `tailwind`.
+> **`technologies` is a copy of `app/Enums/Technology.php` in `kirchDev/app`** — the same keys, and that enum is the original. `pnpm validate` diffs the copy against the enum whenever the app clone sits beside this repository, and skips quietly where it does not (CI cannot read the private app). A technology has to exist there first; adding one only here ships a key the app cannot label or give an icon to. Keep the two in step, and never invent a key: it is `node`, not `nodejs`, and `tailwind-css`, not `tailwind`.
 >
 > A new `category` likewise needs a label in the app's `locales/<lang>/projects.json` and an accent colour in `constants/projects.ts` before it renders.
 
@@ -126,15 +126,25 @@ Markdown's own structure, not YAML front matter. A file is a shortened README fo
 
 **A `##` heading is a KEY, not a title.** "Quickstart" and "Schnellstart" are the same section — what it is *called* lives in the app's locale files beside the category names, exactly as with `category` and `technologies`. That is why the keys are lowercase English words and never translated.
 
-The canonical order is **`why` → `quickstart` → `features` → `scope` → `install`**. Every section is optional (not every project has a command to show), but a file has to keep them in that order — the page renders in canonical order, so a differently-ordered file would read differently from the page it produces. `pnpm validate` rejects it.
+The canonical order is **`about`/`why` → `quickstart` → `features` → `scope` → `install`**. Each section is optional (not every project has a command to show), but an entry has to carry **at least one** — a card with only a summary reads empty — and a file has to keep them in that order: the page renders in canonical order, so a differently-ordered file would read differently from the page it produces. `pnpm validate` rejects both.
+
+**`about` and `why` are one slot, and an entry carries at most one.** `why` answers a problem, which is what nearly every entry here does, and the template above shows the ordinary case. `about` is for the entry that solves nothing and simply is: `kirchDev/app` is the site you are reading, not a fix for anything. The difference is not cosmetic, because the app renders `why` as "Hintergrund", and under that heading a text naming no problem reads as a setup whose payoff never arrives. Adding a third key here means editing `SECTIONS` in `scripts/projects.ts`, the `SectionKey` union in the app's `constants/projects.ts`, and the label in its `locales/<lang>/projects.json`; without the last two the page prints the raw key as its heading.
+
+**`scope` names what the project deliberately does not do** — the boundary a reader would otherwise have to guess at, best drawn against the alternative they already know. Write one wherever the entry invites a wrong expectation: a tool that masks secrets is not a secret store, a permission package beside spatie/laravel-permission had better say where it ends. One second use is legitimate: on a `wip` or archived entry, `scope` may carry the honest status instead — what exists today versus what the text above describes — because the closed section set offers no better place for that sentence (amber models this). What it never carries: facts the page already renders (the archived flag), or facts about the repository's structure — the same kinds `features` bans.
 
 Inside a section anything goes, in any order: paragraphs, `- **Term** — text` lists, fenced code. They all become **blocks**, which is the one currency of the readable content. A code fence carries only its language: it needs no role, because the section it sits in already says whether it is an installation command or a sample.
+
+Four of the language keys are **package managers, not syntax names**: `pnpm`, `npm`, `yarn`, `bun`. A fence tagged with one holds that manager's variant of the same shell command, and a run of consecutive manager fences is rendered by the app as a single block with a manager switch. The split follows the usual line — *which* managers an entry lists is editorial fact (only ones that actually work; envprism stays Bun-only because the package does not run under Node), while tab labels, their order and the default selection are presentation and live in the app.
 
 Front matter was rejected deliberately: it would put German prose inside YAML, where a tagline holding a colon — `CLI: das Werkzeug` — silently becomes a mapping or a parse error. Here a colon is just a colon.
 
 **The prose is plain text.** The app renders it without a Markdown renderer, so emphasis or a link written here reaches the page as literal asterisks — don't write `` `backticks` `` in prose either. Exactly three things are structure rather than decoration, and so are parsed: the `##` keys, the fences, and the `**Term** —` of a list item, which arrives split into `{ term, text }`. A list item that uses `**` in any other shape is rejected rather than passed through.
 
 Line wrapping is free; the parser collapses it. Content is shortened from the project's own README — emoji stripped, one line each.
+
+**The prose carries no em dash.** The one in `- **Term** — text` is syntax and stays; everywhere else it is a tic, and a text leaning on it stops sounding like a person wrote it. Whatever the dash stood in for owns a mark of its own: a colon where a list or an explanation follows, a semicolon between two halves of equal weight, a full stop where the next thought starts. Note that the dash never reaches the page in either case, since the parser splits a list item into `{ term, text }` and drops it; how the app rejoins the two is presentation, and lives there.
+
+The register is a developer explaining the thing to a colleague. That rules out the marketing turn ("storefront and work sample at once"), the explanatory tail restating what the sentence already said, and the padding word that survives its own deletion: `genau`, `bewusst`, `zugleich`. Read a finished paragraph and cut what does not carry, because the audience is developers and the agencies who hire them, and both stop reading at the second empty sentence.
 
 ### What belongs in `features`
 
@@ -143,8 +153,9 @@ Line wrapping is free; the parser collapses it. Content is shortened from the pr
 - **Project structure** — "built as a monorepo", "documentation maintained in-repo". True, and no use to anyone deciding whether to use the thing.
 - **Tech stack** — "built on Tauri", "Laravel at the core", "terraform-plugin-framework". This is what `technologies` in `project.json` is for, and the page already renders it as chips. Where the stack has a real consequence, name the consequence instead: not "built on Tauri" but "uses the OS-native WebView, so it stays small".
 - **Distribution** — "published on both registries", "three install paths". `links` and the `install` section already say this.
+- **The self-evident** — "undo works", "there is a status page". Undo in an editor is not news, and a status page served by the site it reports on is worth least precisely when it would matter. Both were listed here once and are gone.
 
-A project that ends up with three honest features has three. Padding the list back to eight with facts about the repository is how the page stops being read.
+A project that ends up with three honest features has three. Padding the list back to eight with facts about the repository is how the page stops being read. Below three, drop the list and write the section as prose: two bullets are not an enumeration, they are two sentences wearing one (the Discord and Forge providers model this).
 
 ### Why the readable content lives here and not in `project.json`
 
@@ -170,7 +181,7 @@ Lifecycle sits beside `kind` and `category` — those say what a project *is*, t
 
 **Why two fields and not `status: ["wip", "paused"]`.** The axes are independent, so they combine freely — `wip` + `paused` is a real state (an early prototype currently resting), and so is `wip` + archived (unfinished, then abandoned). But `paused` and `legacy` sit on the *same* axis and contradict each other: one claims the work resumes, the other that it does not. A set would admit that pair; two fields make it unsayable, because only one value fits in the field. The build additionally rejects `activity: "paused"` on a repository GitHub reports as `archived`, since that is the same contradiction arriving from two sources. `maturity` is deliberately left out of that check.
 
-**`legacy` is `archived`, except where there is no repository.** For a public repository the truth is GitHub's own `archived` flag, which `build.ts` reads. Writing `legacy` by hand as well would be a second truth free to disagree with the first — archiving the repository is the one action that makes it true everywhere at once (GitHub's UI, the API, the page). So the schema accepts `activity: "legacy"` **only** on a `github: false` entry, which has no repository to archive and therefore has to say so itself. Same shape as the `license` rule.
+**`legacy` is `archived`, except where there is no repository.** For a public repository the truth is GitHub's own `archived` flag, which `build.ts` reads. Writing `legacy` by hand as well would be a second truth free to disagree with the first — archiving the repository is the one action that makes it true everywhere at once (GitHub's UI, the API, the page). So the schema accepts `activity: "legacy"` **only** on a `github: false` entry, which has no repository to archive and therefore has to say so itself.
 
 **On `paused`.** It is a claim about the future, and it ages against the author: left standing for years it reads as the opposite of what was meant — abandoned, but unadmitted. `updatedAt` already says how long a project has been quiet, verifiably and without upkeep. It exists because it was asked for; prefer letting the date speak.
 
@@ -178,7 +189,7 @@ Note that `TitusKirch/TitusKirch` models this differently: there `wip` / `paused
 
 ### Conditional rules read twice
 
-`license` and `activity: "legacy"` are both conditional on `github`, expressed in the schema's `allOf` **and** restated as named checks in `validate.ts`. That duplication is on purpose: ajv reports a failed `if/then` as "must match then schema" plus a bare required-property complaint, neither of which says what is wrong. The validator drops errors whose `schemaPath` contains `/allOf/` and prints its own sentence instead. Changing one of these rules means changing both places.
+`license` (forbidden where the sync reads one, optional otherwise) and `activity: "legacy"` are both conditional on `github`, expressed in the schema's `allOf` **and** restated as named checks in `validate.ts`. That duplication is on purpose: ajv reports a failed `if/then` as "must match then schema" plus a bare required-property complaint, neither of which says what is wrong. The validator drops errors whose `schemaPath` contains `/allOf/` and prints its own sentence instead. Changing one of these rules means changing both places.
 
 ## Private projects
 
@@ -186,7 +197,7 @@ Note that `TitusKirch/TitusKirch` models this differently: there `wip` / `paused
 
 - the sync never calls the API for it,
 - it gets no repository link,
-- `license` must be stated in the entry, because there is no repository to read it from,
+- it carries no licence, stars or last-push date — the sync is where those come from, and a private product has no licence the public has any use for. `license` may be stated where it genuinely applies, but is never required,
 - the page cannot tell that a repository exists behind it at all — it sees an entry without a GitHub button.
 
 This is why no secret with access to private repositories exists anywhere in this repo. The built-in `GITHUB_TOKEN` reads public metadata, which is all the sync ever needs.
@@ -195,10 +206,11 @@ This is why no secret with access to private repositories exists anywhere in thi
 
 `scripts/build.ts` fetches facts for every `github: true` entry, merges the editorial content, and writes `projects.json`. Two properties matter:
 
-- **`"downloads": true` makes it read the latest release too**, and write one entry per installer (platform, format, URL, size) plus the version. This has to be fetched, not committed: the asset names carry the version — `glimpse_0.12.2_x64-setup.exe` — so GitHub's `/releases/latest/download/<name>` shortcut does not apply, and a URL written into an entry would point at an old build the day after the next release. The daily sync keeps it current. An entry that claims downloads but has no release, or none the platform table recognises, fails the build rather than shipping an empty list.
+- **`"downloads": true` makes it read the latest release too**, and write one entry per installer (platform, format, URL, size) plus the version. This has to be fetched, not committed: the asset names carry the version — `glimpse_0.12.2_x64-setup.exe` — so GitHub's `/releases/latest/download/<name>` shortcut does not apply, and a URL written into an entry would point at an old build the day after the next release. The six-hourly sync keeps it current. An entry that claims downloads but has no release, or none the platform table recognises, fails the build rather than shipping an empty list.
 - **It is all-or-nothing.** If any single API call fails, nothing is written and the run fails. A partial file is worse than a stale one: the app's fallback chain can serve the last good copy, but it cannot tell that a project vanished because one call errored.
 - **`pnpm build` ends with `oxfmt projects.json`, and must.** `JSON.stringify` puts every array member on its own line; oxfmt keeps short ones inline. Without that step the build writes a file its own `pnpm format` gate then rejects, and every sync PR would open red.
-- **It runs as a pull request, never a direct push.** `.github/workflows/sync-projects.yml` re-points `bot/sync-projects` at the current main tip and commits through the **Contents API** — commits made that way with `GITHUB_TOKEN` are signed by GitHub and count as *Verified*, which a `required_signatures` rule on main insists on. A plain `git push` would be rejected. `cleanup-sync-branch.yml` deletes the branch after the merge, since re-pointing means the merge never does.
+- **It compares without `generatedAt`.** That field holds the build date and therefore differs on every run after midnight UTC — comparing the whole file would open a pull request on every run with one changed line, and real changes would drown in it. So the stamp means *when the data last changed*, not when it was last checked; a run that finds nothing new leaves both the file and the date alone.
+- **It runs as a self-merging pull request, never a direct push.** The PR is not a review gate — `main` requires a pull request but zero approving reviews, so the workflow marks it `--squash --auto` and GitHub merges it once CI is green. What the PR buys is that a red run stops the change and that every sync leaves a record. This needs *Allow auto-merge* enabled on the repository; without it the merge call fails and the PR simply waits for a human. `.github/workflows/sync-projects.yml` re-points `bot/sync-projects` at the current main tip and commits through the **Contents API** — commits made that way with `GITHUB_TOKEN` are signed by GitHub and count as *Verified*, which a `required_signatures` rule on main insists on. A plain `git push` would be rejected. `cleanup-sync-branch.yml` deletes the branch after the merge, since re-pointing means the merge never does.
 
 The app fetches only the finished `projects.json` — no token, no rate limit, no knowledge of the API — and a scheduler command pulls it into the cache. **Fallback chain so the page is never empty:** cache → last known state → a copy shipped inside the app repo. Without that last link a public page depends on `raw.githubusercontent.com` being up.
 
