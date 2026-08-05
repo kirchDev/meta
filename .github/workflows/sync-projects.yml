@@ -1,8 +1,12 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 
-# Rebuilds projects.json — the one file kirch.dev fetches — and proposes the
-# result as a pull request rather than committing to main directly, so a change
-# in the facts is reviewed like any other.
+# Rebuilds projects.json — the one file kirch.dev fetches — and lands it on main
+# through a pull request that merges itself. The PR is not there for a review
+# (main requires one, but no approving review); it is there so CI still gates
+# the change and so every sync leaves a record.
+#
+# Requires "Allow auto-merge" to be enabled in the repository settings —
+# without it `gh pr merge --auto` fails and the PR stays open for a human.
 #
 # It needs no PAT: the built-in GITHUB_TOKEN reads public repository metadata,
 # which is all this repository ever reads. Entries that opt out via
@@ -18,7 +22,7 @@ on:
       - scripts/**
       - .github/workflows/sync-projects.yml
   schedule:
-    - cron: '23 5 * * *'
+    - cron: '23 */6 * * *'
   workflow_dispatch:
 
 permissions:
@@ -63,8 +67,15 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
-          if [[ -z "$(git status --porcelain projects.json)" ]]; then
-            echo "No changes."
+          # `generatedAt` carries the build date, so it differs on every run
+          # after midnight UTC. Comparing the file as a whole would therefore
+          # open a pull request every single day with one changed line, and the
+          # real changes would drown in that noise. Compare without it: the
+          # stamp then says when the data last changed, not when it was checked.
+          if diff -q \
+            <(git show HEAD:projects.json | grep -v '"generatedAt"') \
+            <(grep -v '"generatedAt"' projects.json) >/dev/null; then
+            echo "No changes beyond the build date."
             exit 0
           fi
 
@@ -91,15 +102,33 @@ jobs:
             -f sha="$file_sha" \
             -f content="$(base64 -w0 projects.json)" >/dev/null
 
+          # Auto-merge rather than waiting for a human: `main` requires a pull
+          # request but no approving review, so the only gate left is CI. The
+          # PR still exists as a record and a red run still holds the merge —
+          # the difference is only that nobody has to click.
+          #
+          # Squash is the sole merge method the ruleset permits, so it is not a
+          # preference here: any other method would be refused.
           existing=$(gh pr list --base main --head "$branch" --state open --json number --jq '.[0].number')
+
           if [ -n "$existing" ]; then
-            echo "PR #$existing already open — updated it via the API."
-            exit 0
+            echo "PR #$existing already open — updated it through the API."
+            pr="$existing"
+          else
+            pr=$(gh pr create \
+              --base main \
+              --head "$branch" \
+              --title "chore: sync projects.json" \
+              --body "Automated rebuild of \`projects.json\` from the curated entries under \`projects/\` plus live GitHub repository metadata." \
+              --assignee TitusKirch)
+            echo "Opened $pr"
           fi
 
-          gh pr create \
-            --base main \
-            --head "$branch" \
-            --title "chore: sync projects.json" \
-            --body "Automated rebuild of \`projects.json\` from the curated entries under \`projects/\` plus live GitHub repository metadata." \
-            --assignee TitusKirch
+          # Enabling auto-merge is a repository setting, so this is the one step
+          # that can fail on configuration rather than on content. Say so plainly
+          # instead of leaving a bare API error, and still fail the run: a sync
+          # that silently stops merging would look like nothing had changed.
+          if ! gh pr merge "$pr" --squash --auto; then
+            echo "::error::Could not enable auto-merge. Check that 'Allow auto-merge' is on in the repository settings — the pull request is open and can be merged by hand."
+            exit 1
+          fi
