@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04",
+  "generatedAt": "2026-08-05",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -11,18 +11,18 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/TitusKirch/amber",
       "links": [],
       "i18n": {
         "de": {
           "tagline": "Backup-Werkzeug für Git und GitHub",
-          "description": "Soll Git-Repositories samt vollständiger Forge-Metadaten sichern — Issues, Pull Requests, Releases, Labels — und nicht nur die git-Historie.",
+          "description": "Soll Git-Repositories samt ihrer Forge-Metadaten sichern: Issues, Pull Requests, Releases und Labels, nicht nur die git-Historie.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Soll Git-Repositories samt vollständiger Forge-Metadaten sichern — Issues, Pull Requests, Releases, Labels — und nicht nur die git-Historie."
+              "text": "Soll Git-Repositories samt ihrer Forge-Metadaten sichern: Issues, Pull Requests, Releases und Labels, nicht nur die git-Historie."
             }
           ],
           "sections": [
@@ -31,11 +31,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Ein git clone rettet den Code. Was verschwindet, wenn ein Konto gesperrt, eine Organisation gelöscht oder ein Repository versehentlich entfernt wird, ist alles andere: die Diskussion in den Issues, die Reviews an den Pull Requests, die Releases samt Notizen, die Labels und Meilensteine, an denen die Arbeit hing."
+                  "text": "Ein git clone rettet den Code. Alles andere verschwindet, sobald ein Konto gesperrt oder eine Organisation gelöscht wird: die Diskussion in den Issues, die Kommentare an den Pull Requests, die Releases samt Notizen, die Labels und Meilensteine."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Genau diesen Teil soll amber mitsichern. Vorgesehen ist ein vollständiger git-Spiegel mit allen Branches und Tags, daneben die Metadaten als JSON, dazu ein Manifest mit Integritäts-Hashes und inkrementelle Läufe, die beim zweiten Durchgang nur noch Geändertes holen. Die Ablage soll als gewöhnliche Ordner lesbar bleiben, damit Wiederherstellen schlicht Kopieren heißt."
+                  "text": "Diesen Teil soll amber mitsichern. Vorgesehen ist ein vollständiger git-Spiegel mit allen Branches und Tags, daneben die Metadaten als JSON, dazu ein Manifest mit Integritäts-Hashes und inkrementelle Läufe, die beim zweiten Durchgang nur noch Geändertes holen. Abgelegt wird in gewöhnlichen Ordnern, die auch ohne amber lesbar bleiben."
                 }
               ]
             },
@@ -44,7 +44,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Bisher steht nur das Projektgerüst: Linting, Formatierung, Commit-Hooks und CI. Die Umsetzung hat noch nicht begonnen, es gibt also weder ein Kommando noch ein installierbares Paket — der Abschnitt oben beschreibt das Vorhaben, nicht den heutigen Funktionsumfang."
+                  "text": "Bisher steht nur das Projektgerüst: Linting, Formatierung, Commit-Hooks, CI und Release-Automatik. Die Umsetzung hat noch nicht begonnen, es gibt also weder ein Kommando noch ein installierbares Paket. Der Abschnitt oben beschreibt das Vorhaben, nicht den heutigen Funktionsumfang."
                 }
               ]
             }
@@ -52,11 +52,11 @@
         },
         "en": {
           "tagline": "Backup tool for Git and GitHub",
-          "description": "Aims to back up Git repositories and their full forge metadata — issues, pull requests, releases, labels — not just the git history.",
+          "description": "Aims to back up Git repositories along with their forge metadata: issues, pull requests, releases and labels, not just the git history.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Aims to back up Git repositories and their full forge metadata — issues, pull requests, releases, labels — not just the git history."
+              "text": "Aims to back up Git repositories along with their forge metadata: issues, pull requests, releases and labels, not just the git history."
             }
           ],
           "sections": [
@@ -65,11 +65,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "A git clone saves the code. What vanishes when an account is suspended, an organisation deleted or a repository removed by accident is everything else: the discussion in the issues, the reviews on the pull requests, the releases and their notes, the labels and milestones the work hung on."
+                  "text": "A git clone saves the code. Everything else disappears the moment an account is suspended or an organisation deleted: the discussion in the issues, the comments on the pull requests, the releases and their notes, the labels and milestones."
                 },
                 {
                   "type": "paragraph",
-                  "text": "That is the part amber is meant to capture. The plan is a full git mirror with every branch and tag, the metadata as JSON beside it, a manifest with integrity hashes, and incremental runs that fetch only what changed on the second pass. Storage should stay readable as ordinary folders, so restoring is simply copying."
+                  "text": "That is the part amber is meant to capture. The plan is a full git mirror with every branch and tag, the metadata as JSON beside it, a manifest with integrity hashes, and incremental runs that fetch only what changed on the second pass. Storage is ordinary folders that stay readable without amber."
                 }
               ]
             },
@@ -78,7 +78,72 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "So far only the project scaffolding exists: linting, formatting, commit hooks and CI. Implementation has not started, so there is neither a command nor an installable package — the section above describes the intent, not today's feature set."
+                  "text": "So far only the project scaffolding exists: linting, formatting, commit hooks, CI and release automation. Implementation has not started, so there is neither a command nor an installable package. The section above describes the intent, not today's feature set."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "app",
+      "owner": "kirchDev",
+      "kind": "own",
+      "category": "app",
+      "technologies": [
+        "php",
+        "typescript",
+        "laravel",
+        "vue",
+        "inertia",
+        "tailwind-css"
+      ],
+      "archived": false,
+      "links": [
+        {
+          "type": "website",
+          "url": "https://kirch.dev"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "Auftritt von IT-Dienstleistungen Titus Kirch",
+          "description": "Die Anwendung hinter kirch.dev: Auftritt, Lebenslauf und diese Projektübersicht.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Die Anwendung hinter kirch.dev: Auftritt, Lebenslauf und diese Projektübersicht."
+            }
+          ],
+          "sections": [
+            {
+              "key": "about",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "kirch.dev ist eine eigene Laravel-Anwendung mit Vue und Inertia, kein Baukasten. Der Lebenslauf liegt im Code, Seite und PDF entstehen im selben Build. Diese Projektübersicht liest ihre Einträge stündlich als Daten, ein neuer Eintrag braucht also kein Deploy."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "The online home of IT-Dienstleistungen Titus Kirch",
+          "description": "The application behind kirch.dev: the site itself, the CV, and this project overview.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "The application behind kirch.dev: the site itself, the CV, and this project overview."
+            }
+          ],
+          "sections": [
+            {
+              "key": "about",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "kirch.dev is a Laravel application with Vue and Inertia, not a site builder. The CV lives in the code, and the page and the PDF come out of the same build. This project overview pulls its entries in hourly as data, so a new entry needs no deploy."
                 }
               ]
             }
@@ -91,7 +156,14 @@
       "owner": "contentstash",
       "kind": "oss",
       "category": "app",
-      "technologies": ["php", "laravel", "vue", "inertia", "tailwind-css"],
+      "technologies": [
+        "php",
+        "typescript",
+        "laravel",
+        "vue",
+        "inertia",
+        "tailwind-css"
+      ],
       "activity": "paused",
       "license": "MIT",
       "stars": 0,
@@ -102,11 +174,11 @@
       "i18n": {
         "de": {
           "tagline": "Headless-CMS-Ökosystem auf Laravel-Basis",
-          "description": "Ein Headless-CMS-Ökosystem, gebaut mit Laravel, Inertia.js, Vue 3 und Tailwind CSS.",
+          "description": "Verwaltet Inhalte mit den Mitteln, die eine Laravel-Anwendung ohnehin hat, also Eloquent, Policies und Migrationen, und liefert sie über eine REST-API aus.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Ein Headless-CMS-Ökosystem, gebaut mit Laravel, Inertia.js, Vue 3 und Tailwind CSS."
+              "text": "Verwaltet Inhalte mit den Mitteln, die eine Laravel-Anwendung ohnehin hat, also Eloquent, Policies und Migrationen, und liefert sie über eine REST-API aus."
             }
           ],
           "sections": [
@@ -115,11 +187,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Ein Headless CMS soll Inhalte verwalten und über eine API ausliefern, ohne die Darstellung vorzugeben. Die verbreiteten Lösungen bringen dafür ihren eigenen Unterbau mit — eigene Sprache, eigenes ORM, eigene Erweiterungswege —, was in einem Laravel-Haus bedeutet, einen zweiten Stack zu betreiben und zu aktualisieren."
+                  "text": "Ein Headless CMS soll Inhalte verwalten und über eine API ausliefern, ohne die Darstellung vorzugeben. Die verbreiteten Lösungen bringen dafür ihren eigenen Unterbau mit, vom ORM bis zu den Erweiterungswegen. In einem Laravel-Haus heißt das: ein zweiter Stack, der betrieben und aktualisiert werden will, oft in einer anderen Sprache."
                 },
                 {
                   "type": "paragraph",
-                  "text": "contentstash setzt stattdessen auf das, was ohnehin da ist: Inhaltstypen sind Eloquent-Modelle, Rechte laufen über Policies, und eine Erweiterung ist ein Laravel-Paket. Was das CMS kann, erweitert man mit denselben Mitteln wie den Rest der Anwendung."
+                  "text": "contentstash setzt stattdessen auf das, was ohnehin da ist. Ein Inhaltstyp ist ein gewöhnliches Eloquent-Modell, und der Rest folgt daraus: Wer Zugriff regelt, schreibt eine Policy, wer das Schema ändert, eine Migration. Was das CMS kann, erweitert man mit denselben Mitteln wie den Rest der Anwendung."
                 }
               ]
             },
@@ -131,11 +203,11 @@
                   "items": [
                     {
                       "term": "Inhaltstypen aus Feldtypen",
-                      "text": "Text, längerer Text, Ganzzahl, Wahrheitswert, JSON und Zeitstempel; letztere wahlweise als Datum, Uhrzeit oder beides."
+                      "text": "Text, längerer Text, Ganzzahl und große Ganzzahl, Wahrheitswert, JSON und Zeitstempel."
                     },
                     {
                       "term": "Schema-Änderungen werden zu Migrationen",
-                      "text": "legt man einen Inhaltstyp an, ändert ihn oder entfernt ihn, entsteht daraus die passende Migration, statt die Datenbank im Betrieb umzubauen."
+                      "text": "legt man einen Inhaltstyp an, ändert ihn oder entfernt ihn, entsteht daraus eine echte Migrationsdatei statt einer Ad-hoc-Schemaänderung."
                     },
                     {
                       "term": "REST-API je Ressource",
@@ -143,15 +215,15 @@
                     },
                     {
                       "term": "Rollen und Rechte je Modell",
-                      "text": "Ansehen, Anlegen, Ändern und Löschen sind einzeln vergebbar, mit den Stufen Gast, angemeldet und Administrator."
+                      "text": "Auflisten, Ansehen, Anlegen, Ändern und Löschen sind einzeln vergebbar, über Systemrollen von Gast bis Administrator."
                     },
                     {
                       "term": "Öffentlicher Lesezugriff",
                       "text": "Inhalte lassen sich für nicht angemeldete Besucher freigeben, ohne dafür einen eigenen Endpunkt zu bauen."
                     },
                     {
-                      "term": "Über Plugins erweiterbar",
-                      "text": "eigene Feldtypen und Erweiterungen werden über eine Registry angemeldet, statt den Kern zu verändern."
+                      "term": "Eigene Feldtypen über eine Registry",
+                      "text": "zusätzliche Attributtypen werden angemeldet statt in den Kern geschrieben; die eingebauten nutzen denselben Weg."
                     }
                   ]
                 }
@@ -162,7 +234,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Der Anspruch ist ein Ökosystem, kein einzelnes Paket: Kern, Dokumentation und Beispielanwendung entstehen zusammen, damit sich Änderungen am Kern sofort an einer echten Anwendung zeigen."
+                  "text": "contentstash rendert keine Inhalte: Es liefert sie über die REST-API aus, und wie sie dargestellt werden, entscheidet die konsumierende Anwendung. Ebenso fehlt ein eigener Unterbau. Wo Laravel schon ein Mittel hat, stellt contentstash kein zweites daneben."
                 }
               ]
             }
@@ -170,11 +242,11 @@
         },
         "en": {
           "tagline": "Headless CMS ecosystem built on Laravel",
-          "description": "A headless CMS ecosystem built with Laravel, Inertia.js, Vue 3, and Tailwind CSS.",
+          "description": "Manages content with the tools a Laravel application already has, namely Eloquent, policies and migrations, and serves it over a REST API.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "A headless CMS ecosystem built with Laravel, Inertia.js, Vue 3, and Tailwind CSS."
+              "text": "Manages content with the tools a Laravel application already has, namely Eloquent, policies and migrations, and serves it over a REST API."
             }
           ],
           "sections": [
@@ -183,11 +255,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "A headless CMS is supposed to manage content and serve it over an API without dictating the presentation. The common options bring their own foundation along — their own language, ORM and extension model — which in a Laravel shop means running and upgrading a second stack."
+                  "text": "A headless CMS is supposed to manage content and serve it over an API without dictating the presentation. The common options bring along their own foundation, from the ORM to the extension model. In a Laravel shop that means a second stack to run and upgrade, often in a different language."
                 },
                 {
                   "type": "paragraph",
-                  "text": "contentstash builds on what is already there instead: content types are Eloquent models, permissions run through policies, and an extension is a Laravel package. Extending what the CMS can do uses the same tools as the rest of the application."
+                  "text": "contentstash builds on what is already there instead. A content type is an ordinary Eloquent model, and the rest follows: guarding access means writing a policy, changing the schema means writing a migration. Extending what the CMS can do uses the same tools as the rest of the application."
                 }
               ]
             },
@@ -199,11 +271,11 @@
                   "items": [
                     {
                       "term": "Content types from field types",
-                      "text": "string, longer text, integer, boolean, JSON and timestamp; the last of these as a date, a time, or both."
+                      "text": "short and long text, integer and big integer, boolean, JSON and timestamp."
                     },
                     {
                       "term": "Schema changes become migrations",
-                      "text": "creating, changing or removing a content type produces the matching migration, instead of reshaping the database at runtime."
+                      "text": "creating, changing or removing a content type produces a real migration file rather than an ad-hoc schema change."
                     },
                     {
                       "term": "A REST API per resource",
@@ -211,15 +283,15 @@
                     },
                     {
                       "term": "Per-model roles and permissions",
-                      "text": "view, create, update and delete are granted individually, across guest, signed-in and administrator levels."
+                      "text": "list, view, create, update and delete are granted individually, through system roles from guest to administrator."
                     },
                     {
                       "term": "Public read access",
                       "text": "content can be exposed to visitors who are not signed in, without building a separate endpoint for it."
                     },
                     {
-                      "term": "Extensible through plugins",
-                      "text": "custom field types and extensions register through a registry rather than by changing the core."
+                      "term": "Custom field types through a registry",
+                      "text": "additional attribute types are registered rather than written into the core; the built-in ones use the same path."
                     }
                   ]
                 }
@@ -230,7 +302,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "The ambition is an ecosystem rather than a single package: core, documentation and example application are developed together, so a change to the core shows up immediately against a real application."
+                  "text": "contentstash does not render content: it serves it over the REST API, and how it is presented is the consuming application's decision. It brings no foundation of its own either. Where Laravel already has a tool, contentstash does not put a second one beside it."
                 }
               ]
             }
@@ -246,7 +318,7 @@
       "technologies": ["typescript", "bun", "opentui"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/TitusKirch/envprism",
       "links": [
@@ -258,11 +330,11 @@
       "i18n": {
         "de": {
           "tagline": "TUI für Environment-Dateien",
-          "description": "TUI-basierter Manager für Environment-Dateien — bricht einen Satz Variablen in viele Umgebungs-Sichten auf.",
+          "description": "Bricht einen Satz Variablen in viele Umgebungs-Sichten auf: alle .env-Dateien eines Projekts nebeneinander in einer Matrix.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "TUI-basierter Manager für Environment-Dateien — bricht einen Satz Variablen in viele Umgebungs-Sichten auf."
+              "text": "Bricht einen Satz Variablen in viele Umgebungs-Sichten auf: alle .env-Dateien eines Projekts nebeneinander in einer Matrix."
             }
           ],
           "sections": [
@@ -271,11 +343,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Die meisten Projekte sammeln eine Handvoll env-Dateien an — .env, .env.example, .env.staging, .env.production — und es gibt keine gute Möglichkeit, sie zusammen zu sehen. Man vergleicht zwei davon, übersieht die dritte und deployt eine Umgebung, in der eine Variable überall gesetzt war außer dort. Die Beispieldatei verrottet, weil niemand sie pflegt, wenn ein Schlüssel dazukommt."
+                  "text": "Die meisten Projekte sammeln eine Handvoll env-Dateien an, von .env über .env.example bis .env.staging und .env.production, und es gibt keine gute Möglichkeit, sie zusammen zu sehen. Man vergleicht zwei davon, übersieht die dritte und deployt am Ende eine Umgebung, in der genau eine Variable fehlt. Die Beispieldatei veraltet, weil niemand sie nachzieht, sobald ein Schlüssel dazukommt."
                 },
                 {
                   "type": "paragraph",
-                  "text": "envprism behandelt den ganzen Satz als eine Sache: jede Datei eine Spalte, jede Variable eine Zeile. Die Lücken springen ins Auge — dieser Schlüssel fehlt hier, jener Wert weicht dort ab, der da ist immer noch ein Platzhalter. Änderungen werden byte-genau zurückgeschrieben, und geheime Werte bleiben maskiert, damit die Ansicht teilbar ist."
+                  "text": "envprism behandelt den ganzen Satz als eine Sache: jede Datei eine Spalte, jede Variable eine Zeile. Die Lücken springen ins Auge, weil hier ein Schlüssel fehlt, dort ein Wert abweicht und anderswo noch ein Platzhalter steht. Änderungen werden byte-genau zurückgeschrieben, und geheime Werte bleiben maskiert, damit die Ansicht teilbar ist."
                 }
               ]
             },
@@ -289,7 +361,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Findet alle .env*-Dateien im aktuellen Verzeichnis und öffnet sie als Matrix — ohne Installation und ohne Konfiguration."
+                  "text": "Findet alle .env*-Dateien im aktuellen Verzeichnis und öffnet sie als Matrix. Ohne Installation, ohne Konfiguration."
                 }
               ]
             },
@@ -309,7 +381,7 @@
                     },
                     {
                       "term": "Geheimnisse maskiert",
-                      "text": "Werte, deren Name nach Token, Secret oder Passwort aussieht, werden verdeckt dargestellt; die Ansicht ist damit auch im geteilten Bildschirm unbedenklich."
+                      "text": "Werte, deren Name nach Token, Secret oder Passwort aussieht, werden verdeckt dargestellt; die Ansicht ist damit auch beim Teilen des Bildschirms unbedenklich."
                     },
                     {
                       "term": "An Ort und Stelle bearbeiten",
@@ -324,14 +396,19 @@
                       "text": "nach Kommentarbanner oder Schlüsselpräfix gruppieren, Abschnitte einklappen, live nach Schlüsseln filtern oder nur die abweichenden anzeigen."
                     },
                     {
-                      "term": "Rückgängig",
-                      "text": "die letzten Änderungen, Ergänzungen und Löschungen lassen sich zurücknehmen, bevor geschrieben wird."
-                    },
-                    {
                       "term": "Für CI geeignet",
                       "text": "ein Drift-Bericht als Text oder JSON, oder nur ein Exit-Code für Pre-Commit-Hooks und Pipelines."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Kein Secret-Manager und kein Ersatz für einen Vault: envprism zeigt und bearbeitet lokale env-Dateien, und die Maskierung betrifft allein die Darstellung. Geheimnisse speichert oder verwaltet es nicht."
                 }
               ]
             },
@@ -342,6 +419,10 @@
                   "type": "code",
                   "language": "bash",
                   "code": "bun add -g envprism\nbunx envprism  # ohne Installation"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Vorausgesetzt wird Bun ab 1.3; unter Node läuft das Paket nicht."
                 }
               ]
             }
@@ -349,11 +430,11 @@
         },
         "en": {
           "tagline": "TUI for environment files",
-          "description": "TUI-based env file manager — refract one set of variables into many environment views.",
+          "description": "Refracts one set of variables into many environment views: every .env file of a project side by side in one matrix.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "TUI-based env file manager — refract one set of variables into many environment views."
+              "text": "Refracts one set of variables into many environment views: every .env file of a project side by side in one matrix."
             }
           ],
           "sections": [
@@ -362,11 +443,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Most projects accumulate a fistful of env files — .env, .env.example, .env.staging, .env.production — with no good way to see them together. You diff two at a time, miss the third, and ship a deploy where one variable was set everywhere except staging. The example file rots because nobody updates it when a key is added."
+                  "text": "Most projects accumulate a fistful of env files, from .env through .env.example to .env.staging and .env.production, and there is no good way to see them together. You diff two at a time, miss the third, and ship a deploy that is missing exactly one variable. The example file goes stale because nobody updates it when a key is added."
                 },
                 {
                   "type": "paragraph",
-                  "text": "envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out — this key is missing here, that value drifts there, this one is still a placeholder. Edits write back byte-exact, and secret values stay masked so the view is safe to share."
+                  "text": "envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out, because one key is missing here, one value drifts there, and another is still a placeholder. Edits write back byte-exact, and secret values stay masked so the view is safe to share."
                 }
               ]
             },
@@ -380,7 +461,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Finds every .env* file in the current directory and opens them as a matrix — no install, no configuration."
+                  "text": "Finds every .env* file in the current directory and opens them as a matrix. No install, no configuration."
                 }
               ]
             },
@@ -415,14 +496,19 @@
                       "text": "group by comment banner or key prefix, fold sections, filter keys live, or show only the ones that drift."
                     },
                     {
-                      "term": "Undo",
-                      "text": "the last edits, additions and deletions can be walked back before anything is written."
-                    },
-                    {
                       "term": "CI-friendly",
                       "text": "a drift report as text or JSON, or just an exit code for pre-commit hooks and pipelines."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Not a secrets manager and no substitute for a vault: envprism displays and edits local env files, and the masking affects the display alone. It stores and manages no secrets."
                 }
               ]
             },
@@ -433,6 +519,10 @@
                   "type": "code",
                   "language": "bash",
                   "code": "bun add -g envprism\nbunx envprism  # without installing"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Bun 1.3 or newer is required; the package does not run under Node."
                 }
               ]
             }
@@ -445,10 +535,10 @@
       "owner": "TitusKirch",
       "kind": "oss",
       "category": "cli",
-      "technologies": ["typescript", "node", "github", "git"],
+      "technologies": ["typescript", "node", "github", "gitlab", "git"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/TitusKirch/forgemap",
       "links": [
@@ -459,12 +549,12 @@
       ],
       "i18n": {
         "de": {
-          "tagline": "CLI für ein sortiertes lokales Repo-Layout",
-          "description": "CLI, die ein lokales Repository-Layout nach Git-Server, Organisation und Repository-Name verwaltet.",
+          "tagline": "CLI für ein aufgeräumtes lokales Repo-Layout",
+          "description": "Verwaltet lokale Klone in einem festen Layout aus Server, Organisation und Repository-Name und baut darauf Suche, Massen-Sync und gefahrloses Aufräumen auf.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "CLI, die ein lokales Repository-Layout nach Git-Server, Organisation und Repository-Name verwaltet."
+              "text": "Verwaltet lokale Klone in einem festen Layout aus Server, Organisation und Repository-Name und baut darauf Suche, Massen-Sync und gefahrloses Aufräumen auf."
             }
           ],
           "sections": [
@@ -473,11 +563,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Klone sammeln sich dort an, wo man gerade war: einmal im Projektordner, einmal auf dem Schreibtisch, einmal unter einem Namen, den nur der damalige Kontext erklärt. Nach ein paar Dutzend Repositories weiß niemand mehr, welche lokal liegen, welche davon ungepushte Arbeit enthalten und welche man löschen könnte."
+                  "text": "Klone landen dort, wo man beim Klonen gerade stand: mal im Projektordner, mal daneben, mal unter abweichendem Namen. Wächst die Zahl, ist nicht mehr zu überblicken, welche Repositories lokal liegen, welche davon ungepushte Arbeit enthalten und welche gefahrlos weg könnten."
                 },
                 {
                   "type": "paragraph",
-                  "text": "forgemap legt ein Layout fest — Server, Organisation, Repository-Name — und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren auch Suche, Wechseln und Massenoperationen wieder: alle Klone aktualisieren, überall den Status sehen, gefahrlos aufräumen."
+                  "text": "forgemap legt ein Layout aus Server, Organisation und Repository-Name fest und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren Suche und Wechseln wieder, und Massenoperationen werden möglich: Ein Sync erfasst alle Klone auf einmal, und gelöscht wird nur, was nachweislich gesichert ist."
                 }
               ]
             },
@@ -503,19 +593,19 @@
                   "items": [
                     {
                       "term": "Vorhersagbares Layout",
-                      "text": "jeder Klon landet unter Server, Namensraum und Repository-Name; GitLab-Untergruppen verschachteln sich so tief wie im Original."
+                      "text": "jeder Klon landet unter Server, Namensraum und Repository-Name; GitLab-Untergruppen bleiben als Verzeichnisebenen erhalten."
                     },
                     {
                       "term": "Flexible Kurzschreibweise",
-                      "text": "Eigentümer und Name, vollständige HTTPS-URLs oder SSH; selbst eine eingefügte Merge-Request-URL löst sich noch zum richtigen Repository auf."
+                      "text": "Eigentümer und Name, vollständige HTTPS-URLs oder SSH; selbst eine eingefügte Merge-Request-URL wird noch zum richtigen Repository aufgelöst."
                     },
                     {
                       "term": "Liste und unscharfe Suche",
-                      "text": "alle lokalen Repositories auflisten oder nach Eigentümer und Name filtern; Wechseln, Pfad ausgeben und im Editor öffnen nehmen dieselben Suchbegriffe."
+                      "text": "alle lokalen Repositories auflisten oder nach Eigentümer und Name filtern; Wechseln, Pfad ausgeben und im Dateimanager öffnen verstehen dieselben Suchbegriffe."
                     },
                     {
-                      "term": "Server-bewusst",
-                      "text": "GitHub über gh, GitLab über glab samt Untergruppen, alles andere über einfaches git clone ganz ohne Zusatzabhängigkeit."
+                      "term": "Je Server das passende Werkzeug",
+                      "text": "GitHub über gh, GitLab über glab samt Untergruppen; jeder andere Host wird als git-Typ eingetragen und über schlichtes git clone bedient."
                     },
                     {
                       "term": "Massen-Sync und Status",
@@ -527,7 +617,7 @@
                     },
                     {
                       "term": "Sicheres Aufräumen",
-                      "text": "lange unberührte Klone werden nur gelöscht, wenn sie sauber sind, vollständig gepusht, ohne Stash und am Remote noch vorhanden; nichts Ungesichertes geht verloren."
+                      "text": "lange unberührte Klone werden nur gelöscht, wenn sie sauber sind, vollständig gepusht, ohne Stash und am Remote noch vorhanden; standardmäßig geht nichts Ungesichertes verloren."
                     },
                     {
                       "term": "Shell-Integration",
@@ -538,12 +628,30 @@
               ]
             },
             {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "forgemap verwaltet die lokale Seite: wo Klone liegen und wann sie weg können. In Richtung Server klont und liest es nur; verändert wird dort nichts, und selbst das Löschen trifft immer nur den lokalen Klon. gh und glab ersetzt es nicht: Fürs Klonen ruft forgemap die beiden selbst auf, und für Issues, Merge Requests oder Releases bringt es gar keine Befehle mit."
+                }
+              ]
+            },
+            {
               "key": "install",
               "blocks": [
                 {
                   "type": "code",
-                  "language": "bash",
+                  "language": "pnpm",
+                  "code": "pnpm add -g forgemap"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
                   "code": "npm install -g forgemap"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Vorausgesetzt wird Node ab 24 sowie git auf dem PATH; gh und glab braucht es nur, wenn ein entsprechender Forge-Typ konfiguriert ist."
                 }
               ]
             }
@@ -551,11 +659,11 @@
         },
         "en": {
           "tagline": "CLI for a tidy local repo layout",
-          "description": "CLI that manages a local repo layout grouped by git server, organization and repository name.",
+          "description": "Manages local clones in a fixed layout of server, organisation and repository name and builds search, mass sync and safe cleanup on top of it.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "CLI that manages a local repo layout grouped by git server, organization and repository name."
+              "text": "Manages local clones in a fixed layout of server, organisation and repository name and builds search, mass sync and safe cleanup on top of it."
             }
           ],
           "sections": [
@@ -564,11 +672,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Clones pile up wherever you happened to be: one in the projects folder, one on the desktop, one under a name only that day's context explains. After a few dozen repositories nobody knows which ones are local, which hold unpushed work, and which could be deleted."
+                  "text": "Clones land wherever you happened to be when you cloned them: in the projects folder, next to it, or under a different name. As the number grows it stops being clear which repositories are local, which hold unpushed work, and which could safely go."
                 },
                 {
                   "type": "paragraph",
-                  "text": "forgemap fixes a layout — server, organisation, repository name — and sticks to it. Because the path is predictable, search, switching and bulk operations work again: refresh every clone, see status everywhere, clean up without risk."
+                  "text": "forgemap fixes a layout of server, organisation and repository name, then sticks to it. Because the path is predictable, search and switching work again, and bulk operations become possible: one sync covers every clone, and nothing is deleted unless it is provably backed up."
                 }
               ]
             },
@@ -594,7 +702,7 @@
                   "items": [
                     {
                       "term": "Predictable layout",
-                      "text": "every clone lands under server, namespace and repository name; GitLab subgroups nest as deeply as they do upstream."
+                      "text": "every clone lands under server, namespace and repository name; GitLab subgroups are kept as directory levels."
                     },
                     {
                       "term": "Flexible slug syntax",
@@ -602,15 +710,15 @@
                     },
                     {
                       "term": "List and fuzzy search",
-                      "text": "list every local repository or filter by owner and name; switching, printing a path and opening in an editor take the same terms."
+                      "text": "list every local repository or filter by owner and name; switching, printing a path and opening in the file manager take the same terms."
                     },
                     {
                       "term": "Forge-aware",
-                      "text": "GitHub through gh, GitLab through glab including subgroups, anything else through plain git clone with no extra dependency at all."
+                      "text": "GitHub through gh, GitLab through glab including subgroups; any other host is configured as a plain git type and served through git clone."
                     },
                     {
                       "term": "Mass sync and status",
-                      "text": "refresh every clone in parallel and show branch, pending changes and distance from the remote per repository, optionally narrowed to given owners or forges."
+                      "text": "refresh every clone in parallel and show branch, pending changes and ahead/behind counts per repository, optionally narrowed to given owners or forges."
                     },
                     {
                       "term": "Adopt existing trees",
@@ -618,7 +726,7 @@
                     },
                     {
                       "term": "Safe cleanup",
-                      "text": "long-idle clones are deleted only when they are clean, fully pushed, free of stashed work and still present on their remote; nothing unbacked-up is lost."
+                      "text": "long-idle clones are deleted only when they are clean, fully pushed, free of stashed work and still present on their remote; by default, nothing that exists only locally is lost."
                     },
                     {
                       "term": "Shell integration",
@@ -629,12 +737,30 @@
               ]
             },
             {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "forgemap manages the local side: where clones live and when they can go. Toward the server it only clones and reads; nothing on the remote is ever changed, and even deleting a repository only removes the local copy. Nor does it replace gh and glab: forgemap shells out to them for cloning, and has no commands of its own for issues, merge requests or releases."
+                }
+              ]
+            },
+            {
               "key": "install",
               "blocks": [
                 {
                   "type": "code",
-                  "language": "bash",
+                  "language": "pnpm",
+                  "code": "pnpm add -g forgemap"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
                   "code": "npm install -g forgemap"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Needs Node 24 or newer and git on the PATH; gh and glab are only required when a forge of that type is configured."
                 }
               ]
             }
@@ -649,6 +775,7 @@
       "category": "desktop",
       "technologies": [
         "typescript",
+        "rust",
         "vue",
         "nuxt",
         "tauri",
@@ -657,7 +784,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
       "version": "v0.12.2",
@@ -691,11 +818,11 @@
       "i18n": {
         "de": {
           "tagline": "Schlanker, git-nativer Desktop-Client",
-          "description": "Ein schlanker, git-nativer Desktop-Client — der vollständige Branch-Graph, Diffs und der git-Alltag, mit erstklassiger WSL-Unterstützung.",
+          "description": "Der vollständige Branch-Graph, Diffs und der git-Alltag in einer Oberfläche, die das echte git aufruft, WSL eingeschlossen.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Ein schlanker, git-nativer Desktop-Client — der vollständige Branch-Graph, Diffs und der git-Alltag, mit erstklassiger WSL-Unterstützung."
+              "text": "Der vollständige Branch-Graph, Diffs und der git-Alltag in einer Oberfläche, die das echte git aufruft, WSL eingeschlossen."
             }
           ],
           "sections": [
@@ -704,11 +831,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Die meisten git-Oberflächen bauen git nach: Sie bringen eine eigene Implementierung mit und weichen dort ab, wo die eigene Konfiguration, Hooks oder Anmeldedaten ins Spiel kommen. Die anderen liefern ein komplettes Chromium mit und brauchen für einen Blick auf den Verlauf mehrere hundert Megabyte Arbeitsspeicher."
+                  "text": "Die meisten git-Oberflächen bauen git nach: Sie bringen eine eigene Implementierung mit und weichen dort ab, wo die eigene Konfiguration, Hooks oder Anmeldedaten ins Spiel kommen. Die anderen liefern einen kompletten Browser mit, nur um den Verlauf anzuzeigen."
                 },
                 {
                   "type": "paragraph",
-                  "text": "glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten Konfiguration, Hooks und Anmeldedaten unverändert weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse. Die Oberfläche läuft in der WebView des Betriebssystems statt in einem mitgelieferten Browser."
+                  "text": "glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten die eigene Konfiguration, die Hooks und die hinterlegten Anmeldedaten weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse. Die Oberfläche läuft in der WebView des Betriebssystems statt in einem mitgelieferten Browser."
                 }
               ]
             },
@@ -727,8 +854,8 @@
                       "text": "es wird nichts an git vorbeigeschrieben; Signaturen mit GPG oder SSH greifen, wenn sie eingerichtet sind, und per LFS verwaltete Dateien werden erkannt."
                     },
                     {
-                      "term": "WSL erstklassig",
-                      "text": "ein Repository unter \\\\wsl$ wird automatisch über das git der jeweiligen Distribution bedient, eines unter einem Windows-Pfad über das Windows-git. Ohne Einrichtung."
+                      "term": "WSL ohne Einrichtung",
+                      "text": "ein Repository unter \\\\wsl$ wird automatisch über das git der jeweiligen Distribution bedient, eines unter einem Windows-Pfad über das Windows-git."
                     },
                     {
                       "term": "Graph und Verlauf",
@@ -744,13 +871,22 @@
                     },
                     {
                       "term": "Changelists",
-                      "text": "offene Änderungen in benannte Gruppen legen und eine davon committen; die Zuordnung liegt als lesbare JSON-Datei im Repository und ist über eine mitgelieferte CLI auch für Skripte und Agenten erreichbar."
+                      "text": "offene Änderungen in benannte Gruppen legen und eine davon committen; die Zuordnung liegt als lesbare JSON-Datei im .git-Verzeichnis des Repositorys und ist über eine mitgelieferte CLI auch für Skripte und Agenten erreichbar."
                     },
                     {
                       "term": "Fortgeschrittenes git",
-                      "text": "Rebase interaktiv oder auf eine Referenz, geführtes Bisect, Reflog-Wiederherstellung mit Rückgängig, Patches exportieren und anwenden, dazu Worktrees, Submodule und Sparse-Checkout."
+                      "text": "Rebase interaktiv oder auf eine Referenz, geführtes Bisect, eine Reflog-Ansicht, die verlorene Stände zurückholt und die letzte Aktion rückgängig macht, Patches exportieren und anwenden, dazu Worktrees, Submodule und Sparse-Checkout."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Ein git-Client, kein Forge-Client: Mit dem Remote spricht glimpse ausschließlich über git, also fetch, pull und push. Pull Requests und Issues bekommen keine Ansicht; die bleiben im Browser."
                 }
               ]
             },
@@ -759,7 +895,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Windows als .exe, Linux als .deb, .rpm oder AppImage — die zum System passende Datei herunterladen und ausführen. Ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell; einen Paketmanager-Eintrag gibt es nicht."
+                  "text": "Windows als .exe, Linux als .deb, .rpm oder AppImage. Die zum System passende Datei herunterladen und ausführen; ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell. Einen Paketmanager-Eintrag gibt es nicht."
                 }
               ]
             }
@@ -767,11 +903,11 @@
         },
         "en": {
           "tagline": "Lightweight, git-native desktop client",
-          "description": "A lightweight, git-native desktop Git client — the full branch graph, diffs, and everyday git, with first-class WSL support.",
+          "description": "The full branch graph, diffs and everyday git in an interface that drives your real git, WSL included.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "A lightweight, git-native desktop Git client — the full branch graph, diffs, and everyday git, with first-class WSL support."
+              "text": "The full branch graph, diffs and everyday git in an interface that drives your real git, WSL included."
             }
           ],
           "sections": [
@@ -780,11 +916,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Most git GUIs reimplement git: they ship their own implementation and diverge exactly where your config, hooks or credentials come in. The others bundle a complete Chromium and want several hundred megabytes of memory to show you a history."
+                  "text": "Most git GUIs reimplement git: they ship their own implementation and diverge exactly where your config, hooks or credentials come in. The others bundle a complete browser just to show you a history."
                 },
                 {
                   "type": "paragraph",
-                  "text": "glimpse shells out to your real git binary and parses its output. Config, hooks and credentials apply unchanged, signing works as configured, and the client stores no secrets of its own. The interface runs in the OS-native WebView rather than a bundled browser."
+                  "text": "glimpse shells out to your real git binary and parses its output. Your config, hooks and credentials keep working, signing works as configured, and the client stores no secrets of its own. The interface runs in the OS-native WebView rather than a bundled browser."
                 }
               ]
             },
@@ -803,8 +939,8 @@
                       "text": "nothing is written behind git's back; GPG and SSH signing work when configured, and LFS-tracked files are detected."
                     },
                     {
-                      "term": "First-class WSL",
-                      "text": "a repository under \\\\wsl$ is driven through that distro's git automatically, one under a Windows path through Windows git. No setup."
+                      "term": "WSL without setup",
+                      "text": "a repository under \\\\wsl$ is driven through that distro's git automatically, one under a Windows path through Windows git."
                     },
                     {
                       "term": "Graph and history",
@@ -820,7 +956,7 @@
                     },
                     {
                       "term": "Changelists",
-                      "text": "group pending changes into named sets and commit one at a time; membership lives as a readable JSON file in the repository and is reachable from a bundled CLI, so scripts and agents can drive it too."
+                      "text": "group pending changes into named sets and commit one at a time; membership lives as a readable JSON file in the repository's .git directory and is reachable from a bundled CLI, so scripts and agents can drive it too."
                     },
                     {
                       "term": "Advanced git",
@@ -831,11 +967,20 @@
               ]
             },
             {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "A git client, not a forge client: glimpse talks to the remote through git alone, meaning fetch, pull and push. Pull requests and issues get no view of their own; those stay in the browser."
+                }
+              ]
+            },
+            {
               "key": "install",
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Windows as .exe, Linux as .deb, .rpm or AppImage — download the file matching your system and run it. From there the built-in updater keeps the application current; there is no package-manager entry."
+                  "text": "Windows as .exe, Linux as .deb, .rpm or AppImage. Download the file matching your system and run it; from there the built-in updater keeps the application current. There is no package-manager entry."
                 }
               ]
             }
@@ -851,7 +996,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -863,11 +1008,11 @@
       "i18n": {
         "de": {
           "tagline": "Gerätegebundene Login-Sessions für Laravel",
-          "description": "Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer — mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig.",
+          "description": "Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer, mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer — mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig."
+              "text": "Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer, mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig."
             }
           ],
           "sections": [
@@ -876,11 +1021,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Laravel merkt sich genau ein Remember-Me-Token je Benutzer, in einer einzelnen Spalte. Daraus folgen zwei Ärgernisse: Wer sich auf dem Telefon abmeldet, fliegt auch am Rechner raus — und niemand kann sehen, welche Geräte überhaupt angemeldet sind. Nach einem verlorenen Laptop bleibt nur, das Passwort zu ändern und zu hoffen."
+                  "text": "Laravel merkt sich genau ein Remember-Me-Token je Benutzer, in einer einzelnen Spalte. Daraus folgen zwei Ärgernisse: Wer sich auf dem Telefon abmeldet, fliegt auch am Rechner raus, und niemand kann sehen, welche Geräte überhaupt angemeldet sind. Nach einem verlorenen Laptop bleibt nur, das Passwort zu ändern und zu hoffen."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Dieses Paket bindet je Gerät ein eigenes Token an eine Gerätezeile und ein Cookie. Damit wird die Liste der angemeldeten Geräte darstellbar, einzelne lassen sich gezielt abmelden, und die üblichen Daten dazu — System, Name, IP — werden datensparsam behandelt."
+                  "text": "Dieses Paket bindet je Gerät ein eigenes Token an eine Gerätezeile und ein Cookie. Damit wird die Liste der angemeldeten Geräte darstellbar, einzelne lassen sich gezielt abmelden, und die üblichen Daten dazu, also System, Name und IP, werden datensparsam behandelt."
                 }
               ]
             },
@@ -894,7 +1039,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Dazu der gerätebewusste Treiber in der Auth-Konfiguration — mehr braucht es nicht, damit die Geräteliste steht."
+                  "text": "Dazu der gerätebewusste Provider-Treiber in der Auth-Konfiguration und die mitgelieferte Middleware auf den angemeldeten Routen, damit steht die Geräteliste."
                 }
               ]
             },
@@ -925,14 +1070,23 @@
                       "text": "Namensauswertung, System-Erkennung, Cookie-Verhalten, IP-Maskierung und Token-Hashing sind Verträge mit brauchbaren Voreinstellungen."
                     },
                     {
-                      "term": "Schema konfigurierbar",
-                      "text": "Modelle, Tabellennamen und Schlüsseltypen lassen sich festlegen, bevor migriert wird."
+                      "term": "Fügt sich ins vorhandene Schema",
+                      "text": "Schlüsseltyp id, uuid oder ulid, damit der Fremdschlüssel auf die bestehende users-Tabelle passt; Tabellennamen und Modelle sind austauschbar, und die Migrationen lesen all das erst zur Laufzeit."
                     },
                     {
                       "term": "Ereignisgesteuert",
-                      "text": "ein Ereignis bei jedem Gerätezugriff erlaubt eigene Reaktionen, ohne dass das Paket Annahmen über das übrige Schema trifft."
+                      "text": "ein Ereignis, sobald der letzte Zugriff eines Geräts geschrieben wird (standardmäßig auf einmal pro Minute gedrosselt), erlaubt eigene Reaktionen, ohne dass das Paket Annahmen über das übrige Schema trifft."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Widerrufen trennt die Remember-Me-Ebene, nicht die laufende Session: Das Gerät kommt über sein Cookie nicht wieder herein, aber eine dort noch offene PHP-Session läuft weiter, bis sie abläuft oder der Benutzer sich abmeldet; in den Session-Store schreibt das Paket nie. Ein UI liefert es ebenso wenig mit: keine Routen, keine Views; Auflisten, Widerrufen und Umbenennen sind Actions für die eigenen Controller."
                 }
               ]
             },
@@ -950,11 +1104,11 @@
         },
         "en": {
           "tagline": "Device-bound login sessions for Laravel",
-          "description": "One remember-me token per device instead of a single one per user — with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic.",
+          "description": "One remember-me token per device instead of a single one per user, with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "One remember-me token per device instead of a single one per user — with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic."
+              "text": "One remember-me token per device instead of a single one per user, with a device list, targeted revoke and rename, privacy-respecting and Fortify-agnostic."
             }
           ],
           "sections": [
@@ -963,11 +1117,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Laravel remembers exactly one remember-me token per user, in a single column. Two annoyances follow: signing out on your phone signs you out on your desktop too — and nobody can see which devices are signed in at all. After a lost laptop all you can do is change the password and hope."
+                  "text": "Laravel remembers exactly one remember-me token per user, in a single column. Two annoyances follow: signing out on your phone signs you out on your desktop too, and nobody can see which devices are signed in at all. After a lost laptop all you can do is change the password and hope."
                 },
                 {
                   "type": "paragraph",
-                  "text": "This package binds a token per device to a device row and a cookie. That makes the list of signed-in devices presentable, lets individual ones be revoked, and treats the usual details — OS, name, IP — with restraint."
+                  "text": "This package binds a token per device to a device row and a cookie. That is what lets you show the list of signed-in devices at all and revoke a single one, and the usual details, meaning OS, name and IP, are handled with restraint."
                 }
               ]
             },
@@ -981,7 +1135,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Plus the device-aware driver in the auth config — that is all it takes for the device list to work."
+                  "text": "Plus the device-aware provider driver in the auth config and the bundled middleware on your authenticated routes. That is what the device list runs on."
                 }
               ]
             },
@@ -1009,17 +1163,26 @@
                     },
                     {
                       "term": "Overridable everywhere",
-                      "text": "name parsing, OS detection, cookie policy, IP masking and token hashing are contracts with sensible defaults."
+                      "text": "name parsing, OS detection, cookie policy, IP masking and token hashing are contracts with defaults you can live with."
                     },
                     {
-                      "term": "Configurable schema",
-                      "text": "models, table names and key types can be set before migrating."
+                      "term": "Fits the schema you have",
+                      "text": "key types id, uuid or ulid, so the foreign key lines up with the users table you already own; table names and models are swappable, and the migrations read all of it at run time."
                     },
                     {
                       "term": "Event-driven",
-                      "text": "an event on every device touch lets you react without the package assuming anything about the rest of your schema."
+                      "text": "an event whenever a device's last-seen is written (throttled to once a minute by default) lets you react without the package assuming anything about the rest of your schema."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Revoking cuts the remember-me layer, not the live session: the device cannot get back in through its cookie, but a PHP session still open there keeps running until it expires or the user signs out; the package never writes to the session store. Nor does it ship a UI: no routes, no views; listing, revoking and renaming are actions you call from your own controllers."
                 }
               ]
             },
@@ -1045,7 +1208,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -1057,11 +1220,11 @@
       "i18n": {
         "de": {
           "tagline": "Policy-basierte Zugriffssteuerung für Laravel",
-          "description": "Rollen und Berechtigungen an einer Stelle statt verstreut im Code — mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage.",
+          "description": "Rollen und Berechtigungen an einer Stelle statt verstreut im Code, mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Rollen und Berechtigungen an einer Stelle statt verstreut im Code — mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage."
+              "text": "Rollen und Berechtigungen an einer Stelle statt verstreut im Code, mit Mandantentrennung, Anbindung an Laravels Gate und einem Cache je Anfrage."
             }
           ],
           "sections": [
@@ -1070,11 +1233,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Sobald eine Anwendung mehr als eine Rolle kennt, wachsen die Berechtigungsprüfungen in den Code hinein: hier eine Abfrage auf die Rolle, dort ein Vergleich auf die Organisation, an dritter Stelle eine Sonderregel. Wer später beantworten soll, warum ein Benutzer etwas darf, muss die halbe Anwendung lesen."
+                  "text": "Sobald eine Anwendung mehr als eine Rolle kennt, wachsen die Berechtigungsprüfungen in den Code hinein: hier eine Abfrage auf die Rolle, dort ein Vergleich auf die Organisation, dazu die eine oder andere Sonderregel. Wer später beantworten soll, warum ein Benutzer etwas darf, muss die halbe Anwendung lesen."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Dieses Paket zieht die Entscheidung an eine Stelle und hängt sie an Laravels eigenes Gate, statt daneben ein zweites Berechtigungssystem aufzumachen. Vorhandene Aufrufe funktionieren unverändert weiter; die Antwort kommt nun aus Rollen und Berechtigungen, bei Bedarf im Kontext einer Organisation."
+                  "text": "Dieses Paket bündelt die Entscheidung und hängt sie an Laravels eigenes Gate, statt daneben ein zweites Berechtigungssystem aufzumachen. Vorhandene Aufrufe funktionieren unverändert weiter; die Antwort kommt nun aus Rollen und Berechtigungen, bei Bedarf im Kontext einer Organisation."
                 }
               ]
             },
@@ -1088,7 +1251,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Innerhalb des Blocks gelten die Rollen dieser Organisation; außerhalb bleibt der Benutzer, was er sonst ist."
+                  "text": "Ist die Mandantentrennung in der Konfiguration aktiviert, gelten im Block die Rollen dieser Organisation zusätzlich zu den globalen; außerhalb bleibt der Benutzer, was er sonst ist."
                 }
               ]
             },
@@ -1098,10 +1261,6 @@
                 {
                   "type": "list",
                   "items": [
-                    {
-                      "term": "Rollen und Berechtigungen",
-                      "text": "schlichte Eloquent-Modelle, die sich gegen eigene austauschen lassen, samt UUID-, ULID- oder Integer-Schlüsseln."
-                    },
                     {
                       "term": "Mandantentrennung",
                       "text": "organisationsbezogene Autorisierung mit austauschbarer Auflösung; Geltungsbereiche laufen nicht ineinander über."
@@ -1111,22 +1270,35 @@
                       "text": "can, allows und inspect funktionieren wie gewohnt, mit Rückfall auf die bereits vorhandenen Laravel-Gates."
                     },
                     {
-                      "term": "Entscheidungs-Cache je Request",
+                      "term": "Entscheidungs-Cache je Anfrage",
                       "text": "wiederholte Prüfungen innerhalb einer Anfrage kosten nichts und werden bei Änderungen an Rollen oder Rechten automatisch verworfen."
                     },
                     {
                       "term": "Nachvollziehbare Entscheidungen",
-                      "text": "optional wird protokolliert, warum eine Prüfung so ausging, wie sie ausging; in Produktion standardmäßig geschwärzt."
+                      "text": "jede Prüfung trägt ihren Entscheidungsweg, auf Wunsch wird er protokolliert; in Produktion ist er standardmäßig geschwärzt."
                     },
                     {
                       "term": "Octane-fest",
-                      "text": "optionale Listener setzen den Zustand am Ende einer Anfrage zurück, sodass zwischen zwei Requests nichts stehen bleibt."
+                      "text": "optionale Listener setzen den Zustand am Ende einer Anfrage zurück, sodass zwischen zwei Anfragen nichts stehen bleibt."
                     },
                     {
-                      "term": "Durchgehend konfigurierbar",
-                      "text": "Modelle, Tabellen, Spalten und Schlüsseltypen sind überschreibbar, UUID-Installationen funktionieren ohne Zutun."
+                      "term": "Austauschbar",
+                      "text": "Rollen und Berechtigungen sind schlichte Eloquent-Modelle; Modelle, Tabellen, Spalten und Schlüsseltypen lassen sich überschreiben, Schlüssel wahlweise als UUID, ULID oder Integer."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Berechtigungen fließen ausschließlich über Rollen: Eine Direktvergabe an einzelne Benutzer gibt es bewusst nicht, ebenso wenig Wildcards oder ein eigenes Guard-Konzept. Fähigkeiten tragen explizite Namen und laufen über das Gate. Auch eigene Middleware und Blade-Direktiven bringt das Paket keine mit, denn Laravels can-Middleware und @can gehen ohnehin durch das Gate."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Wer von spatie/laravel-permission umsteigt, findet genau diese Unterschiede in einem eigenen Migrationsleitfaden ausgearbeitet, samt Artisan-Befehl für die Datenübernahme."
                 }
               ]
             },
@@ -1136,7 +1308,11 @@
                 {
                   "type": "code",
                   "language": "bash",
-                  "code": "composer require kirchdev/laravel-pbac"
+                  "code": "composer require kirchdev/laravel-pbac\nphp artisan vendor:publish --tag=pbac-config\nphp artisan vendor:publish --tag=pbac-migrations\nphp artisan migrate"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Der Config-Schritt ist optional, gehört aber vor die Migration, sobald Modelle, Tabellen oder Schlüsseltypen abweichen sollen: Die Schlüsseltypen wandern fest ins Schema."
                 }
               ]
             }
@@ -1144,11 +1320,11 @@
         },
         "en": {
           "tagline": "Policy-based access control for Laravel",
-          "description": "Roles and permissions in one place instead of scattered through the code — with tenant scoping, Laravel Gate integration and a per-request cache.",
+          "description": "Roles and permissions in one place instead of scattered through the code, with tenant scoping, Laravel Gate integration and a per-request cache.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Roles and permissions in one place instead of scattered through the code — with tenant scoping, Laravel Gate integration and a per-request cache."
+              "text": "Roles and permissions in one place instead of scattered through the code, with tenant scoping, Laravel Gate integration and a per-request cache."
             }
           ],
           "sections": [
@@ -1157,11 +1333,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "As soon as an application knows more than one role, permission checks grow into the code: a role lookup here, an organisation comparison there, a special case in a third place. Anyone later asked why a user is allowed to do something has to read half the application."
+                  "text": "As soon as an application knows more than one role, permission checks creep into the code: a role lookup here, an organisation comparison there, and the odd special case on top. Anyone later asked why a user is allowed to do something has to read half the application."
                 },
                 {
                   "type": "paragraph",
-                  "text": "This package pulls the decision into one place and hooks it into Laravel's own Gate rather than standing up a second permission system beside it. Existing calls keep working unchanged; the answer now comes from roles and permissions, scoped to an organisation where needed."
+                  "text": "This package consolidates the decision and hooks it into Laravel's own Gate rather than standing up a second permission system beside it. Existing calls keep working unchanged; the answer now comes from roles and permissions, scoped to an organisation where needed."
                 }
               ]
             },
@@ -1175,7 +1351,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Inside the closure that organisation's roles apply; outside it the user stays whatever they otherwise are."
+                  "text": "With organisation scoping enabled in the config, that organisation's roles apply inside the closure on top of the global ones; outside it the user stays whatever they otherwise are."
                 }
               ]
             },
@@ -1185,10 +1361,6 @@
                 {
                   "type": "list",
                   "items": [
-                    {
-                      "term": "Roles and permissions",
-                      "text": "plain Eloquent models you can swap out for your own, with UUID, ULID or integer keys."
-                    },
                     {
                       "term": "Tenant scoping",
                       "text": "organisation-scoped authorization with a pluggable resolver; scopes never bleed into one another."
@@ -1203,17 +1375,30 @@
                     },
                     {
                       "term": "Traceable decisions",
-                      "text": "an opt-in record of why a check returned what it did, redacted in production by default."
+                      "text": "every check carries its decision trail, and logging it is opt-in; in production it is redacted by default."
                     },
                     {
                       "term": "Octane-aware",
-                      "text": "optional listeners reset state at the end of a request, so nothing carries over between two of them."
+                      "text": "optional listeners reset state at the end of a request, so nothing carries over between requests."
                     },
                     {
-                      "term": "Configurable throughout",
-                      "text": "models, tables, columns and key types are all overridable, and UUID setups work out of the box."
+                      "term": "Swappable throughout",
+                      "text": "roles and permissions are plain Eloquent models; models, tables, columns and key types are all overridable, keys as UUID, ULID or integer."
                     }
                   ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Permissions travel through roles only: there is deliberately no direct grant to individual users, no wildcard abilities, and no guard concept of its own. Abilities carry explicit names and resolve through the Gate. The package also ships no middleware and no Blade directives, since Laravel's can middleware and @can already go through the Gate."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Coming from spatie/laravel-permission, exactly these differences are worked through in a dedicated migration guide, complete with an Artisan command that moves the data across."
                 }
               ]
             },
@@ -1223,7 +1408,287 @@
                 {
                   "type": "code",
                   "language": "bash",
-                  "code": "composer require kirchdev/laravel-pbac"
+                  "code": "composer require kirchdev/laravel-pbac\nphp artisan vendor:publish --tag=pbac-config\nphp artisan vendor:publish --tag=pbac-migrations\nphp artisan migrate"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The config step is optional, but it belongs before the migration whenever models, tables or key types are meant to differ: the key types are baked into the schema."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "linear-github-sync",
+      "owner": "kirchDev",
+      "kind": "own",
+      "category": "other",
+      "technologies": ["typescript", "cloudflare", "linear", "github"],
+      "archived": false,
+      "links": [],
+      "i18n": {
+        "de": {
+          "tagline": "Ergänzt die Linear-GitHub-Synchronisation",
+          "description": "Ein Cloudflare Worker, der nachträgt, was der eingebaute Abgleich zwischen Linear und GitHub nicht überträgt: von der Priorität bis zum Stand der Agenten-Arbeit.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Ein Cloudflare Worker, der nachträgt, was der eingebaute Abgleich zwischen Linear und GitHub nicht überträgt: von der Priorität bis zum Stand der Agenten-Arbeit."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Der native Abgleich spiegelt Issues, Labels und Status. Was auf der einen Seite ein Feld und auf der anderen ein Label ist, hat dabei kein Gegenstück: Die in Linear gepflegte Priorität taucht auf GitHub nicht auf, und wenn mehrere Repositories in dasselbe Linear-Team synchronisieren, ist dort nicht erkennbar, aus welchem ein Issue stammt."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Der Worker trägt das nach. Er hört auf Linears Webhooks, gleicht bei jeder Änderung ab und schreibt, was dem jeweils anderen System fehlt: Felder werden zu Labels, Labels zu Workflow-States, die Herkunft zu einem Label am Linear-Issue."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Priorität als Label, auf beiden Seiten",
+                      "text": "die in Linear gesetzte Priorität wird als priority-Label auf das GitHub-Issue und das Linear-Issue geschrieben; bringt ein neues GitHub-Issue schon eines mit, füllt es umgekehrt das Linear-Feld."
+                    },
+                    {
+                      "term": "Quell-Repository als Linear-Label",
+                      "text": "synchronisierte Issues erhalten ein repo-Label mit Eigentümer und Name, abgeleitet aus dem Anhang des nativen Syncs."
+                    },
+                    {
+                      "term": "Brücke zum Agenten-Workflow",
+                      "text": "ai-Labels auf GitHub spiegeln sich in Linear-Workflow-States und auf den verknüpften Pull Requests; abgeschlossene Issues räumen ihre ai-Labels auf beiden Seiten ab."
+                    },
+                    {
+                      "term": "Webhook plus Backstop",
+                      "text": "ein Linear-Webhook gleicht Änderungen sofort ab, ein Lauf alle fünf Minuten fängt verlorene Ereignisse; einen eigenen Server gibt es nicht."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Ersetzt den nativen Abgleich nicht, sondern setzt ihn voraus: Issues spiegelt weiterhin Linears eigene GitHub-Integration, und die Verknüpfung der beiden Seiten stellt der Worker nicht selbst her. Er liest sie nur und trägt nach, was auf dem Weg verloren geht."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Fills the gaps in the Linear-GitHub sync",
+          "description": "A Cloudflare Worker that carries across what the built-in sync between Linear and GitHub does not: from priority to the state of agent work.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "A Cloudflare Worker that carries across what the built-in sync between Linear and GitHub does not: from priority to the state of agent work."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The native sync mirrors issues, labels and states. A value that is a field on one side and a label on the other has no counterpart to land in: the priority maintained in Linear does not surface on GitHub, and when several repositories sync into the same Linear team, nothing shows which repository an issue came from."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The Worker carries that across. It listens to Linear's webhooks, reconciles on every change, and writes what the other side is missing: fields become labels, labels become workflow states, the source repository becomes a label on the Linear issue."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Priority as a label, on both sides",
+                      "text": "the priority set in Linear is written as a priority label onto the GitHub issue and the Linear issue; a new GitHub issue that already carries one seeds the Linear field the other way round."
+                    },
+                    {
+                      "term": "Source repository as a Linear label",
+                      "text": "synced issues get a repo label with owner and name, derived from the native sync's attachment."
+                    },
+                    {
+                      "term": "A bridge to the agent workflow",
+                      "text": "ai labels on GitHub are mirrored into Linear workflow states and onto the linked pull requests; finished issues have their ai labels cleaned up on both sides."
+                    },
+                    {
+                      "term": "Webhook plus backstop",
+                      "text": "a Linear webhook reconciles changes immediately, a run every five minutes catches dropped events; there is no server to run."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "This does not replace the native sync, it depends on it. Mirroring issues remains the job of Linear's own GitHub integration, and the Worker never links the two sides itself; it reads the link the sync leaves behind and carries across what would otherwise be lost."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "saas-template",
+      "owner": "TitusKirch-archive",
+      "kind": "oss",
+      "category": "template",
+      "technologies": [
+        "php",
+        "typescript",
+        "laravel",
+        "nuxt",
+        "vue",
+        "pnpm",
+        "docker",
+        "cloudflare",
+        "github-actions"
+      ],
+      "license": "MIT",
+      "stars": 6,
+      "updatedAt": "2026-05-21",
+      "archived": true,
+      "repository": "https://github.com/TitusKirch-archive/saas-template",
+      "links": [],
+      "i18n": {
+        "de": {
+          "tagline": "Vorlage für SaaS-Anwendungen mit Laravel und Nuxt",
+          "description": "Eine Repository-Vorlage, die Laravel als Backend und Nuxt als Frontend in einem Monorepo zusammenbringt, samt fertigen Wegen zum Ausliefern.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Eine Repository-Vorlage, die Laravel als Backend und Nuxt als Frontend in einem Monorepo zusammenbringt, samt fertigen Wegen zum Ausliefern."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Eine SaaS-Anwendung beginnt selten bei der Fachlichkeit. Zuerst sind zwei Anwendungen aufzusetzen, ihre gemeinsamen Typen zu teilen, Docker-Images zu bauen und zwei verschiedene Ziele zu beliefern: Das Frontend geht auf ein CDN, das Backend auf einen Server. Diese Arbeit fällt bei jedem neuen Projekt wieder an."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Die Vorlage nimmt sie vorweg. Backend, Frontend, geteilte Pakete und die Auslieferung sind verdrahtet, sodass ein neues Projekt bei der Fachlichkeit anfängt."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Laravel und Nuxt in einem Repository",
+                      "text": "Services und Apps liegen nebeneinander statt in zwei Repositories, die man synchron halten muss."
+                    },
+                    {
+                      "term": "Geteilte Pakete",
+                      "text": "ESLint-, TypeScript- und Basis-Konfiguration liegen einmal unter packages und werden von den Apps gemeinsam genutzt."
+                    },
+                    {
+                      "term": "Auslieferung vorbereitet",
+                      "text": "Workflows bauen Docker-Images für die GitHub Container Registry; die Apps gehen nach Cloudflare Pages, der API-Service zu Laravel Forge, getrennt nach Entwicklung, Stage und Produktion."
+                    },
+                    {
+                      "term": "Monorepo-Werkzeuge eingerichtet",
+                      "text": "pnpm-Workspaces und Turborepo sind konfiguriert, einschließlich der Abhängigkeiten zwischen den Teilen."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Die Vorlage bleibt als Referenz online, für den Zuschnitt eines Laravel-und-Nuxt-Monorepos und die Auslieferungswege, die dazugehören."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "SaaS application template built on Laravel and Nuxt",
+          "description": "A repository template that brings Laravel as the backend and Nuxt as the frontend together in one monorepo, with the paths to ship it already wired up.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "A repository template that brings Laravel as the backend and Nuxt as the frontend together in one monorepo, with the paths to ship it already wired up."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "A SaaS application rarely starts with the domain. First there are two applications to set up, shared types to pass between them, Docker images to build and two different targets to deliver to: the frontend goes to a CDN, the backend to a server. That work comes up again with every new project."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The template does that work up front. Backend, frontend, shared packages and delivery are wired up, so a new project starts at the domain."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Laravel and Nuxt in one repository",
+                      "text": "services and apps live side by side instead of in two repositories that have to be kept in step."
+                    },
+                    {
+                      "term": "Shared packages",
+                      "text": "ESLint, TypeScript and base configuration live once under packages and are shared by the apps."
+                    },
+                    {
+                      "term": "Delivery prepared",
+                      "text": "workflows build Docker images for the GitHub Container Registry; the apps go to Cloudflare Pages, the API service to Laravel Forge, split into development, staging and production."
+                    },
+                    {
+                      "term": "Monorepo tooling in place",
+                      "text": "pnpm workspaces and Turborepo are configured, including the dependencies between the parts."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The template stays online as a reference, for the shape of a Laravel-and-Nuxt monorepo and the delivery paths that go with it."
                 }
               ]
             }
@@ -1239,18 +1704,18 @@
       "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/TitusKirch/scaffold",
       "links": [],
       "i18n": {
         "de": {
           "tagline": "Sprachunabhängige Vorlage für neue Repositories",
-          "description": "Sprachunabhängige Basis-Vorlage für neue kirchDev-Repositories.",
+          "description": "Alles, was ein Repository am ersten Tag braucht, von Linting und Commit-Hooks über CI und Sicherheits-Scans bis zu den üblichen Meta-Dokumenten, ohne eine Zeile Projektcode vorzugeben.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Sprachunabhängige Basis-Vorlage für neue kirchDev-Repositories."
+              "text": "Alles, was ein Repository am ersten Tag braucht, von Linting und Commit-Hooks über CI und Sicherheits-Scans bis zu den üblichen Meta-Dokumenten, ohne eine Zeile Projektcode vorzugeben."
             }
           ],
           "sections": [
@@ -1259,11 +1724,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Jedes neue Repository braucht dieselbe Schicht, bevor die erste Zeile Projektcode entsteht: Linting, Formatierung, Commit-Hooks, CI, Sicherheitsprüfungen, Abhängigkeits-Updates, Issue-Vorlagen und die üblichen Meta-Dokumente. Von Hand zusammengesucht ist das eine halbe Stunde, und beim dritten Repository weicht es bereits ab."
+                  "text": "Bevor in einem neuen Repository die eigentliche Arbeit beginnt, steht jedes Mal dieselbe Meta-Schicht an, und von Hand zusammengesucht weicht sie zwischen zwei Repositories unweigerlich voneinander ab. Dann prüft jedes Repository etwas anderes, und eine Korrektur an der Schicht erreicht nur das eine, in dem sie gemacht wurde."
                 },
                 {
                   "type": "paragraph",
-                  "text": "scaffold hält diese Schicht an einer Stelle fest. Der Projektcode selbst darf alles sein — PHP, Go, Rust, Vue oder Shell —, denn die Vorlage enthält keinen. Sie beantwortet nur die Frage, was ein Repository am ersten Tag mitbringen soll."
+                  "text": "scaffold bündelt diese Schicht in einem Template-Repository. Der Projektcode selbst darf alles sein, ob PHP, Go, Rust, Vue oder Shell, denn die Vorlage enthält keinen. Sie beantwortet nur die Frage, was ein Repository am ersten Tag mitbringen soll."
                 }
               ]
             },
@@ -1277,7 +1742,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Oder über „Use this template\" auf GitHub; danach bleiben nur ein paar Platzhalter zu ersetzen."
+                  "text": "Oder über „Use this template“ auf GitHub; welche Platzhalter danach zu ersetzen sind, listet das README."
                 }
               ]
             },
@@ -1288,12 +1753,12 @@
                   "type": "list",
                   "items": [
                     {
-                      "term": "Node und pnpm festgenagelt",
-                      "text": "die Version steht in .nvmrc, engines und packageManager, damit alle Beteiligten und die CI dieselbe benutzen."
+                      "term": "Node und pnpm fixiert",
+                      "text": "Node über .nvmrc und engines, pnpm über packageManager, damit alle Beteiligten und die CI dieselbe Version benutzen."
                     },
                     {
                       "term": "Linting und Formatierung über oxc",
-                      "text": "oxlint und oxfmt hinter einem einzigen Prüfbefehl, der auch in der CI läuft."
+                      "text": "oxlint und oxfmt hinter einem gemeinsamen Prüfbefehl; die CI fährt dieselben Prüfungen."
                     },
                     {
                       "term": "Commit-Hooks",
@@ -1304,12 +1769,12 @@
                       "text": "Dependabot fasst Minor- und Patch-Updates je Ökosystem zu einem Pull Request zusammen; große Sprünge kommen einzeln."
                     },
                     {
-                      "term": "Workflows",
-                      "text": "Lint und Formatprüfung im Pull Request, CodeQL bei Push, im Pull Request und wöchentlich."
+                      "term": "CodeQL",
+                      "text": "Sicherheitsanalyse bei Push, im Pull Request und wöchentlich."
                     },
                     {
                       "term": "Release-Automatik",
-                      "text": "release-please erzeugt Version und Changelog aus den Commits, sodass ein neues Repository vom ersten Commit an veröffentlichen kann."
+                      "text": "release-please erzeugt Version und Changelog aus der Commit-Historie statt von Hand."
                     },
                     {
                       "term": "Vorlagen und Meta-Dokumente",
@@ -1317,7 +1782,7 @@
                     },
                     {
                       "term": "Für Agenten vorbereitet",
-                      "text": "CLAUDE.md und AGENTS.md werden byte-identisch gehalten, dazu kommt eine durchdachte Basis-Rechtevergabe."
+                      "text": "CLAUDE.md und AGENTS.md werden byte-identisch gehalten, dazu eine Basis-Rechtevergabe für Claude Code und Codex, deren Gleichlauf die CI prüft."
                     }
                   ]
                 }
@@ -1328,7 +1793,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Die Vorlage besitzt nur die Meta-Schicht. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben bewusst außen vor — sonst wäre sie eine Vorlage für genau eine Art von Projekt statt für alle."
+                  "text": "Die Vorlage besitzt nur die Meta-Schicht. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben außen vor. Sonst wäre sie eine Vorlage für genau eine Art von Projekt statt für alle."
                 }
               ]
             }
@@ -1336,11 +1801,11 @@
         },
         "en": {
           "tagline": "Language-agnostic template for new repositories",
-          "description": "Language-agnostic baseline template for new kirchDev repositories.",
+          "description": "Everything a repository needs on day one, from linting and commit hooks to CI, security scanning and the usual meta documents, without prescribing a single line of project code.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Language-agnostic baseline template for new kirchDev repositories."
+              "text": "Everything a repository needs on day one, from linting and commit hooks to CI, security scanning and the usual meta documents, without prescribing a single line of project code."
             }
           ],
           "sections": [
@@ -1349,11 +1814,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Every new repository needs the same layer before the first line of project code exists: linting, formatting, commit hooks, CI, security scanning, dependency updates, issue templates and the usual meta documents. Assembled by hand that is half an hour, and by the third repository it has already drifted."
+                  "text": "Before real work starts in a new repository, the same meta layer has to be in place, and assembled by hand it drifts apart between one repository and the next. Each repository then checks something slightly different, and a fix to the layer only reaches the one it was made in."
                 },
                 {
                   "type": "paragraph",
-                  "text": "scaffold pins that layer down in one place. The project code itself can be anything — PHP, Go, Rust, Vue or shell — because the template contains none. It answers only the question of what a repository should ship with on day one."
+                  "text": "scaffold bundles that layer into a template repository. The project code itself can be anything, be it PHP, Go, Rust, Vue or shell, because the template contains none. It answers only the question of what a repository should ship with on day one."
                 }
               ]
             },
@@ -1367,7 +1832,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Or through \"Use this template\" on GitHub; after that only a handful of placeholders need replacing."
+                  "text": "Or through \"Use this template\" on GitHub; the README lists the placeholders to replace afterwards."
                 }
               ]
             },
@@ -1379,11 +1844,11 @@
                   "items": [
                     {
                       "term": "Node and pnpm pinned",
-                      "text": "the version lives in .nvmrc, engines and packageManager, so every contributor and CI runs the same one."
+                      "text": "Node through .nvmrc and engines, pnpm through packageManager, so every contributor and CI runs the same version."
                     },
                     {
                       "term": "Linting and formatting via oxc",
-                      "text": "oxlint and oxfmt behind a single check command, which CI runs too."
+                      "text": "oxlint and oxfmt behind one shared check command; CI runs the same checks."
                     },
                     {
                       "term": "Commit hooks",
@@ -1394,12 +1859,12 @@
                       "text": "Dependabot groups minor and patch updates per ecosystem into one pull request; majors arrive separately."
                     },
                     {
-                      "term": "Workflows",
-                      "text": "lint and format check on pull requests, CodeQL on push, on pull requests and weekly."
+                      "term": "CodeQL",
+                      "text": "security analysis on push, on pull requests and weekly."
                     },
                     {
                       "term": "Release automation",
-                      "text": "release-please derives version and changelog from the commits, so a new repository can publish from its first commit."
+                      "text": "release-please derives version and changelog from the commit history instead of by hand."
                     },
                     {
                       "term": "Templates and meta documents",
@@ -1407,7 +1872,7 @@
                     },
                     {
                       "term": "Agent-ready",
-                      "text": "CLAUDE.md and AGENTS.md are kept byte-identical, alongside a considered baseline permission policy."
+                      "text": "CLAUDE.md and AGENTS.md are kept byte-identical, plus a baseline permission policy for Claude Code and Codex whose parity CI checks."
                     }
                   ]
                 }
@@ -1418,7 +1883,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "The template owns the meta layer only. Application code, framework choices and project structure are deliberately left out — otherwise it would be a template for exactly one kind of project instead of all of them."
+                  "text": "The template owns the meta layer only. Application code, framework choices and project structure are left out. Otherwise it would be a template for exactly one kind of project instead of all of them."
                 }
               ]
             }
@@ -1434,23 +1899,23 @@
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-05",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
         {
           "type": "website",
-          "url": "https://skills.sh"
+          "url": "https://skills.sh/TitusKirch/skills"
         }
       ],
       "i18n": {
         "de": {
           "tagline": "Agent-Skills für Claude Code, Codex, Cursor und OpenCode",
-          "description": "Agent-Skills von Titus Kirch — über skills.sh installierbar in Claude Code, Codex, Cursor, OpenCode und verwandten Werkzeugen.",
+          "description": "Wiederkehrende Arbeitsabläufe wie Commit, Pull Request, Issue, Review und Release einmal als Skill beschrieben statt in jeder CLAUDE.md neu; installierbar über skills.sh.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Agent-Skills von Titus Kirch — über skills.sh installierbar in Claude Code, Codex, Cursor, OpenCode und verwandten Werkzeugen."
+              "text": "Wiederkehrende Arbeitsabläufe wie Commit, Pull Request, Issue, Review und Release einmal als Skill beschrieben statt in jeder CLAUDE.md neu; installierbar über skills.sh."
             }
           ],
           "sections": [
@@ -1463,7 +1928,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Ein Skill zieht dieses Wissen aus dem einzelnen Projekt heraus. Es ist ein Ordner mit einer SKILL.md — Frontmatter plus Anleitung, daneben optional Vorlagen, Referenzen und Skripte. Kein Laufzeitcode: Was der Skill kann, steht als Text darin, und das Werkzeug liest ihn genau dann, wenn die Aufgabe dazu passt."
+                  "text": "Ein Skill zieht dieses Wissen aus dem einzelnen Projekt heraus. Er ist ein Ordner mit einer SKILL.md aus Frontmatter und Anleitung, daneben Vorlagen, Referenzen und kleine Hilfsskripte. Was ein Skill den Agenten tun lässt, steht als Text darin, und das Werkzeug liest ihn genau dann, wenn die Aufgabe dazu passt."
                 }
               ]
             },
@@ -1477,7 +1942,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Danach kennt der Agent die Skills und zieht den passenden von selbst heran, sobald eine Aufgabe darauf fällt."
+                  "text": "Ein Befehl, und jeder Skill des Bundles ist im Agenten auffindbar. Kein Manifest zu pflegen, keine Symlinks zu setzen. Den passenden zieht der Agent anhand der Beschreibung in der jeweiligen SKILL.md heran, sobald eine Aufgabe danach verlangt."
                 }
               ]
             },
@@ -1488,16 +1953,20 @@
                   "type": "list",
                   "items": [
                     {
-                      "term": "Kein Laufzeitcode",
-                      "text": "ein Skill ist Text; was er den Agenten tun lässt, ist vor der Installation lesbar, und ein einzelner lässt sich herausnehmen oder anpassen."
+                      "term": "Vor der Installation lesbar",
+                      "text": "ein Skill besteht aus Text und höchstens einem kleinen Shell-Helfer, der die Repo-Konfiguration ausliest; was er den Agenten tun lässt, steht offen da, und ein einzelner lässt sich herausnehmen oder anpassen."
                     },
                     {
                       "term": "Werkzeugübergreifend",
-                      "text": "dieselben Dateien bedienen Claude Code, Codex, Cursor und OpenCode; die Installation legt sie an beiden Orten ab, die diese Werkzeuge lesen."
+                      "text": "dieselben Dateien bedienen Claude Code, Codex, Cursor und OpenCode; die Installation legt sie dort ab, wo das jeweilige Werkzeug sie liest."
                     },
                     {
                       "term": "Der ganze Arbeitsablauf",
                       "text": "Commit, Pull Request, Issue, Review, Release, Dokumentation und Abhängigkeits-Updates, jeweils als eigener Skill."
+                    },
+                    {
+                      "term": "Arbeitsschleife für Agenten",
+                      "text": "Issues implementieren, pushen und von einem zweiten, unabhängigen Agenten prüfen lassen, einzeln oder als ganze Warteschlange."
                     },
                     {
                       "term": "Pro Repository konfigurierbar",
@@ -1512,12 +1981,36 @@
               ]
             },
             {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Kein generisches Skill-Framework: Die Sammlung kodiert die Konventionen ihres Autors. Der Hausstil, den die Docs-Skills schreiben, also README-Aufbau, Sektions-Emojis und Badge-Palette, ist gesetzt, damit jedes Repository gleich aussieht. Wer anders arbeitet, passt den einzelnen Skill an; eine Einstellung dafür gibt es nicht."
+                }
+              ]
+            },
+            {
               "key": "install",
               "blocks": [
                 {
                   "type": "code",
-                  "language": "bash",
-                  "code": "npx skills add TitusKirch/skills        # npm\npnpm dlx skills add TitusKirch/skills   # pnpm\nbunx skills add TitusKirch/skills       # bun"
+                  "language": "pnpm",
+                  "code": "pnpm dlx skills add TitusKirch/skills"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
+                  "code": "npx skills add TitusKirch/skills"
+                },
+                {
+                  "type": "code",
+                  "language": "yarn",
+                  "code": "yarn dlx skills add TitusKirch/skills"
+                },
+                {
+                  "type": "code",
+                  "language": "bun",
+                  "code": "bunx skills add TitusKirch/skills"
                 }
               ]
             }
@@ -1525,11 +2018,11 @@
         },
         "en": {
           "tagline": "Agent skills for Claude Code, Codex, Cursor and OpenCode",
-          "description": "Agent skills by Titus Kirch — installable via skills.sh in Claude Code, Codex, Cursor, OpenCode and friends.",
+          "description": "Recurring workflows like commit, pull request, issue, review and release described once as skills instead of in every CLAUDE.md; installable via skills.sh.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Agent skills by Titus Kirch — installable via skills.sh in Claude Code, Codex, Cursor, OpenCode and friends."
+              "text": "Recurring workflows like commit, pull request, issue, review and release described once as skills instead of in every CLAUDE.md; installable via skills.sh."
             }
           ],
           "sections": [
@@ -1542,7 +2035,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "A skill lifts that knowledge out of the individual project. It is a folder holding a SKILL.md — frontmatter plus instructions, with optional templates, references and scripts beside it. No runtime code: what the skill can do is written in it as text, and the tool reads it exactly when the task calls for it."
+                  "text": "A skill lifts that knowledge out of the individual project. It is a folder holding a SKILL.md of frontmatter plus instructions, with templates, references and small helper scripts beside it. What it makes the agent do is written down as text, and the tool reads it exactly when the task calls for it."
                 }
               ]
             },
@@ -1556,7 +2049,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "From then on the agent knows the skills and reaches for the right one by itself when a task calls for it."
+                  "text": "One command, and every skill in the bundle is discoverable inside the agent. No manifest to edit, no symlinks to manage. The agent routes to the right one by each skill's description in its SKILL.md the moment a task warrants it."
                 }
               ]
             },
@@ -1567,16 +2060,20 @@
                   "type": "list",
                   "items": [
                     {
-                      "term": "No runtime code",
-                      "text": "a skill is text; what it makes the agent do is readable before you install it, and a single one can be lifted out or adapted."
+                      "term": "Readable before you install",
+                      "text": "a skill is text plus at most a small shell helper that reads the repo config; what it makes the agent do is out in the open, and a single one can be lifted out or adapted."
                     },
                     {
                       "term": "Tool-agnostic",
-                      "text": "the same files serve Claude Code, Codex, Cursor and OpenCode; installing puts them in both of the locations those tools read."
+                      "text": "the same files serve Claude Code, Codex, Cursor and OpenCode; installing puts them where each tool looks for them."
                     },
                     {
                       "term": "The whole workflow",
                       "text": "commit, pull request, issue, review, release, documentation and dependency updates, each as its own skill."
+                    },
+                    {
+                      "term": "A work loop for agents",
+                      "text": "implement an issue, push it, and have a second, independent agent review it, one at a time or as a whole queue."
                     },
                     {
                       "term": "Configurable per repository",
@@ -1591,12 +2088,36 @@
               ]
             },
             {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "This is not a generic skill framework: the collection encodes its author's conventions. The house style the docs skills write, meaning README layout, section emojis and badge palette, is prescribed so every repository comes out the same. Working differently means adapting the individual skill; there is no setting for it."
+                }
+              ]
+            },
+            {
               "key": "install",
               "blocks": [
                 {
                   "type": "code",
-                  "language": "bash",
-                  "code": "npx skills add TitusKirch/skills        # npm\npnpm dlx skills add TitusKirch/skills   # pnpm\nbunx skills add TitusKirch/skills       # bun"
+                  "language": "pnpm",
+                  "code": "pnpm dlx skills add TitusKirch/skills"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
+                  "code": "npx skills add TitusKirch/skills"
+                },
+                {
+                  "type": "code",
+                  "language": "yarn",
+                  "code": "yarn dlx skills add TitusKirch/skills"
+                },
+                {
+                  "type": "code",
+                  "language": "bun",
+                  "code": "bunx skills add TitusKirch/skills"
                 }
               ]
             }
@@ -1609,10 +2130,10 @@
       "owner": "kirchDev",
       "kind": "oss",
       "category": "iac",
-      "technologies": ["go", "terraform", "opentofu"],
+      "technologies": ["go", "terraform", "opentofu", "discord"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-discord",
       "links": [
@@ -1628,11 +2149,11 @@
       "i18n": {
         "de": {
           "tagline": "OpenTofu-/Terraform-Provider für Discord",
-          "description": "Discord-Guild-Infrastruktur als Code verwalten — Rollen, Kanäle, Berechtigungen, Mitglieder, Webhooks, Events und Moderation, abgeglichen durch OpenTofu.",
+          "description": "Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen dabei als Namen im Code, nicht als Bitfelder.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Discord-Guild-Infrastruktur als Code verwalten — Rollen, Kanäle, Berechtigungen, Mitglieder, Webhooks, Events und Moderation, abgeglichen durch OpenTofu."
+              "text": "Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen dabei als Namen im Code, nicht als Bitfelder."
             }
           ],
           "sections": [
@@ -1641,11 +2162,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Eine gewachsene Discord-Guild ist schwer zu prüfen. Rechte werden im Vorbeigehen vergeben, eine Rolle bekommt „nur kurz\" eine Berechtigung mehr, und ein halbes Jahr später kann niemand sagen, wer was darf und seit wann. Discords Berechtigungen als Bitfelder machen das nicht besser."
+                  "text": "Wer in einer Discord-Guild was darf, lässt sich in der Oberfläche nur Rolle für Rolle und Kanal für Kanal nachsehen. Discord speichert Berechtigungen als Bitfelder, also sagt auch die API es nicht im Klartext."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Als HCL steht die Antwort im Repository, Änderungen laufen durch ein Review, und eine zweite Guild — für Tests oder eine weitere Community — ist eine Kopie mit anderen Variablen statt einer Woche Klickarbeit."
+                  "text": "In HCL ist die gesamte Berechtigungsvergabe als Ganzes lesbar. Der Provider übersetzt dabei benannte Berechtigungen in die Bitfelder, sodass im Code Namen stehen und keine Zahlen."
                 }
               ]
             },
@@ -1659,7 +2180,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Die Berechtigungen kommen aus einer Datenquelle mit benannten Rechten, statt als handgerechnetes Bitfeld im Code zu stehen."
+                  "text": "Die Berechtigungen kommen benannt aus einer Datenquelle, statt als handgerechnetes Bitfeld im Code zu stehen."
                 }
               ]
             },
@@ -1667,25 +2188,17 @@
               "key": "features",
               "blocks": [
                 {
-                  "type": "list",
-                  "items": [
-                    {
-                      "term": "Discord als Code",
-                      "text": "Rollen, Kanäle, Rechte-Überschreibungen, Mitglieder, Webhooks, Einladungen, Events und Moderationseinstellungen in HCL."
-                    },
-                    {
-                      "term": "Breite API-Abdeckung",
-                      "text": "rund 24 Ressourcen und 9 Datenquellen über die Verwaltung einer Guild."
-                    },
-                    {
-                      "term": "Handhabbare Berechtigungen",
-                      "text": "eine Datenquelle übersetzt benannte Rechte in die Bitfelder, die Discord erwartet; niemand rechnet Zahlen von Hand zusammen."
-                    },
-                    {
-                      "term": "Rate-Limits berücksichtigt",
-                      "text": "der Client beachtet die von Discord genannte Wartezeit nach einer Drosselung und wiederholt vorübergehende Fehler von selbst."
-                    }
-                  ]
+                  "type": "paragraph",
+                  "text": "Abgedeckt sind neben Rollen, Kanälen, Berechtigungs-Überschreibungen, Mitgliedern, Webhooks und Einladungen auch Auto-Moderation, geplante Events, Onboarding, Soundboard-Sounds und Application-Commands. Bei einer Drosselung wartet der Client so lange, wie Discord es verlangt, und wiederholt vorübergehende Fehler von selbst."
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Der Provider verwaltet Guild-Infrastruktur, keinen Chat. Nachrichteninhalte deckt er nur ab, wo sie fest und deklarativ sind: angepinnte Forum-Posts und einzelne Embed-Nachrichten, kein laufender Nachrichtenstrom. Einen Bot bringt er nicht mit, sondern arbeitet mit dem Token eines bestehenden Bots, der Mitglied jeder verwalteten Guild sein muss."
                 }
               ]
             },
@@ -1695,7 +2208,7 @@
                 {
                   "type": "code",
                   "language": "hcl",
-                  "code": "terraform {\n  required_providers {\n    discord = {\n      source  = \"kirchdev/discord\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"discord\" {\n  token = var.discord_token # oder DISCORD_TOKEN\n}"
+                  "code": "terraform {\n  required_providers {\n    discord = {\n      source  = \"kirchdev/discord\"\n      version = \"~> 0.6\"\n    }\n  }\n}\n\nprovider \"discord\" {\n  token = var.discord_token # oder DISCORD_TOKEN\n}"
                 }
               ]
             }
@@ -1703,11 +2216,11 @@
         },
         "en": {
           "tagline": "OpenTofu / Terraform provider for Discord",
-          "description": "Manage your Discord guild infrastructure as code — roles, channels, permissions, members, webhooks, events and moderation, reconciled by OpenTofu.",
+          "description": "Manage your Discord guild infrastructure as code: roles, channels, members, webhooks, events and moderation in HCL. Permissions are written by name, not as bitfields.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Manage your Discord guild infrastructure as code — roles, channels, permissions, members, webhooks, events and moderation, reconciled by OpenTofu."
+              "text": "Manage your Discord guild infrastructure as code: roles, channels, members, webhooks, events and moderation in HCL. Permissions are written by name, not as bitfields."
             }
           ],
           "sections": [
@@ -1716,11 +2229,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "A guild that grew organically is hard to audit. Permissions get handed out in passing, a role gets one more \"just for now\", and six months later nobody can say who may do what, or since when. Discord expressing permissions as bitfields does not help."
+                  "text": "Working out who is allowed to do what in a Discord guild means clicking through the UI role by role, channel by channel. Discord stores permissions as bitfields, so the API does not spell it out either."
                 },
                 {
                   "type": "paragraph",
-                  "text": "As HCL the answer sits in a repository, changes go through review, and a second guild — for testing, or another community — is a copy with different variables instead of a week of clicking."
+                  "text": "In HCL the entire grant reads as a single document. The provider translates named permissions into those bitfields, so the code holds names rather than numbers."
                 }
               ]
             },
@@ -1734,7 +2247,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Permissions come from a data source of named rights, instead of a hand-computed bitfield sitting in the code."
+                  "text": "The permissions arrive by name from a data source instead of sitting in the code as a hand-computed bitfield."
                 }
               ]
             },
@@ -1742,25 +2255,17 @@
               "key": "features",
               "blocks": [
                 {
-                  "type": "list",
-                  "items": [
-                    {
-                      "term": "Discord as code",
-                      "text": "roles, channels, permission overwrites, members, webhooks, invites, events and moderation settings in HCL."
-                    },
-                    {
-                      "term": "Broad API coverage",
-                      "text": "around 24 resources and 9 data sources across guild management."
-                    },
-                    {
-                      "term": "Ergonomic permissions",
-                      "text": "a data source turns named rights into the bitfields Discord expects; nobody adds numbers by hand."
-                    },
-                    {
-                      "term": "Rate-limit aware",
-                      "text": "the client honours the wait Discord asks for after a throttle and retries transient errors by itself."
-                    }
-                  ]
+                  "type": "paragraph",
+                  "text": "Beyond roles, channels, permission overwrites, members, webhooks and invites it covers auto-moderation, scheduled events, onboarding, soundboard sounds and application commands. On a throttle the client waits as long as Discord asks and retries transient errors by itself."
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The provider manages guild infrastructure, not chat. Message content is covered only where it is fixed and declarative: pinned forum posts and standalone embed messages, not a live message stream. It ships no bot of its own, but works with the token of an existing bot, which has to be a member of every guild it manages."
                 }
               ]
             },
@@ -1770,7 +2275,7 @@
                 {
                   "type": "code",
                   "language": "hcl",
-                  "code": "terraform {\n  required_providers {\n    discord = {\n      source  = \"kirchdev/discord\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"discord\" {\n  token = var.discord_token # or set DISCORD_TOKEN\n}"
+                  "code": "terraform {\n  required_providers {\n    discord = {\n      source  = \"kirchdev/discord\"\n      version = \"~> 0.6\"\n    }\n  }\n}\n\nprovider \"discord\" {\n  token = var.discord_token # or set DISCORD_TOKEN\n}"
                 }
               ]
             }
@@ -1783,10 +2288,10 @@
       "owner": "kirchDev",
       "kind": "oss",
       "category": "iac",
-      "technologies": ["go", "terraform", "opentofu"],
+      "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-04",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
@@ -1802,11 +2307,11 @@
       "i18n": {
         "de": {
           "tagline": "OpenTofu-/Terraform-Provider für Laravel Forge",
-          "description": "Den gesamten Laravel-Forge-Bestand als Code verwalten — Server, Sites, Datenbanken, Daemons, SSL und mehr, abgeglichen durch OpenTofu.",
+          "description": "Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons, SSL und mehr. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Den gesamten Laravel-Forge-Bestand als Code verwalten — Server, Sites, Datenbanken, Daemons, SSL und mehr, abgeglichen durch OpenTofu."
+              "text": "Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons, SSL und mehr. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan."
             }
           ],
           "sections": [
@@ -1815,11 +2320,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Ein Forge-Bestand entsteht durch Klicken: ein Server hier, eine Site dort, ein Daemon, den jemand vor einem Jahr eingerichtet hat. Nach einer Weile beantwortet niemand mehr, warum eine Site so konfiguriert ist, und ein zweiter Bestand für Staging lässt sich nur durch geduldiges Nachbauen herstellen."
+                  "text": "Forge wird über die Oberfläche bedient, und was dort entsteht, existiert nur dort. Eine Staging-Umgebung, die der Produktion entspricht, muss von Hand nachgebaut werden und weicht ab dem ersten Handgriff wieder ab."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Als HCL steht die Antwort im Repository. Änderungen laufen durch ein Review, ein zweiter Bestand ist eine Kopie mit anderen Variablen, und was von Hand am Ziel verändert wurde, fällt beim nächsten Abgleich auf."
+                  "text": "Als Code beschrieben ist eine zweite Umgebung dieselbe Definition mit anderen Variablen. Und weil OpenTofu vor dem Anwenden vergleicht, wird sichtbar, was jemand zwischendurch direkt in Forge geändert hat."
                 }
               ]
             },
@@ -1829,11 +2334,11 @@
                 {
                   "type": "code",
                   "language": "hcl",
-                  "code": "resource \"laravelforge_site\" \"app\" {\n  organization = \"your-org\"\n  server_id    = data.laravelforge_server.web.id\n  type         = \"php\"\n  name         = \"app.example.com\"\n  php_version  = \"php82\"\n}"
+                  "code": "resource \"laravelforge_site\" \"app\" {\n  organization = \"your-org\"\n  server_id    = laravelforge_server.web.id\n  type         = \"php\"\n  name         = \"app.example.com\"\n  php_version  = \"php82\"\n}"
                 },
                 {
                   "type": "paragraph",
-                  "text": "Eine Site als Ressource — mit demselben Plan- und Apply-Zyklus wie die übrige Infrastruktur."
+                  "text": "Eine Site als Ressource, mit demselben Plan- und Apply-Zyklus wie die übrige Infrastruktur."
                 }
               ]
             },
@@ -1841,21 +2346,17 @@
               "key": "features",
               "blocks": [
                 {
-                  "type": "list",
-                  "items": [
-                    {
-                      "term": "Forge als Code",
-                      "text": "Server, Sites, Datenbanken, Daemons, geplante Aufgaben, SSL-Zertifikate und mehr in HCL."
-                    },
-                    {
-                      "term": "Vollständige API-Abdeckung",
-                      "text": "rund 57 Ressourcen und 83 Datenquellen über praktisch jede Entität, die Forge verwalten lässt."
-                    },
-                    {
-                      "term": "Einfache Authentifizierung",
-                      "text": "ein einziges Forge-Token, per Attribut oder Umgebungsvariable."
-                    }
-                  ]
+                  "type": "paragraph",
+                  "text": "Für nahezu jede Entität, die sich in Forge verwalten lässt, gibt es eine Ressource: Server, Sites, Datenbanken, Daemons, geplante Aufgaben und SSL-Zertifikate, dazu Datenquellen für den lesenden Zugriff. Die Organisationsebene gehört dazu, also Teams, Rollen, Rezepte, Storage-Provider und Server-Credentials."
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Bewusst ausgenommen sind reine Aktionen wie das Neustarten eines Servers oder das Anstoßen eines Deployments: Sie beschreiben keinen Zustand, den ein Plan abgleichen könnte."
                 }
               ]
             },
@@ -1865,7 +2366,7 @@
                 {
                   "type": "code",
                   "language": "hcl",
-                  "code": "terraform {\n  required_providers {\n    laravelforge = {\n      source  = \"kirchdev/laravelforge\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"laravelforge\" {\n  token = var.forge_token # oder FORGE_TOKEN\n}"
+                  "code": "terraform {\n  required_providers {\n    laravelforge = {\n      source  = \"kirchdev/laravelforge\"\n      version = \"~> 0.2\"\n    }\n  }\n}\n\nprovider \"laravelforge\" {\n  token = var.forge_token # oder FORGE_TOKEN\n}"
                 }
               ]
             }
@@ -1873,11 +2374,11 @@
         },
         "en": {
           "tagline": "OpenTofu / Terraform provider for Laravel Forge",
-          "description": "Manage your entire Laravel Forge estate as code — servers, sites, databases, daemons, SSL and more, reconciled by OpenTofu.",
+          "description": "Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons, SSL and more. Whatever someone changed directly in Forge shows up in the next plan.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Manage your entire Laravel Forge estate as code — servers, sites, databases, daemons, SSL and more, reconciled by OpenTofu."
+              "text": "Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons, SSL and more. Whatever someone changed directly in Forge shows up in the next plan."
             }
           ],
           "sections": [
@@ -1886,11 +2387,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "A Forge estate grows by clicking: a server here, a site there, a daemon someone set up a year ago. After a while nobody can say why a site is configured the way it is, and standing up a second estate for staging means patiently rebuilding it by hand."
+                  "text": "Forge is driven through its UI, and what you build there exists only there. A staging environment that matches production has to be rebuilt by hand, and starts drifting from the first change onwards."
                 },
                 {
                   "type": "paragraph",
-                  "text": "As HCL the answer sits in a repository. Changes go through review, a second estate is a copy with different variables, and anything changed by hand at the destination shows up on the next reconcile."
+                  "text": "Described as code, a second environment is the same definition with different variables. And because OpenTofu diffs before it applies, anything changed directly in Forge in the meantime becomes visible."
                 }
               ]
             },
@@ -1900,11 +2401,11 @@
                 {
                   "type": "code",
                   "language": "hcl",
-                  "code": "resource \"laravelforge_site\" \"app\" {\n  organization = \"your-org\"\n  server_id    = data.laravelforge_server.web.id\n  type         = \"php\"\n  name         = \"app.example.com\"\n  php_version  = \"php82\"\n}"
+                  "code": "resource \"laravelforge_site\" \"app\" {\n  organization = \"your-org\"\n  server_id    = laravelforge_server.web.id\n  type         = \"php\"\n  name         = \"app.example.com\"\n  php_version  = \"php82\"\n}"
                 },
                 {
                   "type": "paragraph",
-                  "text": "A site as a resource — on the same plan-and-apply cycle as the rest of your infrastructure."
+                  "text": "A site as a resource, on the same plan-and-apply cycle as the rest of your infrastructure."
                 }
               ]
             },
@@ -1912,21 +2413,17 @@
               "key": "features",
               "blocks": [
                 {
-                  "type": "list",
-                  "items": [
-                    {
-                      "term": "Forge as code",
-                      "text": "servers, sites, databases, daemons, scheduled jobs, SSL certificates and more in HCL."
-                    },
-                    {
-                      "term": "Full API coverage",
-                      "text": "around 57 resources and 83 data sources across essentially every entity Forge lets you manage."
-                    },
-                    {
-                      "term": "Simple auth",
-                      "text": "a single Forge token, by attribute or environment variable."
-                    }
-                  ]
+                  "type": "paragraph",
+                  "text": "Nearly every entity Forge lets you manage has a resource: servers, sites, databases, daemons, scheduled jobs and SSL certificates, with data sources covering read access on top. The organization level is part of that, meaning teams, roles, recipes, storage providers and server credentials."
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Pure actions like rebooting a server or triggering a deployment are deliberately left out: they carry no state for a plan to reconcile."
                 }
               ]
             },
@@ -1936,7 +2433,7 @@
                 {
                   "type": "code",
                   "language": "hcl",
-                  "code": "terraform {\n  required_providers {\n    laravelforge = {\n      source  = \"kirchdev/laravelforge\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"laravelforge\" {\n  token = var.forge_token # or set FORGE_TOKEN\n}"
+                  "code": "terraform {\n  required_providers {\n    laravelforge = {\n      source  = \"kirchdev/laravelforge\"\n      version = \"~> 0.2\"\n    }\n  }\n}\n\nprovider \"laravelforge\" {\n  token = var.forge_token # or set FORGE_TOKEN\n}"
                 }
               ]
             }
@@ -1952,7 +2449,7 @@
       "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-03",
+      "updatedAt": "2026-08-05",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-linear",
       "links": [
@@ -1964,11 +2461,11 @@
       "i18n": {
         "de": {
           "tagline": "OpenTofu-/Terraform-Provider für Linear",
-          "description": "Den Linear-Workspace als Code verwalten — Teams, Labels, Workflow-States, Views, Git-Automation und Workspace-Einstellungen, abgeglichen durch OpenTofu.",
+          "description": "Den Linear-Workspace als Code verwalten: Teams, Labels, Workflow-States, Views, Git-Automation und Workspace-Einstellungen, abgeglichen durch OpenTofu.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Den Linear-Workspace als Code verwalten — Teams, Labels, Workflow-States, Views, Git-Automation und Workspace-Einstellungen, abgeglichen durch OpenTofu."
+              "text": "Den Linear-Workspace als Code verwalten: Teams, Labels, Workflow-States, Views, Git-Automation und Workspace-Einstellungen, abgeglichen durch OpenTofu."
             }
           ],
           "sections": [
@@ -1977,11 +2474,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Ein Linear-Workspace sammelt Konfiguration an: Teams mit je eigenen Workflow-States, Labels in mehreren Ebenen, geteilte Views, Git-Automation je Ereignis. Das entsteht über Monate durch Klicken, und ein zweites Team konsistent gleich aufzusetzen wird zur Fleißarbeit."
+                  "text": "Ein Linear-Team besteht aus mehr als seinem Namen: eigene Workflow-States, Labels auf mehreren Ebenen, geteilte Views und Git-Automation je Ereignis. Ein weiteres Team genauso einzurichten heißt, all das in der Oberfläche noch einmal nachzuklicken."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Als HCL ist der Workspace nachvollziehbar und wiederholbar. Was ein Team ausmacht, steht an einer Stelle, Änderungen laufen durch ein Review, und ein neues Team ist ein Modul statt einer Checkliste."
+                  "text": "Als Code ist ein Team ein Modul: einmal beschrieben, für das nächste mit anderen Werten erneut angewendet. Was ein Team ausmacht, steht dabei beieinander; die Oberfläche verteilt es über mehrere Einstellungsdialoge."
                 }
               ]
             },
@@ -1995,7 +2492,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Eine geteilte Ansicht als Code — statt in der Oberfläche zusammengeklickt und nirgends dokumentiert."
+                  "text": "Eine geteilte Ansicht als Code, versioniert und nachvollziehbar wie der Rest der Infrastruktur."
                 }
               ]
             },
@@ -2006,12 +2503,8 @@
                   "type": "list",
                   "items": [
                     {
-                      "term": "Linear als Code",
-                      "text": "Teams, Labels, Workflow-States, Views, Git-Automation, Webhooks und Workspace-Einstellungen in HCL."
-                    },
-                    {
                       "term": "Views inbegriffen",
-                      "text": "mit Team-, Projekt- und Initiativ-Bezug; Filter werden als JSON ausgedrückt und inhaltlich verglichen, damit eine serverseitig normalisierte Fassung nicht als Abweichung erscheint."
+                      "text": "mit Team-, Projekt- und Initiativen-Bezug; Filter werden als JSON ausgedrückt und inhaltlich verglichen, damit eine serverseitig normalisierte Fassung nicht als Abweichung erscheint."
                     },
                     {
                       "term": "Vollständige Workspace-Einstellungen",
@@ -2019,7 +2512,11 @@
                     },
                     {
                       "term": "Git-Automation je Ereignis",
-                      "text": "Entwurf, Start, Review, Merge-bereit und Merge jeweils als eigene Ressource, sodass alle fünf beim Import sauber zurückgelesen werden."
+                      "text": "Entwurf, Start, Review, Merge-bereit und Merge sind je eine eigene Ressourcen-Instanz statt eines Blocks für alle fünf, und jede lässt sich einzeln importieren."
+                    },
+                    {
+                      "term": "Webhooks als Ressource",
+                      "text": "der Callback, den Linear bei Änderungen abonnierter Ressourcen sendet, lässt sich deklarieren; bezogen auf ein einzelnes Team oder alle öffentlichen Teams."
                     },
                     {
                       "term": "Releases abbildbar",
@@ -2034,7 +2531,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Der Geltungsbereich ist bewusst die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt — sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei."
+                  "text": "Der Geltungsbereich ist bewusst die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt: Sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei."
                 }
               ]
             },
@@ -2052,11 +2549,11 @@
         },
         "en": {
           "tagline": "OpenTofu / Terraform provider for Linear",
-          "description": "Manage your Linear workspace as code — teams, labels, workflow states, views, git automation and workspace settings, reconciled by OpenTofu.",
+          "description": "Manage your Linear workspace as code: teams, labels, workflow states, views, git automation and workspace settings, reconciled by OpenTofu.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Manage your Linear workspace as code — teams, labels, workflow states, views, git automation and workspace settings, reconciled by OpenTofu."
+              "text": "Manage your Linear workspace as code: teams, labels, workflow states, views, git automation and workspace settings, reconciled by OpenTofu."
             }
           ],
           "sections": [
@@ -2065,11 +2562,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "A Linear workspace accumulates configuration: teams with their own workflow states, labels at several levels, shared views, git automation per event. It grows over months of clicking, and setting up a second team consistently becomes busywork."
+                  "text": "A Linear team is more than its name: its own workflow states, labels at several levels, shared views and git automation per event. Setting up another team the same way means clicking all of it again in the UI."
                 },
                 {
                   "type": "paragraph",
-                  "text": "As HCL the workspace is auditable and repeatable. What makes up a team sits in one place, changes go through review, and a new team is a module rather than a checklist."
+                  "text": "As code a team is a module: described once, applied again with different values for the next one. And what makes up a team sits together; the UI spreads it across several settings dialogs."
                 }
               ]
             },
@@ -2083,7 +2580,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "A shared view as code — rather than clicked together in the UI and documented nowhere."
+                  "text": "A shared view as code, versioned and reviewable like the rest of the infrastructure."
                 }
               ]
             },
@@ -2094,10 +2591,6 @@
                   "type": "list",
                   "items": [
                     {
-                      "term": "Linear as code",
-                      "text": "teams, labels, workflow states, views, git automation, webhooks and workspace settings in HCL."
-                    },
-                    {
                       "term": "Views included",
                       "text": "with team, project and initiative scope; filters are expressed as JSON and compared semantically, so a server-normalised filter does not read as drift."
                     },
@@ -2107,7 +2600,11 @@
                     },
                     {
                       "term": "Git automation per event",
-                      "text": "draft, start, review, mergeable and merge each as their own resource, so all five round-trip on import."
+                      "text": "draft, start, review, mergeable and merge are one resource instance each instead of one block for all five, and each can be imported individually."
+                    },
+                    {
+                      "term": "Webhooks as resources",
+                      "text": "the callback Linear fires when subscribed resources change is declared like everything else, scoped to a single team or to every public team."
                     },
                     {
                       "term": "Releases covered",
@@ -2122,7 +2619,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content — they belong in Linear's UI and its API, not in a state file."
+                  "text": "Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content: they belong in Linear's UI and its API, not in a state file."
                 }
               ]
             },
