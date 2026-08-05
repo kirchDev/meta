@@ -1,0 +1,7 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "own",
+  "category": "other",
+  "github": false,
+  "technologies": ["typescript", "cloudflare", "linear", "github"]
+}

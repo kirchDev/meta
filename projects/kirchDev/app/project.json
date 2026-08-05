@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "own",
+  "category": "app",
+  "github": false,
+  "technologies": [
+    "php",
+    "typescript",
+    "laravel",
+    "vue",
+    "inertia",
+    "tailwind-css"
+  ],
+  "links": [
+    {
+      "type": "website",
+      "url": "https://kirch.dev"
+    }
+  ]
+}

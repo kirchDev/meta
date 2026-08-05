@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "template",
+  "technologies": [
+    "php",
+    "typescript",
+    "laravel",
+    "nuxt",
+    "vue",
+    "pnpm",
+    "docker",
+    "cloudflare",
+    "github-actions"
+  ]
+}
