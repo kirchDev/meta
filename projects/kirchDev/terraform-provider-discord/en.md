@@ -1,12 +1,12 @@
 # OpenTofu / Terraform provider for Discord
 
-Manage your Discord guild infrastructure as code — roles, channels, permissions, members, webhooks, events and moderation, reconciled by OpenTofu.
+Manage your Discord guild infrastructure as code: roles, channels, members, webhooks, events and moderation in HCL. Permissions are written by name, not as bitfields.
 
 ## why
 
-A guild that grew organically is hard to audit. Permissions get handed out in passing, a role gets one more "just for now", and six months later nobody can say who may do what, or since when. Discord expressing permissions as bitfields does not help.
+Working out who is allowed to do what in a Discord guild means clicking through the UI role by role, channel by channel. Discord stores permissions as bitfields, so the API does not spell it out either.
 
-As HCL the answer sits in a repository, changes go through review, and a second guild — for testing, or another community — is a copy with different variables instead of a week of clicking.
+In HCL the entire grant reads as a single document. The provider translates named permissions into those bitfields, so the code holds names rather than numbers.
 
 ## quickstart
 
@@ -19,14 +19,15 @@ resource "discord_role" "moderators" {
 }
 ```
 
-Permissions come from a data source of named rights, instead of a hand-computed bitfield sitting in the code.
+The permissions arrive by name from a data source instead of sitting in the code as a hand-computed bitfield.
 
 ## features
 
-- **Discord as code** — roles, channels, permission overwrites, members, webhooks, invites, events and moderation settings in HCL.
-- **Broad API coverage** — around 24 resources and 9 data sources across guild management.
-- **Ergonomic permissions** — a data source turns named rights into the bitfields Discord expects; nobody adds numbers by hand.
-- **Rate-limit aware** — the client honours the wait Discord asks for after a throttle and retries transient errors by itself.
+Beyond roles, channels, permission overwrites, members, webhooks and invites it covers auto-moderation, scheduled events, onboarding, soundboard sounds and application commands. On a throttle the client waits as long as Discord asks and retries transient errors by itself.
+
+## scope
+
+The provider manages guild infrastructure, not chat. Message content is covered only where it is fixed and declarative: pinned forum posts and standalone embed messages, not a live message stream. It ships no bot of its own, but works with the token of an existing bot, which has to be a member of every guild it manages.
 
 ## install
 
@@ -35,7 +36,7 @@ terraform {
   required_providers {
     discord = {
       source  = "kirchdev/discord"
-      version = "~> 0.1"
+      version = "~> 0.6"
     }
   }
 }

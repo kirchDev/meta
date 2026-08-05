@@ -1,12 +1,12 @@
 # Gerätegebundene Login-Sessions für Laravel
 
-Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer — mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig.
+Ein Remember-Me-Token je Gerät statt eines einzigen pro Benutzer, mit Geräteliste, gezieltem Abmelden und Umbenennen, datensparsam und Fortify-unabhängig.
 
 ## why
 
-Laravel merkt sich genau ein Remember-Me-Token je Benutzer, in einer einzelnen Spalte. Daraus folgen zwei Ärgernisse: Wer sich auf dem Telefon abmeldet, fliegt auch am Rechner raus — und niemand kann sehen, welche Geräte überhaupt angemeldet sind. Nach einem verlorenen Laptop bleibt nur, das Passwort zu ändern und zu hoffen.
+Laravel merkt sich genau ein Remember-Me-Token je Benutzer, in einer einzelnen Spalte. Daraus folgen zwei Ärgernisse: Wer sich auf dem Telefon abmeldet, fliegt auch am Rechner raus, und niemand kann sehen, welche Geräte überhaupt angemeldet sind. Nach einem verlorenen Laptop bleibt nur, das Passwort zu ändern und zu hoffen.
 
-Dieses Paket bindet je Gerät ein eigenes Token an eine Gerätezeile und ein Cookie. Damit wird die Liste der angemeldeten Geräte darstellbar, einzelne lassen sich gezielt abmelden, und die üblichen Daten dazu — System, Name, IP — werden datensparsam behandelt.
+Dieses Paket bindet je Gerät ein eigenes Token an eine Gerätezeile und ein Cookie. Damit wird die Liste der angemeldeten Geräte darstellbar, einzelne lassen sich gezielt abmelden, und die üblichen Daten dazu, also System, Name und IP, werden datensparsam behandelt.
 
 ## quickstart
 
@@ -19,7 +19,7 @@ class User extends Authenticatable
 }
 ```
 
-Dazu der gerätebewusste Treiber in der Auth-Konfiguration — mehr braucht es nicht, damit die Geräteliste steht.
+Dazu der gerätebewusste Provider-Treiber in der Auth-Konfiguration und die mitgelieferte Middleware auf den angemeldeten Routen, damit steht die Geräteliste.
 
 ## features
 
@@ -28,8 +28,12 @@ Dazu der gerätebewusste Treiber in der Auth-Konfiguration — mehr braucht es n
 - **Datensparsam** — IP-Adressen werden standardmäßig gekürzt gespeichert, und die Maskierung ist über einen Vertrag austauschbar.
 - **Fortify-unabhängig** — funktioniert unter jedem Login-Mechanismus; die Brücke für den Zwei-Faktor-Cookie greift nur dann, wenn Fortify überhaupt vorhanden ist.
 - **Überall überschreibbar** — Namensauswertung, System-Erkennung, Cookie-Verhalten, IP-Maskierung und Token-Hashing sind Verträge mit brauchbaren Voreinstellungen.
-- **Schema konfigurierbar** — Modelle, Tabellennamen und Schlüsseltypen lassen sich festlegen, bevor migriert wird.
-- **Ereignisgesteuert** — ein Ereignis bei jedem Gerätezugriff erlaubt eigene Reaktionen, ohne dass das Paket Annahmen über das übrige Schema trifft.
+- **Fügt sich ins vorhandene Schema** — Schlüsseltyp id, uuid oder ulid, damit der Fremdschlüssel auf die bestehende users-Tabelle passt; Tabellennamen und Modelle sind austauschbar, und die Migrationen lesen all das erst zur Laufzeit.
+- **Ereignisgesteuert** — ein Ereignis, sobald der letzte Zugriff eines Geräts geschrieben wird (standardmäßig auf einmal pro Minute gedrosselt), erlaubt eigene Reaktionen, ohne dass das Paket Annahmen über das übrige Schema trifft.
+
+## scope
+
+Widerrufen trennt die Remember-Me-Ebene, nicht die laufende Session: Das Gerät kommt über sein Cookie nicht wieder herein, aber eine dort noch offene PHP-Session läuft weiter, bis sie abläuft oder der Benutzer sich abmeldet; in den Session-Store schreibt das Paket nie. Ein UI liefert es ebenso wenig mit: keine Routen, keine Views; Auflisten, Widerrufen und Umbenennen sind Actions für die eigenen Controller.
 
 ## install
 

@@ -1,32 +1,34 @@
 # OpenTofu / Terraform provider for Laravel Forge
 
-Manage your entire Laravel Forge estate as code — servers, sites, databases, daemons, SSL and more, reconciled by OpenTofu.
+Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons, SSL and more. Whatever someone changed directly in Forge shows up in the next plan.
 
 ## why
 
-A Forge estate grows by clicking: a server here, a site there, a daemon someone set up a year ago. After a while nobody can say why a site is configured the way it is, and standing up a second estate for staging means patiently rebuilding it by hand.
+Forge is driven through its UI, and what you build there exists only there. A staging environment that matches production has to be rebuilt by hand, and starts drifting from the first change onwards.
 
-As HCL the answer sits in a repository. Changes go through review, a second estate is a copy with different variables, and anything changed by hand at the destination shows up on the next reconcile.
+Described as code, a second environment is the same definition with different variables. And because OpenTofu diffs before it applies, anything changed directly in Forge in the meantime becomes visible.
 
 ## quickstart
 
 ```hcl
 resource "laravelforge_site" "app" {
   organization = "your-org"
-  server_id    = data.laravelforge_server.web.id
+  server_id    = laravelforge_server.web.id
   type         = "php"
   name         = "app.example.com"
   php_version  = "php82"
 }
 ```
 
-A site as a resource — on the same plan-and-apply cycle as the rest of your infrastructure.
+A site as a resource, on the same plan-and-apply cycle as the rest of your infrastructure.
 
 ## features
 
-- **Forge as code** — servers, sites, databases, daemons, scheduled jobs, SSL certificates and more in HCL.
-- **Full API coverage** — around 57 resources and 83 data sources across essentially every entity Forge lets you manage.
-- **Simple auth** — a single Forge token, by attribute or environment variable.
+Nearly every entity Forge lets you manage has a resource: servers, sites, databases, daemons, scheduled jobs and SSL certificates, with data sources covering read access on top. The organization level is part of that, meaning teams, roles, recipes, storage providers and server credentials.
+
+## scope
+
+Pure actions like rebooting a server or triggering a deployment are deliberately left out: they carry no state for a plan to reconcile.
 
 ## install
 
@@ -35,7 +37,7 @@ terraform {
   required_providers {
     laravelforge = {
       source  = "kirchdev/laravelforge"
-      version = "~> 0.1"
+      version = "~> 0.2"
     }
   }
 }

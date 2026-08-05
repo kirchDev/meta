@@ -1,12 +1,12 @@
 # OpenTofu / Terraform provider for Linear
 
-Manage your Linear workspace as code — teams, labels, workflow states, views, git automation and workspace settings, reconciled by OpenTofu.
+Manage your Linear workspace as code: teams, labels, workflow states, views, git automation and workspace settings, reconciled by OpenTofu.
 
 ## why
 
-A Linear workspace accumulates configuration: teams with their own workflow states, labels at several levels, shared views, git automation per event. It grows over months of clicking, and setting up a second team consistently becomes busywork.
+A Linear team is more than its name: its own workflow states, labels at several levels, shared views and git automation per event. Setting up another team the same way means clicking all of it again in the UI.
 
-As HCL the workspace is auditable and repeatable. What makes up a team sits in one place, changes go through review, and a new team is a module rather than a checklist.
+As code a team is a module: described once, applied again with different values for the next one. And what makes up a team sits together; the UI spreads it across several settings dialogs.
 
 ## quickstart
 
@@ -22,19 +22,19 @@ resource "linear_custom_view" "in_review" {
 }
 ```
 
-A shared view as code — rather than clicked together in the UI and documented nowhere.
+A shared view as code, versioned and reviewable like the rest of the infrastructure.
 
 ## features
 
-- **Linear as code** — teams, labels, workflow states, views, git automation, webhooks and workspace settings in HCL.
 - **Views included** — with team, project and initiative scope; filters are expressed as JSON and compared semantically, so a server-normalised filter does not read as drift.
 - **Full workspace settings** — every field the API accepts, not just a convenient subset of them.
-- **Git automation per event** — draft, start, review, mergeable and merge each as their own resource, so all five round-trip on import.
+- **Git automation per event** — draft, start, review, mergeable and merge are one resource instance each instead of one block for all five, and each can be imported individually.
+- **Webhooks as resources** — the callback Linear fires when subscribed resources change is declared like everything else, scoped to a single team or to every public team.
 - **Releases covered** — release pipelines and their stages are resources too.
 
 ## scope
 
-Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content — they belong in Linear's UI and its API, not in a state file.
+Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content: they belong in Linear's UI and its API, not in a state file.
 
 ## install
 

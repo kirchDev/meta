@@ -1,12 +1,12 @@
-# CLI für ein sortiertes lokales Repo-Layout
+# CLI für ein aufgeräumtes lokales Repo-Layout
 
-CLI, die ein lokales Repository-Layout nach Git-Server, Organisation und Repository-Name verwaltet.
+Verwaltet lokale Klone in einem festen Layout aus Server, Organisation und Repository-Name und baut darauf Suche, Massen-Sync und gefahrloses Aufräumen auf.
 
 ## why
 
-Klone sammeln sich dort an, wo man gerade war: einmal im Projektordner, einmal auf dem Schreibtisch, einmal unter einem Namen, den nur der damalige Kontext erklärt. Nach ein paar Dutzend Repositories weiß niemand mehr, welche lokal liegen, welche davon ungepushte Arbeit enthalten und welche man löschen könnte.
+Klone landen dort, wo man beim Klonen gerade stand: mal im Projektordner, mal daneben, mal unter abweichendem Namen. Wächst die Zahl, ist nicht mehr zu überblicken, welche Repositories lokal liegen, welche davon ungepushte Arbeit enthalten und welche gefahrlos weg könnten.
 
-forgemap legt ein Layout fest — Server, Organisation, Repository-Name — und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren auch Suche, Wechseln und Massenoperationen wieder: alle Klone aktualisieren, überall den Status sehen, gefahrlos aufräumen.
+forgemap legt ein Layout aus Server, Organisation und Repository-Name fest und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren Suche und Wechseln wieder, und Massenoperationen werden möglich: Ein Sync erfasst alle Klone auf einmal, und gelöscht wird nur, was nachweislich gesichert ist.
 
 ## quickstart
 
@@ -19,17 +19,27 @@ Der Zielpfad ergibt sich aus der Konfiguration, nicht aus dem Verzeichnis, in de
 
 ## features
 
-- **Vorhersagbares Layout** — jeder Klon landet unter Server, Namensraum und Repository-Name; GitLab-Untergruppen verschachteln sich so tief wie im Original.
-- **Flexible Kurzschreibweise** — Eigentümer und Name, vollständige HTTPS-URLs oder SSH; selbst eine eingefügte Merge-Request-URL löst sich noch zum richtigen Repository auf.
-- **Liste und unscharfe Suche** — alle lokalen Repositories auflisten oder nach Eigentümer und Name filtern; Wechseln, Pfad ausgeben und im Editor öffnen nehmen dieselben Suchbegriffe.
-- **Server-bewusst** — GitHub über gh, GitLab über glab samt Untergruppen, alles andere über einfaches git clone ganz ohne Zusatzabhängigkeit.
+- **Vorhersagbares Layout** — jeder Klon landet unter Server, Namensraum und Repository-Name; GitLab-Untergruppen bleiben als Verzeichnisebenen erhalten.
+- **Flexible Kurzschreibweise** — Eigentümer und Name, vollständige HTTPS-URLs oder SSH; selbst eine eingefügte Merge-Request-URL wird noch zum richtigen Repository aufgelöst.
+- **Liste und unscharfe Suche** — alle lokalen Repositories auflisten oder nach Eigentümer und Name filtern; Wechseln, Pfad ausgeben und im Dateimanager öffnen verstehen dieselben Suchbegriffe.
+- **Je Server das passende Werkzeug** — GitHub über gh, GitLab über glab samt Untergruppen; jeder andere Host wird als git-Typ eingetragen und über schlichtes git clone bedient.
 - **Massen-Sync und Status** — alle Klone parallel aktualisieren und je Repository Branch, offene Änderungen und Abstand zum Remote anzeigen, wahlweise eingegrenzt auf einzelne Eigentümer oder Server.
 - **Bestehende Bäume übernehmen** — ein bereits passend abgelegter Ordner wird eingelesen, gegen die git-Remotes abgeglichen und in eine Konfiguration überführt.
-- **Sicheres Aufräumen** — lange unberührte Klone werden nur gelöscht, wenn sie sauber sind, vollständig gepusht, ohne Stash und am Remote noch vorhanden; nichts Ungesichertes geht verloren.
+- **Sicheres Aufräumen** — lange unberührte Klone werden nur gelöscht, wenn sie sauber sind, vollständig gepusht, ohne Stash und am Remote noch vorhanden; standardmäßig geht nichts Ungesichertes verloren.
 - **Shell-Integration** — ein echtes Verzeichniswechseln samt Tab-Vervollständigung wird in einem Schritt eingerichtet.
+
+## scope
+
+forgemap verwaltet die lokale Seite: wo Klone liegen und wann sie weg können. In Richtung Server klont und liest es nur; verändert wird dort nichts, und selbst das Löschen trifft immer nur den lokalen Klon. gh und glab ersetzt es nicht: Fürs Klonen ruft forgemap die beiden selbst auf, und für Issues, Merge Requests oder Releases bringt es gar keine Befehle mit.
 
 ## install
 
-```bash
+```pnpm
+pnpm add -g forgemap
+```
+
+```npm
 npm install -g forgemap
 ```
+
+Vorausgesetzt wird Node ab 24 sowie git auf dem PATH; gh und glab braucht es nur, wenn ein entsprechender Forge-Typ konfiguriert ist.

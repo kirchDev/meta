@@ -1,12 +1,12 @@
 # TUI for environment files
 
-TUI-based env file manager — refract one set of variables into many environment views.
+Refracts one set of variables into many environment views: every .env file of a project side by side in one matrix.
 
 ## why
 
-Most projects accumulate a fistful of env files — .env, .env.example, .env.staging, .env.production — with no good way to see them together. You diff two at a time, miss the third, and ship a deploy where one variable was set everywhere except staging. The example file rots because nobody updates it when a key is added.
+Most projects accumulate a fistful of env files, from .env through .env.example to .env.staging and .env.production, and there is no good way to see them together. You diff two at a time, miss the third, and ship a deploy that is missing exactly one variable. The example file goes stale because nobody updates it when a key is added.
 
-envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out — this key is missing here, that value drifts there, this one is still a placeholder. Edits write back byte-exact, and secret values stay masked so the view is safe to share.
+envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out, because one key is missing here, one value drifts there, and another is still a placeholder. Edits write back byte-exact, and secret values stay masked so the view is safe to share.
 
 ## quickstart
 
@@ -14,7 +14,7 @@ envprism treats the whole set as one thing: every file a column, every variable 
 bunx envprism
 ```
 
-Finds every .env* file in the current directory and opens them as a matrix — no install, no configuration.
+Finds every .env* file in the current directory and opens them as a matrix. No install, no configuration.
 
 ## features
 
@@ -24,8 +24,11 @@ Finds every .env* file in the current directory and opens them as a matrix — n
 - **Edit in place** — any cell can be changed; editing a key in a file that does not have it yet creates it there. Plus add, delete, and sync one value across every file.
 - **Byte-exact write-back** — only the keys you changed are rewritten; comments, blank lines, order, quoting and export prefixes are left untouched.
 - **Sections and filtering** — group by comment banner or key prefix, fold sections, filter keys live, or show only the ones that drift.
-- **Undo** — the last edits, additions and deletions can be walked back before anything is written.
 - **CI-friendly** — a drift report as text or JSON, or just an exit code for pre-commit hooks and pipelines.
+
+## scope
+
+Not a secrets manager and no substitute for a vault: envprism displays and edits local env files, and the masking affects the display alone. It stores and manages no secrets.
 
 ## install
 
@@ -33,3 +36,5 @@ Finds every .env* file in the current directory and opens them as a matrix — n
 bun add -g envprism
 bunx envprism  # without installing
 ```
+
+Bun 1.3 or newer is required; the package does not run under Node.

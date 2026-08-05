@@ -1,32 +1,34 @@
 # OpenTofu-/Terraform-Provider für Laravel Forge
 
-Den gesamten Laravel-Forge-Bestand als Code verwalten — Server, Sites, Datenbanken, Daemons, SSL und mehr, abgeglichen durch OpenTofu.
+Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons, SSL und mehr. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan.
 
 ## why
 
-Ein Forge-Bestand entsteht durch Klicken: ein Server hier, eine Site dort, ein Daemon, den jemand vor einem Jahr eingerichtet hat. Nach einer Weile beantwortet niemand mehr, warum eine Site so konfiguriert ist, und ein zweiter Bestand für Staging lässt sich nur durch geduldiges Nachbauen herstellen.
+Forge wird über die Oberfläche bedient, und was dort entsteht, existiert nur dort. Eine Staging-Umgebung, die der Produktion entspricht, muss von Hand nachgebaut werden und weicht ab dem ersten Handgriff wieder ab.
 
-Als HCL steht die Antwort im Repository. Änderungen laufen durch ein Review, ein zweiter Bestand ist eine Kopie mit anderen Variablen, und was von Hand am Ziel verändert wurde, fällt beim nächsten Abgleich auf.
+Als Code beschrieben ist eine zweite Umgebung dieselbe Definition mit anderen Variablen. Und weil OpenTofu vor dem Anwenden vergleicht, wird sichtbar, was jemand zwischendurch direkt in Forge geändert hat.
 
 ## quickstart
 
 ```hcl
 resource "laravelforge_site" "app" {
   organization = "your-org"
-  server_id    = data.laravelforge_server.web.id
+  server_id    = laravelforge_server.web.id
   type         = "php"
   name         = "app.example.com"
   php_version  = "php82"
 }
 ```
 
-Eine Site als Ressource — mit demselben Plan- und Apply-Zyklus wie die übrige Infrastruktur.
+Eine Site als Ressource, mit demselben Plan- und Apply-Zyklus wie die übrige Infrastruktur.
 
 ## features
 
-- **Forge als Code** — Server, Sites, Datenbanken, Daemons, geplante Aufgaben, SSL-Zertifikate und mehr in HCL.
-- **Vollständige API-Abdeckung** — rund 57 Ressourcen und 83 Datenquellen über praktisch jede Entität, die Forge verwalten lässt.
-- **Einfache Authentifizierung** — ein einziges Forge-Token, per Attribut oder Umgebungsvariable.
+Für nahezu jede Entität, die sich in Forge verwalten lässt, gibt es eine Ressource: Server, Sites, Datenbanken, Daemons, geplante Aufgaben und SSL-Zertifikate, dazu Datenquellen für den lesenden Zugriff. Die Organisationsebene gehört dazu, also Teams, Rollen, Rezepte, Storage-Provider und Server-Credentials.
+
+## scope
+
+Bewusst ausgenommen sind reine Aktionen wie das Neustarten eines Servers oder das Anstoßen eines Deployments: Sie beschreiben keinen Zustand, den ein Plan abgleichen könnte.
 
 ## install
 
@@ -35,7 +37,7 @@ terraform {
   required_providers {
     laravelforge = {
       source  = "kirchdev/laravelforge"
-      version = "~> 0.1"
+      version = "~> 0.2"
     }
   }
 }

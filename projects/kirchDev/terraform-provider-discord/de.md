@@ -1,12 +1,12 @@
 # OpenTofu-/Terraform-Provider für Discord
 
-Discord-Guild-Infrastruktur als Code verwalten — Rollen, Kanäle, Berechtigungen, Mitglieder, Webhooks, Events und Moderation, abgeglichen durch OpenTofu.
+Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen dabei als Namen im Code, nicht als Bitfelder.
 
 ## why
 
-Eine gewachsene Discord-Guild ist schwer zu prüfen. Rechte werden im Vorbeigehen vergeben, eine Rolle bekommt „nur kurz" eine Berechtigung mehr, und ein halbes Jahr später kann niemand sagen, wer was darf und seit wann. Discords Berechtigungen als Bitfelder machen das nicht besser.
+Wer in einer Discord-Guild was darf, lässt sich in der Oberfläche nur Rolle für Rolle und Kanal für Kanal nachsehen. Discord speichert Berechtigungen als Bitfelder, also sagt auch die API es nicht im Klartext.
 
-Als HCL steht die Antwort im Repository, Änderungen laufen durch ein Review, und eine zweite Guild — für Tests oder eine weitere Community — ist eine Kopie mit anderen Variablen statt einer Woche Klickarbeit.
+In HCL ist die gesamte Berechtigungsvergabe als Ganzes lesbar. Der Provider übersetzt dabei benannte Berechtigungen in die Bitfelder, sodass im Code Namen stehen und keine Zahlen.
 
 ## quickstart
 
@@ -19,14 +19,15 @@ resource "discord_role" "moderators" {
 }
 ```
 
-Die Berechtigungen kommen aus einer Datenquelle mit benannten Rechten, statt als handgerechnetes Bitfeld im Code zu stehen.
+Die Berechtigungen kommen benannt aus einer Datenquelle, statt als handgerechnetes Bitfeld im Code zu stehen.
 
 ## features
 
-- **Discord als Code** — Rollen, Kanäle, Rechte-Überschreibungen, Mitglieder, Webhooks, Einladungen, Events und Moderationseinstellungen in HCL.
-- **Breite API-Abdeckung** — rund 24 Ressourcen und 9 Datenquellen über die Verwaltung einer Guild.
-- **Handhabbare Berechtigungen** — eine Datenquelle übersetzt benannte Rechte in die Bitfelder, die Discord erwartet; niemand rechnet Zahlen von Hand zusammen.
-- **Rate-Limits berücksichtigt** — der Client beachtet die von Discord genannte Wartezeit nach einer Drosselung und wiederholt vorübergehende Fehler von selbst.
+Abgedeckt sind neben Rollen, Kanälen, Berechtigungs-Überschreibungen, Mitgliedern, Webhooks und Einladungen auch Auto-Moderation, geplante Events, Onboarding, Soundboard-Sounds und Application-Commands. Bei einer Drosselung wartet der Client so lange, wie Discord es verlangt, und wiederholt vorübergehende Fehler von selbst.
+
+## scope
+
+Der Provider verwaltet Guild-Infrastruktur, keinen Chat. Nachrichteninhalte deckt er nur ab, wo sie fest und deklarativ sind: angepinnte Forum-Posts und einzelne Embed-Nachrichten, kein laufender Nachrichtenstrom. Einen Bot bringt er nicht mit, sondern arbeitet mit dem Token eines bestehenden Bots, der Mitglied jeder verwalteten Guild sein muss.
 
 ## install
 
@@ -35,7 +36,7 @@ terraform {
   required_providers {
     discord = {
       source  = "kirchdev/discord"
-      version = "~> 0.1"
+      version = "~> 0.6"
     }
   }
 }

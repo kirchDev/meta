@@ -1,12 +1,12 @@
 # Sprachunabhängige Vorlage für neue Repositories
 
-Sprachunabhängige Basis-Vorlage für neue kirchDev-Repositories.
+Alles, was ein Repository am ersten Tag braucht, von Linting und Commit-Hooks über CI und Sicherheits-Scans bis zu den üblichen Meta-Dokumenten, ohne eine Zeile Projektcode vorzugeben.
 
 ## why
 
-Jedes neue Repository braucht dieselbe Schicht, bevor die erste Zeile Projektcode entsteht: Linting, Formatierung, Commit-Hooks, CI, Sicherheitsprüfungen, Abhängigkeits-Updates, Issue-Vorlagen und die üblichen Meta-Dokumente. Von Hand zusammengesucht ist das eine halbe Stunde, und beim dritten Repository weicht es bereits ab.
+Bevor in einem neuen Repository die eigentliche Arbeit beginnt, steht jedes Mal dieselbe Meta-Schicht an, und von Hand zusammengesucht weicht sie zwischen zwei Repositories unweigerlich voneinander ab. Dann prüft jedes Repository etwas anderes, und eine Korrektur an der Schicht erreicht nur das eine, in dem sie gemacht wurde.
 
-scaffold hält diese Schicht an einer Stelle fest. Der Projektcode selbst darf alles sein — PHP, Go, Rust, Vue oder Shell —, denn die Vorlage enthält keinen. Sie beantwortet nur die Frage, was ein Repository am ersten Tag mitbringen soll.
+scaffold bündelt diese Schicht in einem Template-Repository. Der Projektcode selbst darf alles sein, ob PHP, Go, Rust, Vue oder Shell, denn die Vorlage enthält keinen. Sie beantwortet nur die Frage, was ein Repository am ersten Tag mitbringen soll.
 
 ## quickstart
 
@@ -14,19 +14,19 @@ scaffold hält diese Schicht an einer Stelle fest. Der Projektcode selbst darf a
 gh repo create my-new-repo --template TitusKirch/scaffold
 ```
 
-Oder über „Use this template" auf GitHub; danach bleiben nur ein paar Platzhalter zu ersetzen.
+Oder über „Use this template“ auf GitHub; welche Platzhalter danach zu ersetzen sind, listet das README.
 
 ## features
 
-- **Node und pnpm festgenagelt** — die Version steht in .nvmrc, engines und packageManager, damit alle Beteiligten und die CI dieselbe benutzen.
-- **Linting und Formatierung über oxc** — oxlint und oxfmt hinter einem einzigen Prüfbefehl, der auch in der CI läuft.
+- **Node und pnpm fixiert** — Node über .nvmrc und engines, pnpm über packageManager, damit alle Beteiligten und die CI dieselbe Version benutzen.
+- **Linting und Formatierung über oxc** — oxlint und oxfmt hinter einem gemeinsamen Prüfbefehl; die CI fährt dieselben Prüfungen.
 - **Commit-Hooks** — husky, lint-staged und commitlint erzwingen Conventional Commits, bevor etwas ins Repository gelangt.
 - **Abhängigkeits-Updates** — Dependabot fasst Minor- und Patch-Updates je Ökosystem zu einem Pull Request zusammen; große Sprünge kommen einzeln.
-- **Workflows** — Lint und Formatprüfung im Pull Request, CodeQL bei Push, im Pull Request und wöchentlich.
-- **Release-Automatik** — release-please erzeugt Version und Changelog aus den Commits, sodass ein neues Repository vom ersten Commit an veröffentlichen kann.
+- **CodeQL** — Sicherheitsanalyse bei Push, im Pull Request und wöchentlich.
+- **Release-Automatik** — release-please erzeugt Version und Changelog aus der Commit-Historie statt von Hand.
 - **Vorlagen und Meta-Dokumente** — Issue-Formulare, Pull-Request-Checkliste, Lizenz, Verhaltenskodex, Beitrags- und Sicherheitsleitfaden.
-- **Für Agenten vorbereitet** — CLAUDE.md und AGENTS.md werden byte-identisch gehalten, dazu kommt eine durchdachte Basis-Rechtevergabe.
+- **Für Agenten vorbereitet** — CLAUDE.md und AGENTS.md werden byte-identisch gehalten, dazu eine Basis-Rechtevergabe für Claude Code und Codex, deren Gleichlauf die CI prüft.
 
 ## scope
 
-Die Vorlage besitzt nur die Meta-Schicht. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben bewusst außen vor — sonst wäre sie eine Vorlage für genau eine Art von Projekt statt für alle.
+Die Vorlage besitzt nur die Meta-Schicht. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben außen vor. Sonst wäre sie eine Vorlage für genau eine Art von Projekt statt für alle.
