@@ -2,7 +2,7 @@
   "$schema": "../../../schema/project.schema.json",
   "kind": "oss",
   "category": "cli",
-  "technologies": ["typescript", "node", "github", "git"],
+  "technologies": ["typescript", "node", "github", "gitlab", "git"],
   "links": [
     {
       "type": "npm",

@@ -4,6 +4,7 @@
   "category": "desktop",
   "technologies": [
     "typescript",
+    "rust",
     "vue",
     "nuxt",
     "tauri",

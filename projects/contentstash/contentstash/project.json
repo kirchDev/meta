@@ -3,5 +3,12 @@
   "kind": "oss",
   "category": "app",
   "activity": "paused",
-  "technologies": ["php", "laravel", "vue", "inertia", "tailwind-css"]
+  "technologies": [
+    "php",
+    "typescript",
+    "laravel",
+    "vue",
+    "inertia",
+    "tailwind-css"
+  ]
 }
