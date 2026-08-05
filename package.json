@@ -30,7 +30,7 @@
     "check": "pnpm lint && pnpm format && pnpm typecheck && pnpm validate",
     "check:fix": "pnpm lint:fix && pnpm format:fix",
     "typecheck": "tsc --noEmit",
-    "validate": "node scripts/validate.ts",
+    "validate": "node scripts/validate.ts && node scripts/check-technologies.ts",
     "build": "node scripts/build.ts && oxfmt projects.json",
     "skills:update": "pnpm dlx skills@latest update -p -y",
     "taze": "taze",

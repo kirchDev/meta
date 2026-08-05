@@ -105,7 +105,7 @@ export interface Project {
   kind: ProjectKind;
   category: CategoryKey;
   /**
-   * Left as `string[]` on purpose. The permitted values are the 43 cases of
+   * Left as `string[]` on purpose. The permitted values are the cases of
    * `app/Enums/Technology.php` in `kirchDev/app`, copied into the schema, and
    * the schema is what validates them. Spelling them out here as well would be
    * a third copy of one list — a third place to drift.
