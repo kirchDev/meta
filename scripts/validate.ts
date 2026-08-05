@@ -97,6 +97,13 @@ for (const { owner, slug, project, i18n } of entries) {
     );
   }
 
+  /** A card with only a summary reads empty — see the app entry, once. */
+  for (const locale of LOCALES) {
+    if (i18n[locale].sections.length === 0) {
+      fail(`${locale}.md: an entry needs at least one "## " section`);
+    }
+  }
+
   /**
    * `about` and `why` are one slot filled two ways, so an entry picks one.
    * Carrying both prints "Über das Projekt" and "Hintergrund" one after the
