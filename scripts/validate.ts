@@ -98,6 +98,20 @@ for (const { owner, slug, project, i18n } of entries) {
   }
 
   /**
+   * `about` and `why` are one slot filled two ways, so an entry picks one.
+   * Carrying both prints "Über das Projekt" and "Hintergrund" one after the
+   * other, each answering what the one before it just answered.
+   */
+  for (const locale of LOCALES) {
+    const keys = i18n[locale].sections.map((section) => section.key);
+    if (keys.includes('about') && keys.includes('why')) {
+      fail(
+        `${locale}.md: "## about" and "## why" are the same slot, keep one. "why" is for an entry that answers a problem, "about" for one that solves nothing and simply is`
+      );
+    }
+  }
+
+  /**
    * The repository link is derived from the path, so listing it would be a
    * second place to get it wrong — and on a `github: false` entry it would leak
    * exactly what that flag exists to withhold.

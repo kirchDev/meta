@@ -56,8 +56,15 @@ export type Language = (typeof LANGUAGES)[number];
  * Order comes from this list rather than from the file, so every project reads
  * the same way round and a file cannot make one project's page differ by
  * accident. Every section is optional; not every project has a command to show.
+ *
+ * `about` and `why` are the same slot and an entry carries at most one. `why`
+ * answers a problem — the thing exists because something was wrong — and most
+ * entries here are that. `about` is for the entry that solves nothing and simply
+ * is: this site, a reference left online. Rendered as "Hintergrund", the latter
+ * reads as a promise of a problem the text then never names.
  */
 export const SECTIONS = [
+  'about',
   'why',
   'quickstart',
   'features',
