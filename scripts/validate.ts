@@ -91,12 +91,6 @@ for (const { owner, slug, project, i18n } of entries) {
     );
   }
 
-  if (!readsGithub && project.license === undefined) {
-    fail(
-      'project.json: needs a "license" — there is no repository for the sync to read one from'
-    );
-  }
-
   if (readsGithub && project.activity === 'legacy') {
     fail(
       'project.json: "activity": "legacy" is only for a "github": false entry — for a public repository, archive it on GitHub and the sync picks that up'

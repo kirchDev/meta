@@ -138,7 +138,7 @@
   },
   "allOf": [
     {
-      "description": "A licence cannot be read off a repository the sync never touches, so an entry that opts out of GitHub has to state one itself.",
+      "description": "A licence is read off the repository, so an entry the sync touches must not state one — it would be a second copy, free to drift. A `github: false` entry may state one but need not: a private product has no licence the public has any use for, and inventing one to fill the field would be worse than leaving it out.",
       "if": {
         "properties": {
           "github": {
@@ -148,7 +148,6 @@
         "required": ["github"]
       },
       "then": {
-        "required": ["license"],
         "properties": {
           "license": {
             "$ref": "#/properties/license"
