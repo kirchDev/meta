@@ -43,7 +43,24 @@ export interface ProjectLink {
   url: string;
 }
 
-export const LANGUAGES = ['bash', 'php', 'hcl', 'ts', 'json'] as const;
+/**
+ * The last four are package-manager keys, not syntax names: consecutive fences
+ * tagged with them are variants of the same shell command, and the app renders
+ * such a run as one block with a manager switch. Which managers an entry lists
+ * is editorial fact — only ones that actually work; order, labels and the
+ * default tab are presentation and live in the app.
+ */
+export const LANGUAGES = [
+  'bash',
+  'php',
+  'hcl',
+  'ts',
+  'json',
+  'pnpm',
+  'npm',
+  'yarn',
+  'bun'
+] as const;
 export type Language = (typeof LANGUAGES)[number];
 
 /**
