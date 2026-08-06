@@ -1,12 +1,12 @@
 # OpenTofu-/Terraform-Provider für Discord
 
-Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen dabei als Namen im Code, nicht als Bitfelder.
+Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen als Namen im Code, nicht als Bitfelder.
 
 ## why
 
 Wer in einer Discord-Guild was darf, lässt sich in der Oberfläche nur Rolle für Rolle und Kanal für Kanal nachsehen. Discord speichert Berechtigungen als Bitfelder, also sagt auch die API es nicht im Klartext.
 
-In HCL ist die gesamte Berechtigungsvergabe als Ganzes lesbar. Der Provider übersetzt dabei benannte Berechtigungen in die Bitfelder, sodass im Code Namen stehen und keine Zahlen.
+In HCL ist die gesamte Berechtigungsvergabe als Ganzes lesbar. Der Provider übersetzt benannte Berechtigungen in die Bitfelder.
 
 ## quickstart
 

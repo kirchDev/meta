@@ -34,7 +34,7 @@ Eine geteilte Ansicht als Code, versioniert und nachvollziehbar wie der Rest der
 
 ## scope
 
-Der Geltungsbereich ist bewusst die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt: Sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei.
+Der Geltungsbereich ist die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt: Sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei.
 
 ## install
 

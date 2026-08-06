@@ -34,7 +34,7 @@ A shared view as code, versioned and reviewable like the rest of the infrastruct
 
 ## scope
 
-Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content: they belong in Linear's UI and its API, not in a state file.
+The provider covers workspace configuration and stops there. Issues, projects, initiatives, documents and comments are content: they belong in Linear's UI and its API, not in a state file.
 
 ## install
 

@@ -1,4 +1,4 @@
-# The online home of IT-Dienstleistungen Titus Kirch
+# The web presence of IT-Dienstleistungen Titus Kirch
 
 The application behind kirch.dev: the site itself, the CV, and this project overview.
 

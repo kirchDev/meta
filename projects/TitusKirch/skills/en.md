@@ -14,11 +14,11 @@ A skill lifts that knowledge out of the individual project. It is a folder holdi
 npx skills add TitusKirch/skills
 ```
 
-One command, and every skill in the bundle is discoverable inside the agent. No manifest to edit, no symlinks to manage. The agent routes to the right one by each skill's description in its SKILL.md the moment a task warrants it.
+One command, and every skill in the bundle is discoverable inside the agent. No manifest to edit, no symlinks to manage.
 
 ## features
 
-- **Readable before you install** — a skill is text plus at most a small shell helper that reads the repo config; what it makes the agent do is out in the open, and a single one can be lifted out or adapted.
+- **Readable before you install** — a skill is text plus at most a small shell helper that reads the repo config; a single one can be lifted out or adapted.
 - **Tool-agnostic** — the same files serve Claude Code, Codex, Cursor and OpenCode; installing puts them where each tool looks for them.
 - **The whole workflow** — commit, pull request, issue, review, release, documentation and dependency updates, each as its own skill.
 - **A work loop for agents** — implement an issue, push it, and have a second, independent agent review it, one at a time or as a whole queue.

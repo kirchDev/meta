@@ -6,7 +6,7 @@ Verwaltet lokale Klone in einem festen Layout aus Server, Organisation und Repos
 
 Klone landen dort, wo man beim Klonen gerade stand: mal im Projektordner, mal daneben, mal unter abweichendem Namen. Wächst die Zahl, ist nicht mehr zu überblicken, welche Repositories lokal liegen, welche davon ungepushte Arbeit enthalten und welche gefahrlos weg könnten.
 
-forgemap legt ein Layout aus Server, Organisation und Repository-Name fest und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren Suche und Wechseln wieder, und Massenoperationen werden möglich: Ein Sync erfasst alle Klone auf einmal, und gelöscht wird nur, was nachweislich gesichert ist.
+forgemap legt ein festes Schema fest und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren Suche und Wechseln wieder, und Massenoperationen werden möglich: Ein Sync erfasst alle Klone auf einmal, und gelöscht wird nur, was nachweislich gesichert ist.
 
 ## quickstart
 
@@ -19,7 +19,7 @@ Der Zielpfad ergibt sich aus der Konfiguration, nicht aus dem Verzeichnis, in de
 
 ## features
 
-- **Vorhersagbares Layout** — jeder Klon landet unter Server, Namensraum und Repository-Name; GitLab-Untergruppen bleiben als Verzeichnisebenen erhalten.
+- **Vorhersagbares Layout** — jeder Klon landet unter demselben Pfadschema; GitLab-Untergruppen bleiben als Verzeichnisebenen erhalten.
 - **Flexible Kurzschreibweise** — Eigentümer und Name, vollständige HTTPS-URLs oder SSH; selbst eine eingefügte Merge-Request-URL wird noch zum richtigen Repository aufgelöst.
 - **Liste und unscharfe Suche** — alle lokalen Repositories auflisten oder nach Eigentümer und Name filtern; Wechseln, Pfad ausgeben und im Dateimanager öffnen verstehen dieselben Suchbegriffe.
 - **Je Server das passende Werkzeug** — GitHub über gh, GitLab über glab samt Untergruppen; jeder andere Host wird als git-Typ eingetragen und über schlichtes git clone bedient.

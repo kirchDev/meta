@@ -1,12 +1,12 @@
 # TUI for environment files
 
-Refracts one set of variables into many environment views: every .env file of a project side by side in one matrix.
+Every .env file of a project side by side in one matrix, one view for the whole set of variables instead of one file at a time.
 
 ## why
 
 Most projects accumulate a fistful of env files, from .env through .env.example to .env.staging and .env.production, and there is no good way to see them together. You diff two at a time, miss the third, and ship a deploy that is missing exactly one variable. The example file goes stale because nobody updates it when a key is added.
 
-envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out, because one key is missing here, one value drifts there, and another is still a placeholder. Edits write back byte-exact, and secret values stay masked so the view is safe to share.
+envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out, because one key is missing here, one value drifts there, and another is still a placeholder.
 
 ## quickstart
 

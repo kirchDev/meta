@@ -23,9 +23,9 @@ Dazu der gerätebewusste Provider-Treiber in der Auth-Konfiguration und die mitg
 
 ## features
 
-- **Gerätegebundenes Remember-Me** — ein eigener Treiber koppelt jedes Token an eine Gerätezeile und ein Cookie statt an eine einzelne Spalte; je Gerät ein aktives Token, das bei der Anmeldung rotiert.
+- **Gerätegebundenes Remember-Me** — je Gerät ein aktives Token, das bei der Anmeldung rotiert.
 - **Wo bin ich angemeldet** — aktive Geräte auflisten samt System, sprechendem Namen, maskierter IP und letztem Zugriff; einzeln abmelden, alle anderen abmelden oder umbenennen.
-- **Datensparsam** — IP-Adressen werden standardmäßig gekürzt gespeichert, und die Maskierung ist über einen Vertrag austauschbar.
+- **Datensparsam** — IP-Adressen werden standardmäßig gekürzt gespeichert.
 - **Fortify-unabhängig** — funktioniert unter jedem Login-Mechanismus; die Brücke für den Zwei-Faktor-Cookie greift nur dann, wenn Fortify überhaupt vorhanden ist.
 - **Überall überschreibbar** — Namensauswertung, System-Erkennung, Cookie-Verhalten, IP-Maskierung und Token-Hashing sind Verträge mit brauchbaren Voreinstellungen.
 - **Fügt sich ins vorhandene Schema** — Schlüsseltyp id, uuid oder ulid, damit der Fremdschlüssel auf die bestehende users-Tabelle passt; Tabellennamen und Modelle sind austauschbar, und die Migrationen lesen all das erst zur Laufzeit.

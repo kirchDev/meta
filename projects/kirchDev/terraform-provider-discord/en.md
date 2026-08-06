@@ -6,7 +6,7 @@ Manage your Discord guild infrastructure as code: roles, channels, members, webh
 
 Working out who is allowed to do what in a Discord guild means clicking through the UI role by role, channel by channel. Discord stores permissions as bitfields, so the API does not spell it out either.
 
-In HCL the entire grant reads as a single document. The provider translates named permissions into those bitfields, so the code holds names rather than numbers.
+In HCL the entire grant reads as a single document. The provider translates named permissions into those bitfields.
 
 ## quickstart
 

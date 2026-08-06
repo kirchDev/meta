@@ -6,7 +6,7 @@ Everything a repository needs on day one, from linting and commit hooks to CI, s
 
 Before real work starts in a new repository, the same meta layer has to be in place, and assembled by hand it drifts apart between one repository and the next. Each repository then checks something slightly different, and a fix to the layer only reaches the one it was made in.
 
-scaffold bundles that layer into a template repository. The project code itself can be anything, be it PHP, Go, Rust, Vue or shell, because the template contains none. It answers only the question of what a repository should ship with on day one.
+scaffold bundles that layer into a template repository. The project code itself can be anything, be it PHP, Go, Rust, Vue or shell, because the template contains none.
 
 ## quickstart
 
@@ -29,4 +29,4 @@ Or through "Use this template" on GitHub; the README lists the placeholders to r
 
 ## scope
 
-The template owns the meta layer only. Application code, framework choices and project structure are left out. Otherwise it would be a template for exactly one kind of project instead of all of them.
+scaffold works at the moment a repository is created, not after: a fix to the template does not reach repositories already generated from it, each one has to pull it in on its own. Application code, framework choices and project structure are left out either way, otherwise it would be a template for exactly one kind of project instead of all of them.
