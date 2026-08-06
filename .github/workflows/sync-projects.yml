@@ -98,17 +98,18 @@ jobs:
           #
           # The base64 content goes through a file, not a `$(...)` argument:
           # projects.json has grown past the point where its encoded size fits
-          # in the OS argument-list limit, and `gh api -f content="$(...)"`
+          # in the OS argument-list limit, and `gh api ... content="$(...)"`
           # then fails with "Argument list too long" instead of committing.
-          # `-f key=@file` reads the value from disk, which has no such cap.
           #
           # `printf '%s' "$(...)"` rather than a plain redirect: `base64 -w0`
-          # always appends a trailing newline, and command substitution is
-          # what used to strip it when the value was inlined into the argv.
-          # Read straight from the file, that newline rides along as part of
-          # the field value and GitHub rejects it with "content is not valid
-          # Base64" — the encoding is still correct, only the trailing
-          # newline is not part of it.
+          # always appends a trailing newline, which command substitution
+          # used to strip when the value was inlined straight into the argv.
+          #
+          # `-F`, not `-f`: the "@file reads the value from disk" behaviour
+          # is a `-F`/typed-field feature. `-f`/raw-field takes "@path" as a
+          # literal string instead, so the field sent to the API was the
+          # path itself — GitHub then rejects the path as "not valid Base64"
+          # (HTTP 422), which reads like an encoding bug but is a flag typo.
           file_sha=$(gh api "repos/$GH_REPO/contents/projects.json?ref=$branch" --jq '.sha')
           content_file="$RUNNER_TEMP/projects.json.b64"
           printf '%s' "$(base64 -w0 projects.json)" >"$content_file"
@@ -116,7 +117,7 @@ jobs:
             -f message="chore: sync projects.json" \
             -f branch="$branch" \
             -f sha="$file_sha" \
-            -f content="@$content_file" >/dev/null
+            -F content="@$content_file" >/dev/null
 
           # Auto-merge rather than waiting for a human: `main` requires a pull
           # request but no approving review, so the only gate left is CI. The
