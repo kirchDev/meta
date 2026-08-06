@@ -145,7 +145,15 @@ jobs:
           # that can fail on configuration rather than on content. Say so plainly
           # instead of leaving a bare API error, and still fail the run: a sync
           # that silently stops merging would look like nothing had changed.
+          #
+          # Even with auto-merge on, this PR's own CI can sit at "action_required"
+          # rather than running: GitHub gates pull_request-triggered check runs
+          # opened under the github-actions[bot] identity behind manual approval
+          # in the Actions tab, separately from the Allow-auto-merge setting above.
+          # No workflow-side retry fixes that: it needs a human (or anyone with
+          # write access) to approve the run once, or the repository's Actions
+          # settings changed to stop requiring it for this actor.
           if ! gh pr merge "$pr" --squash --auto; then
-            echo "::error::Could not enable auto-merge. Check that 'Allow auto-merge' is on in the repository settings — the pull request is open and can be merged by hand."
+            echo "::error::Could not enable auto-merge. Check that 'Allow auto-merge' is on in the repository settings — the pull request is open and can be merged by hand. If it merges but CI on it shows 'action_required', approve the run from the Actions tab; this is separate from the auto-merge setting."
             exit 1
           fi
