@@ -4,9 +4,9 @@ The full branch graph, diffs and everyday git in an interface that drives your r
 
 ## why
 
-Most git GUIs reimplement git: they ship their own implementation and diverge exactly where your config, hooks or credentials come in. The others bundle a complete browser just to show you a history.
+Most git GUIs reimplement git: they ship their own implementation and diverge where your config, hooks or credentials come in. The others bundle a complete browser just to show you a history.
 
-glimpse shells out to your real git binary and parses its output. Your config, hooks and credentials keep working, signing works as configured, and the client stores no secrets of its own. The interface runs in the OS-native WebView rather than a bundled browser.
+glimpse shells out to your real git binary and parses its output. Your config, hooks and credentials keep working, signing works as configured, and the client stores no secrets of its own.
 
 ## features
 
@@ -25,4 +25,4 @@ A git client, not a forge client: glimpse talks to the remote through git alone,
 
 ## install
 
-Windows as .exe, Linux as .deb, .rpm or AppImage. Download the file matching your system and run it; from there the built-in updater keeps the application current. There is no package-manager entry.
+Download the file matching your system and run it; from there the built-in updater keeps the application current. There is no package-manager entry.

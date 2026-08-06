@@ -6,7 +6,7 @@ Alles, was ein Repository am ersten Tag braucht, von Linting und Commit-Hooks ü
 
 Bevor in einem neuen Repository die eigentliche Arbeit beginnt, steht jedes Mal dieselbe Meta-Schicht an, und von Hand zusammengesucht weicht sie zwischen zwei Repositories unweigerlich voneinander ab. Dann prüft jedes Repository etwas anderes, und eine Korrektur an der Schicht erreicht nur das eine, in dem sie gemacht wurde.
 
-scaffold bündelt diese Schicht in einem Template-Repository. Der Projektcode selbst darf alles sein, ob PHP, Go, Rust, Vue oder Shell, denn die Vorlage enthält keinen. Sie beantwortet nur die Frage, was ein Repository am ersten Tag mitbringen soll.
+scaffold bündelt diese Schicht in einem Template-Repository. Der Projektcode selbst darf alles sein, ob PHP, Go, Rust, Vue oder Shell, denn die Vorlage enthält keinen.
 
 ## quickstart
 
@@ -29,4 +29,4 @@ Oder über „Use this template“ auf GitHub; welche Platzhalter danach zu erse
 
 ## scope
 
-Die Vorlage besitzt nur die Meta-Schicht. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben außen vor. Sonst wäre sie eine Vorlage für genau eine Art von Projekt statt für alle.
+scaffold wirkt beim Erzeugen eines Repositories, nicht danach: Eine Korrektur an der Vorlage erreicht bereits erzeugte Repositories nicht von selbst, jedes davon muss sie einzeln nachziehen. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben außen vor, sonst wäre die Vorlage eine für genau eine Art von Projekt statt für alle.

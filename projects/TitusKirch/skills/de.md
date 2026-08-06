@@ -14,11 +14,11 @@ Ein Skill zieht dieses Wissen aus dem einzelnen Projekt heraus. Er ist ein Ordne
 npx skills add TitusKirch/skills
 ```
 
-Ein Befehl, und jeder Skill des Bundles ist im Agenten auffindbar. Kein Manifest zu pflegen, keine Symlinks zu setzen. Den passenden zieht der Agent anhand der Beschreibung in der jeweiligen SKILL.md heran, sobald eine Aufgabe danach verlangt.
+Ein Befehl, und jeder Skill des Bundles ist im Agenten auffindbar. Kein Manifest zu pflegen, keine Symlinks zu setzen.
 
 ## features
 
-- **Vor der Installation lesbar** — ein Skill besteht aus Text und höchstens einem kleinen Shell-Helfer, der die Repo-Konfiguration ausliest; was er den Agenten tun lässt, steht offen da, und ein einzelner lässt sich herausnehmen oder anpassen.
+- **Vor der Installation lesbar** — ein Skill besteht aus Text und höchstens einem kleinen Shell-Helfer, der die Repo-Konfiguration ausliest; ein einzelner lässt sich herausnehmen oder anpassen.
 - **Werkzeugübergreifend** — dieselben Dateien bedienen Claude Code, Codex, Cursor und OpenCode; die Installation legt sie dort ab, wo das jeweilige Werkzeug sie liest.
 - **Der ganze Arbeitsablauf** — Commit, Pull Request, Issue, Review, Release, Dokumentation und Abhängigkeits-Updates, jeweils als eigener Skill.
 - **Arbeitsschleife für Agenten** — Issues implementieren, pushen und von einem zweiten, unabhängigen Agenten prüfen lassen, einzeln oder als ganze Warteschlange.

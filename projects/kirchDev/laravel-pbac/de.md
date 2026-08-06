@@ -27,9 +27,9 @@ Ist die Mandantentrennung in der Konfiguration aktiviert, gelten im Block die Ro
 
 ## scope
 
-Berechtigungen fließen ausschließlich über Rollen: Eine Direktvergabe an einzelne Benutzer gibt es bewusst nicht, ebenso wenig Wildcards oder ein eigenes Guard-Konzept. Fähigkeiten tragen explizite Namen und laufen über das Gate. Auch eigene Middleware und Blade-Direktiven bringt das Paket keine mit, denn Laravels can-Middleware und @can gehen ohnehin durch das Gate.
+Berechtigungen fließen ausschließlich über Rollen: Eine Direktvergabe an einzelne Benutzer gibt es nicht, ebenso wenig Wildcards oder ein eigenes Guard-Konzept. Fähigkeiten tragen explizite Namen und laufen über das Gate. Auch eigene Middleware und Blade-Direktiven bringt das Paket keine mit, denn Laravels can-Middleware und @can gehen ohnehin durch das Gate.
 
-Wer von spatie/laravel-permission umsteigt, findet genau diese Unterschiede in einem eigenen Migrationsleitfaden ausgearbeitet, samt Artisan-Befehl für die Datenübernahme.
+Wer von spatie/laravel-permission umsteigt, findet diese Unterschiede in einem eigenen Migrationsleitfaden ausgearbeitet, samt Artisan-Befehl für die Datenübernahme.
 
 ## install
 

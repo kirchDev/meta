@@ -1,4 +1,4 @@
-# Headless CMS ecosystem built on Laravel
+# Headless CMS built on Laravel
 
 Manages content with the tools a Laravel application already has, namely Eloquent, policies and migrations, and serves it over a REST API.
 
@@ -10,7 +10,7 @@ contentstash builds on what is already there instead. A content type is an ordin
 
 ## features
 
-- **Content types from field types** — short and long text, integer and big integer, boolean, JSON and timestamp.
+- **Content types from field types** — string, text, integer, bigInteger, boolean, json and timestamp, the same column types a migration would use.
 - **Schema changes become migrations** — creating, changing or removing a content type produces a real migration file rather than an ad-hoc schema change.
 - **A REST API per resource** — read, create, update and delete are available for every content type as soon as it is defined.
 - **Per-model roles and permissions** — list, view, create, update and delete are granted individually, through system roles from guest to administrator.
@@ -19,4 +19,4 @@ contentstash builds on what is already there instead. A content type is an ordin
 
 ## scope
 
-contentstash does not render content: it serves it over the REST API, and how it is presented is the consuming application's decision. It brings no foundation of its own either. Where Laravel already has a tool, contentstash does not put a second one beside it.
+contentstash does not render content: it serves it over the REST API, and how it is presented is the consuming application's decision.

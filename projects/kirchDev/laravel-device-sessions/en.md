@@ -6,7 +6,7 @@ One remember-me token per device instead of a single one per user, with a device
 
 Laravel remembers exactly one remember-me token per user, in a single column. Two annoyances follow: signing out on your phone signs you out on your desktop too, and nobody can see which devices are signed in at all. After a lost laptop all you can do is change the password and hope.
 
-This package binds a token per device to a device row and a cookie. That is what lets you show the list of signed-in devices at all and revoke a single one, and the usual details, meaning OS, name and IP, are handled with restraint.
+This package binds a token per device to a device row and a cookie, which lets you show the list of signed-in devices and revoke a single one. The usual details, OS, name and IP, are stored with restraint.
 
 ## quickstart
 
@@ -19,13 +19,13 @@ class User extends Authenticatable
 }
 ```
 
-Plus the device-aware provider driver in the auth config and the bundled middleware on your authenticated routes. That is what the device list runs on.
+Plus the device-aware provider driver in the auth config and the bundled middleware on your authenticated routes; together they run the device list.
 
 ## features
 
-- **Device-bound remember-me** — a custom driver ties each token to a device row and a cookie instead of one shared column; one active token per device, rotated on login.
+- **Device-bound remember-me** — one active token per device, rotated on login.
 - **Where am I signed in** — list active devices with OS, a friendly name, a masked IP and last-seen; revoke one, revoke all others, or rename.
-- **Privacy-respecting** — IP addresses are stored truncated by default, and the masking is swappable through a contract.
+- **Privacy-respecting** — IP addresses are stored truncated by default.
 - **Fortify-agnostic** — works under any login mechanism; the two-factor cookie bridge wires itself up only when Fortify is actually present.
 - **Overridable everywhere** — name parsing, OS detection, cookie policy, IP masking and token hashing are contracts with defaults you can live with.
 - **Fits the schema you have** — key types id, uuid or ulid, so the foreign key lines up with the users table you already own; table names and models are swappable, and the migrations read all of it at run time.

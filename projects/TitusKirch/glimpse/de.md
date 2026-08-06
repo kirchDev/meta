@@ -6,7 +6,7 @@ Der vollständige Branch-Graph, Diffs und der git-Alltag in einer Oberfläche, d
 
 Die meisten git-Oberflächen bauen git nach: Sie bringen eine eigene Implementierung mit und weichen dort ab, wo die eigene Konfiguration, Hooks oder Anmeldedaten ins Spiel kommen. Die anderen liefern einen kompletten Browser mit, nur um den Verlauf anzuzeigen.
 
-glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten die eigene Konfiguration, die Hooks und die hinterlegten Anmeldedaten weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse. Die Oberfläche läuft in der WebView des Betriebssystems statt in einem mitgelieferten Browser.
+glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten die eigene Konfiguration, die Hooks und die hinterlegten Anmeldedaten weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse.
 
 ## features
 
@@ -25,4 +25,4 @@ Ein git-Client, kein Forge-Client: Mit dem Remote spricht glimpse ausschließlic
 
 ## install
 
-Windows als .exe, Linux als .deb, .rpm oder AppImage. Die zum System passende Datei herunterladen und ausführen; ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell. Einen Paketmanager-Eintrag gibt es nicht.
+Die zum System passende Datei herunterladen und ausführen; ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell. Einen Paketmanager-Eintrag gibt es nicht.

@@ -27,9 +27,9 @@ With organisation scoping enabled in the config, that organisation's roles apply
 
 ## scope
 
-Permissions travel through roles only: there is deliberately no direct grant to individual users, no wildcard abilities, and no guard concept of its own. Abilities carry explicit names and resolve through the Gate. The package also ships no middleware and no Blade directives, since Laravel's can middleware and @can already go through the Gate.
+Permissions travel through roles only: there is no direct grant to individual users, no wildcard abilities, and no guard concept of its own. Abilities carry explicit names and resolve through the Gate. The package also ships no middleware and no Blade directives, since Laravel's can middleware and @can already go through the Gate.
 
-Coming from spatie/laravel-permission, exactly these differences are worked through in a dedicated migration guide, complete with an Artisan command that moves the data across.
+If you are coming from spatie/laravel-permission, a dedicated migration guide works through these differences, complete with an Artisan command that moves the data across.
 
 ## install
 

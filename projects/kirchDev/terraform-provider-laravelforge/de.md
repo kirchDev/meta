@@ -1,12 +1,12 @@
 # OpenTofu-/Terraform-Provider für Laravel Forge
 
-Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons, SSL und mehr. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan.
+Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons und SSL. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan.
 
 ## why
 
 Forge wird über die Oberfläche bedient, und was dort entsteht, existiert nur dort. Eine Staging-Umgebung, die der Produktion entspricht, muss von Hand nachgebaut werden und weicht ab dem ersten Handgriff wieder ab.
 
-Als Code beschrieben ist eine zweite Umgebung dieselbe Definition mit anderen Variablen. Und weil OpenTofu vor dem Anwenden vergleicht, wird sichtbar, was jemand zwischendurch direkt in Forge geändert hat.
+Als Code beschrieben ist eine zweite Umgebung dieselbe Definition mit anderen Variablen, und weil OpenTofu vor dem Anwenden vergleicht, deckt jeder Plan Abweichungen zum tatsächlichen Zustand auf.
 
 ## quickstart
 
@@ -28,7 +28,7 @@ Für nahezu jede Entität, die sich in Forge verwalten lässt, gibt es eine Ress
 
 ## scope
 
-Bewusst ausgenommen sind reine Aktionen wie das Neustarten eines Servers oder das Anstoßen eines Deployments: Sie beschreiben keinen Zustand, den ein Plan abgleichen könnte.
+Ausgenommen sind reine Aktionen wie das Neustarten eines Servers oder das Anstoßen eines Deployments: Sie beschreiben keinen Zustand, den ein Plan abgleichen könnte.
 
 ## install
 

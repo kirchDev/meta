@@ -11,10 +11,10 @@ The Worker carries that across. It listens to Linear's webhooks, reconciles on e
 ## features
 
 - **Priority as a label, on both sides** — the priority set in Linear is written as a priority label onto the GitHub issue and the Linear issue; a new GitHub issue that already carries one seeds the Linear field the other way round.
-- **Source repository as a Linear label** — synced issues get a repo label with owner and name, derived from the native sync's attachment.
-- **A bridge to the agent workflow** — ai labels on GitHub are mirrored into Linear workflow states and onto the linked pull requests; finished issues have their ai labels cleaned up on both sides.
-- **Webhook plus backstop** — a Linear webhook reconciles changes immediately, a run every five minutes catches dropped events; there is no server to run.
+- **Source repository as a Linear label** — synced issues get a repo label with owner and name, with no extra configuration needed.
+- **A bridge to the agent workflow** — ai labels, which coding agents use to mark their progress on a GitHub issue, are mirrored into Linear workflow states and onto the linked pull requests; finished issues have their ai labels cleaned up on both sides.
+- **Webhook plus backstop** — a Linear webhook reconciles changes immediately, a run every five minutes catches dropped events.
 
 ## scope
 
-This does not replace the native sync, it depends on it. Mirroring issues remains the job of Linear's own GitHub integration, and the Worker never links the two sides itself; it reads the link the sync leaves behind and carries across what would otherwise be lost.
+This does not replace the native sync, it depends on it. Mirroring issues remains the job of Linear's own GitHub integration, and the Worker never links the two sides itself; it reads the link the sync leaves behind and recovers what would otherwise be lost.

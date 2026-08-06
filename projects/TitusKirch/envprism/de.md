@@ -1,12 +1,12 @@
 # TUI für Environment-Dateien
 
-Bricht einen Satz Variablen in viele Umgebungs-Sichten auf: alle .env-Dateien eines Projekts nebeneinander in einer Matrix.
+Alle .env-Dateien eines Projekts nebeneinander in einer Matrix, eine Sicht für den ganzen Variablensatz statt für eine Datei allein.
 
 ## why
 
 Die meisten Projekte sammeln eine Handvoll env-Dateien an, von .env über .env.example bis .env.staging und .env.production, und es gibt keine gute Möglichkeit, sie zusammen zu sehen. Man vergleicht zwei davon, übersieht die dritte und deployt am Ende eine Umgebung, in der genau eine Variable fehlt. Die Beispieldatei veraltet, weil niemand sie nachzieht, sobald ein Schlüssel dazukommt.
 
-envprism behandelt den ganzen Satz als eine Sache: jede Datei eine Spalte, jede Variable eine Zeile. Die Lücken springen ins Auge, weil hier ein Schlüssel fehlt, dort ein Wert abweicht und anderswo noch ein Platzhalter steht. Änderungen werden byte-genau zurückgeschrieben, und geheime Werte bleiben maskiert, damit die Ansicht teilbar ist.
+envprism behandelt den ganzen Satz als eine Sache: jede Datei eine Spalte, jede Variable eine Zeile. Die Lücken springen ins Auge, weil hier ein Schlüssel fehlt, dort ein Wert abweicht und anderswo noch ein Platzhalter steht.
 
 ## quickstart
 

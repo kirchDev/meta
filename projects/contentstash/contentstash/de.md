@@ -1,4 +1,4 @@
-# Headless-CMS-Ökosystem auf Laravel-Basis
+# Headless CMS auf Laravel-Basis
 
 Verwaltet Inhalte mit den Mitteln, die eine Laravel-Anwendung ohnehin hat, also Eloquent, Policies und Migrationen, und liefert sie über eine REST-API aus.
 
@@ -10,7 +10,7 @@ contentstash setzt stattdessen auf das, was ohnehin da ist. Ein Inhaltstyp ist e
 
 ## features
 
-- **Inhaltstypen aus Feldtypen** — Text, längerer Text, Ganzzahl und große Ganzzahl, Wahrheitswert, JSON und Zeitstempel.
+- **Inhaltstypen aus Feldtypen** — string, text, integer, bigInteger, boolean, json und timestamp, dieselben Spaltentypen wie in einer Migration.
 - **Schema-Änderungen werden zu Migrationen** — legt man einen Inhaltstyp an, ändert ihn oder entfernt ihn, entsteht daraus eine echte Migrationsdatei statt einer Ad-hoc-Schemaänderung.
 - **REST-API je Ressource** — Lesen, Anlegen, Ändern und Löschen stehen für jeden Inhaltstyp bereit, sobald er definiert ist.
 - **Rollen und Rechte je Modell** — Auflisten, Ansehen, Anlegen, Ändern und Löschen sind einzeln vergebbar, über Systemrollen von Gast bis Administrator.
@@ -19,4 +19,4 @@ contentstash setzt stattdessen auf das, was ohnehin da ist. Ein Inhaltstyp ist e
 
 ## scope
 
-contentstash rendert keine Inhalte: Es liefert sie über die REST-API aus, und wie sie dargestellt werden, entscheidet die konsumierende Anwendung. Ebenso fehlt ein eigener Unterbau. Wo Laravel schon ein Mittel hat, stellt contentstash kein zweites daneben.
+contentstash rendert keine Inhalte: Es liefert sie über die REST-API aus, und wie sie dargestellt werden, entscheidet die konsumierende Anwendung.

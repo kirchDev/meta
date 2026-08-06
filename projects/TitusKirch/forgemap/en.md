@@ -6,7 +6,7 @@ Manages local clones in a fixed layout of server, organisation and repository na
 
 Clones land wherever you happened to be when you cloned them: in the projects folder, next to it, or under a different name. As the number grows it stops being clear which repositories are local, which hold unpushed work, and which could safely go.
 
-forgemap fixes a layout of server, organisation and repository name, then sticks to it. Because the path is predictable, search and switching work again, and bulk operations become possible: one sync covers every clone, and nothing is deleted unless it is provably backed up.
+forgemap fixes a stable path scheme, then sticks to it. Because the path is predictable, search and switching work again, and bulk operations become possible: one sync covers every clone, and nothing is deleted unless it is provably backed up.
 
 ## quickstart
 
@@ -19,7 +19,7 @@ The destination comes from the configuration, not from the directory the command
 
 ## features
 
-- **Predictable layout** — every clone lands under server, namespace and repository name; GitLab subgroups are kept as directory levels.
+- **Predictable layout** — every clone lands under the same path scheme; GitLab subgroups are kept as directory levels.
 - **Flexible slug syntax** — owner and name, full HTTPS URLs or SSH; even a pasted merge-request URL still resolves to the right repository.
 - **List and fuzzy search** — list every local repository or filter by owner and name; switching, printing a path and opening in the file manager take the same terms.
 - **Forge-aware** — GitHub through gh, GitLab through glab including subgroups; any other host is configured as a plain git type and served through git clone.

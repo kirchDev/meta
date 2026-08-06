@@ -10,11 +10,10 @@ The template does that work up front. Backend, frontend, shared packages and del
 
 ## features
 
-- **Laravel and Nuxt in one repository** — services and apps live side by side instead of in two repositories that have to be kept in step.
+- **Laravel and Nuxt in one repository** — services and apps live side by side instead of in two repositories that have to be kept in step; pnpm workspaces and Turborepo wire up the dependencies between them, so builds run in the right order and get cached.
 - **Shared packages** — ESLint, TypeScript and base configuration live once under packages and are shared by the apps.
 - **Delivery prepared** — workflows build Docker images for the GitHub Container Registry; the apps go to Cloudflare Pages, the API service to Laravel Forge, split into development, staging and production.
-- **Monorepo tooling in place** — pnpm workspaces and Turborepo are configured, including the dependencies between the parts.
 
 ## scope
 
-The template stays online as a reference, for the shape of a Laravel-and-Nuxt monorepo and the delivery paths that go with it.
+The template stays online as a reference for the shape of a Laravel-and-Nuxt monorepo and the delivery paths that go with it; dependencies and workflows are frozen at the point development stopped and have not been updated since.
