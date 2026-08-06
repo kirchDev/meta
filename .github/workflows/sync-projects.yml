@@ -95,12 +95,20 @@ jobs:
           # Commit through the Contents API rather than `git push`: commits made
           # this way with GITHUB_TOKEN are signed by GitHub and count as
           # "Verified", which a required_signatures rule on main insists on.
+          #
+          # The base64 content goes through a file, not a `$(...)` argument:
+          # projects.json has grown past the point where its encoded size fits
+          # in the OS argument-list limit, and `gh api -f content="$(...)"`
+          # then fails with "Argument list too long" instead of committing.
+          # `-f key=@file` reads the value from disk, which has no such cap.
           file_sha=$(gh api "repos/$GH_REPO/contents/projects.json?ref=$branch" --jq '.sha')
+          content_file="$RUNNER_TEMP/projects.json.b64"
+          base64 -w0 projects.json >"$content_file"
           gh api -X PUT "repos/$GH_REPO/contents/projects.json" \
             -f message="chore: sync projects.json" \
             -f branch="$branch" \
             -f sha="$file_sha" \
-            -f content="$(base64 -w0 projects.json)" >/dev/null
+            -f content="@$content_file" >/dev/null
 
           # Auto-merge rather than waiting for a human: `main` requires a pull
           # request but no approving review, so the only gate left is CI. The
