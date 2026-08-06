@@ -6,7 +6,7 @@ Aims to back up Git repositories along with their forge metadata: issues, pull r
 
 A git clone saves the code. Everything else disappears the moment an account is suspended or an organisation deleted: the discussion in the issues, the comments on the pull requests, the releases and their notes, the labels and milestones.
 
-That is the part amber is meant to capture. The plan is a full git mirror with every branch and tag, the metadata as JSON beside it, a manifest with integrity hashes, and incremental runs that fetch only what changed on the second pass. Storage is ordinary folders that stay readable without amber.
+That is the part amber is meant to capture, alongside the git mirror itself.
 
 ## scope
 

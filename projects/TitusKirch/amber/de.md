@@ -6,7 +6,7 @@ Soll Git-Repositories samt ihrer Forge-Metadaten sichern: Issues, Pull Requests,
 
 Ein git clone rettet den Code. Alles andere verschwindet, sobald ein Konto gesperrt oder eine Organisation gelöscht wird: die Diskussion in den Issues, die Kommentare an den Pull Requests, die Releases samt Notizen, die Labels und Meilensteine.
 
-Diesen Teil soll amber mitsichern. Vorgesehen ist ein vollständiger git-Spiegel mit allen Branches und Tags, daneben die Metadaten als JSON, dazu ein Manifest mit Integritäts-Hashes und inkrementelle Läufe, die beim zweiten Durchgang nur noch Geändertes holen. Abgelegt wird in gewöhnlichen Ordnern, die auch ohne amber lesbar bleiben.
+Diesen Teil soll amber mitsichern, neben dem git-Spiegel selbst.
 
 ## scope
 
