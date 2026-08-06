@@ -35,7 +35,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Diesen Teil soll amber mitsichern. Vorgesehen ist ein vollständiger git-Spiegel mit allen Branches und Tags, daneben die Metadaten als JSON, dazu ein Manifest mit Integritäts-Hashes und inkrementelle Läufe, die beim zweiten Durchgang nur noch Geändertes holen. Abgelegt wird in gewöhnlichen Ordnern, die auch ohne amber lesbar bleiben."
+                  "text": "Diesen Teil soll amber mitsichern, neben dem git-Spiegel selbst."
                 }
               ]
             },
@@ -69,7 +69,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "That is the part amber is meant to capture. The plan is a full git mirror with every branch and tag, the metadata as JSON beside it, a manifest with integrity hashes, and incremental runs that fetch only what changed on the second pass. Storage is ordinary folders that stay readable without amber."
+                  "text": "That is the part amber is meant to capture, alongside the git mirror itself."
                 }
               ]
             },
