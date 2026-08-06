@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05",
+  "generatedAt": "2026-08-06",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -129,7 +129,7 @@
           ]
         },
         "en": {
-          "tagline": "The online home of IT-Dienstleistungen Titus Kirch",
+          "tagline": "The web presence of IT-Dienstleistungen Titus Kirch",
           "description": "The application behind kirch.dev: the site itself, the CV, and this project overview.",
           "summary": [
             {
@@ -173,7 +173,7 @@
       "links": [],
       "i18n": {
         "de": {
-          "tagline": "Headless-CMS-Ökosystem auf Laravel-Basis",
+          "tagline": "Headless CMS auf Laravel-Basis",
           "description": "Verwaltet Inhalte mit den Mitteln, die eine Laravel-Anwendung ohnehin hat, also Eloquent, Policies und Migrationen, und liefert sie über eine REST-API aus.",
           "summary": [
             {
@@ -203,7 +203,7 @@
                   "items": [
                     {
                       "term": "Inhaltstypen aus Feldtypen",
-                      "text": "Text, längerer Text, Ganzzahl und große Ganzzahl, Wahrheitswert, JSON und Zeitstempel."
+                      "text": "string, text, integer, bigInteger, boolean, json und timestamp, dieselben Spaltentypen wie in einer Migration."
                     },
                     {
                       "term": "Schema-Änderungen werden zu Migrationen",
@@ -234,14 +234,14 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "contentstash rendert keine Inhalte: Es liefert sie über die REST-API aus, und wie sie dargestellt werden, entscheidet die konsumierende Anwendung. Ebenso fehlt ein eigener Unterbau. Wo Laravel schon ein Mittel hat, stellt contentstash kein zweites daneben."
+                  "text": "contentstash rendert keine Inhalte: Es liefert sie über die REST-API aus, und wie sie dargestellt werden, entscheidet die konsumierende Anwendung."
                 }
               ]
             }
           ]
         },
         "en": {
-          "tagline": "Headless CMS ecosystem built on Laravel",
+          "tagline": "Headless CMS built on Laravel",
           "description": "Manages content with the tools a Laravel application already has, namely Eloquent, policies and migrations, and serves it over a REST API.",
           "summary": [
             {
@@ -271,7 +271,7 @@
                   "items": [
                     {
                       "term": "Content types from field types",
-                      "text": "short and long text, integer and big integer, boolean, JSON and timestamp."
+                      "text": "string, text, integer, bigInteger, boolean, json and timestamp, the same column types a migration would use."
                     },
                     {
                       "term": "Schema changes become migrations",
@@ -302,7 +302,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "contentstash does not render content: it serves it over the REST API, and how it is presented is the consuming application's decision. It brings no foundation of its own either. Where Laravel already has a tool, contentstash does not put a second one beside it."
+                  "text": "contentstash does not render content: it serves it over the REST API, and how it is presented is the consuming application's decision."
                 }
               ]
             }
@@ -330,11 +330,11 @@
       "i18n": {
         "de": {
           "tagline": "TUI für Environment-Dateien",
-          "description": "Bricht einen Satz Variablen in viele Umgebungs-Sichten auf: alle .env-Dateien eines Projekts nebeneinander in einer Matrix.",
+          "description": "Alle .env-Dateien eines Projekts nebeneinander in einer Matrix, eine Sicht für den ganzen Variablensatz statt für eine Datei allein.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Bricht einen Satz Variablen in viele Umgebungs-Sichten auf: alle .env-Dateien eines Projekts nebeneinander in einer Matrix."
+              "text": "Alle .env-Dateien eines Projekts nebeneinander in einer Matrix, eine Sicht für den ganzen Variablensatz statt für eine Datei allein."
             }
           ],
           "sections": [
@@ -347,7 +347,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "envprism behandelt den ganzen Satz als eine Sache: jede Datei eine Spalte, jede Variable eine Zeile. Die Lücken springen ins Auge, weil hier ein Schlüssel fehlt, dort ein Wert abweicht und anderswo noch ein Platzhalter steht. Änderungen werden byte-genau zurückgeschrieben, und geheime Werte bleiben maskiert, damit die Ansicht teilbar ist."
+                  "text": "envprism behandelt den ganzen Satz als eine Sache: jede Datei eine Spalte, jede Variable eine Zeile. Die Lücken springen ins Auge, weil hier ein Schlüssel fehlt, dort ein Wert abweicht und anderswo noch ein Platzhalter steht."
                 }
               ]
             },
@@ -430,11 +430,11 @@
         },
         "en": {
           "tagline": "TUI for environment files",
-          "description": "Refracts one set of variables into many environment views: every .env file of a project side by side in one matrix.",
+          "description": "Every .env file of a project side by side in one matrix, one view for the whole set of variables instead of one file at a time.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Refracts one set of variables into many environment views: every .env file of a project side by side in one matrix."
+              "text": "Every .env file of a project side by side in one matrix, one view for the whole set of variables instead of one file at a time."
             }
           ],
           "sections": [
@@ -447,7 +447,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out, because one key is missing here, one value drifts there, and another is still a placeholder. Edits write back byte-exact, and secret values stay masked so the view is safe to share."
+                  "text": "envprism treats the whole set as one thing: every file a column, every variable a row. The gaps jump out, because one key is missing here, one value drifts there, and another is still a placeholder."
                 }
               ]
             },
@@ -567,7 +567,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "forgemap legt ein Layout aus Server, Organisation und Repository-Name fest und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren Suche und Wechseln wieder, und Massenoperationen werden möglich: Ein Sync erfasst alle Klone auf einmal, und gelöscht wird nur, was nachweislich gesichert ist."
+                  "text": "forgemap legt ein festes Schema fest und hält sich daran. Weil der Pfad damit vorhersagbar ist, funktionieren Suche und Wechseln wieder, und Massenoperationen werden möglich: Ein Sync erfasst alle Klone auf einmal, und gelöscht wird nur, was nachweislich gesichert ist."
                 }
               ]
             },
@@ -593,7 +593,7 @@
                   "items": [
                     {
                       "term": "Vorhersagbares Layout",
-                      "text": "jeder Klon landet unter Server, Namensraum und Repository-Name; GitLab-Untergruppen bleiben als Verzeichnisebenen erhalten."
+                      "text": "jeder Klon landet unter demselben Pfadschema; GitLab-Untergruppen bleiben als Verzeichnisebenen erhalten."
                     },
                     {
                       "term": "Flexible Kurzschreibweise",
@@ -676,7 +676,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "forgemap fixes a layout of server, organisation and repository name, then sticks to it. Because the path is predictable, search and switching work again, and bulk operations become possible: one sync covers every clone, and nothing is deleted unless it is provably backed up."
+                  "text": "forgemap fixes a stable path scheme, then sticks to it. Because the path is predictable, search and switching work again, and bulk operations become possible: one sync covers every clone, and nothing is deleted unless it is provably backed up."
                 }
               ]
             },
@@ -702,7 +702,7 @@
                   "items": [
                     {
                       "term": "Predictable layout",
-                      "text": "every clone lands under server, namespace and repository name; GitLab subgroups are kept as directory levels."
+                      "text": "every clone lands under the same path scheme; GitLab subgroups are kept as directory levels."
                     },
                     {
                       "term": "Flexible slug syntax",
@@ -835,7 +835,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten die eigene Konfiguration, die Hooks und die hinterlegten Anmeldedaten weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse. Die Oberfläche läuft in der WebView des Betriebssystems statt in einem mitgelieferten Browser."
+                  "text": "glimpse ruft das echte git-Binary auf und liest dessen Ausgabe. Damit gelten die eigene Konfiguration, die Hooks und die hinterlegten Anmeldedaten weiter, Signaturen funktionieren wie eingerichtet, und der Client speichert selbst keine Geheimnisse."
                 }
               ]
             },
@@ -895,7 +895,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Windows als .exe, Linux als .deb, .rpm oder AppImage. Die zum System passende Datei herunterladen und ausführen; ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell. Einen Paketmanager-Eintrag gibt es nicht."
+                  "text": "Die zum System passende Datei herunterladen und ausführen; ab da hält sich die Anwendung über den eingebauten Updater selbst aktuell. Einen Paketmanager-Eintrag gibt es nicht."
                 }
               ]
             }
@@ -916,11 +916,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Most git GUIs reimplement git: they ship their own implementation and diverge exactly where your config, hooks or credentials come in. The others bundle a complete browser just to show you a history."
+                  "text": "Most git GUIs reimplement git: they ship their own implementation and diverge where your config, hooks or credentials come in. The others bundle a complete browser just to show you a history."
                 },
                 {
                   "type": "paragraph",
-                  "text": "glimpse shells out to your real git binary and parses its output. Your config, hooks and credentials keep working, signing works as configured, and the client stores no secrets of its own. The interface runs in the OS-native WebView rather than a bundled browser."
+                  "text": "glimpse shells out to your real git binary and parses its output. Your config, hooks and credentials keep working, signing works as configured, and the client stores no secrets of its own."
                 }
               ]
             },
@@ -980,7 +980,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Windows as .exe, Linux as .deb, .rpm or AppImage. Download the file matching your system and run it; from there the built-in updater keeps the application current. There is no package-manager entry."
+                  "text": "Download the file matching your system and run it; from there the built-in updater keeps the application current. There is no package-manager entry."
                 }
               ]
             }
@@ -1051,7 +1051,7 @@
                   "items": [
                     {
                       "term": "Gerätegebundenes Remember-Me",
-                      "text": "ein eigener Treiber koppelt jedes Token an eine Gerätezeile und ein Cookie statt an eine einzelne Spalte; je Gerät ein aktives Token, das bei der Anmeldung rotiert."
+                      "text": "je Gerät ein aktives Token, das bei der Anmeldung rotiert."
                     },
                     {
                       "term": "Wo bin ich angemeldet",
@@ -1059,7 +1059,7 @@
                     },
                     {
                       "term": "Datensparsam",
-                      "text": "IP-Adressen werden standardmäßig gekürzt gespeichert, und die Maskierung ist über einen Vertrag austauschbar."
+                      "text": "IP-Adressen werden standardmäßig gekürzt gespeichert."
                     },
                     {
                       "term": "Fortify-unabhängig",
@@ -1121,7 +1121,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "This package binds a token per device to a device row and a cookie. That is what lets you show the list of signed-in devices at all and revoke a single one, and the usual details, meaning OS, name and IP, are handled with restraint."
+                  "text": "This package binds a token per device to a device row and a cookie, which lets you show the list of signed-in devices and revoke a single one. The usual details, OS, name and IP, are stored with restraint."
                 }
               ]
             },
@@ -1135,7 +1135,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Plus the device-aware provider driver in the auth config and the bundled middleware on your authenticated routes. That is what the device list runs on."
+                  "text": "Plus the device-aware provider driver in the auth config and the bundled middleware on your authenticated routes; together they run the device list."
                 }
               ]
             },
@@ -1147,7 +1147,7 @@
                   "items": [
                     {
                       "term": "Device-bound remember-me",
-                      "text": "a custom driver ties each token to a device row and a cookie instead of one shared column; one active token per device, rotated on login."
+                      "text": "one active token per device, rotated on login."
                     },
                     {
                       "term": "Where am I signed in",
@@ -1155,7 +1155,7 @@
                     },
                     {
                       "term": "Privacy-respecting",
-                      "text": "IP addresses are stored truncated by default, and the masking is swappable through a contract."
+                      "text": "IP addresses are stored truncated by default."
                     },
                     {
                       "term": "Fortify-agnostic",
@@ -1208,7 +1208,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-06",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -1294,11 +1294,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Berechtigungen fließen ausschließlich über Rollen: Eine Direktvergabe an einzelne Benutzer gibt es bewusst nicht, ebenso wenig Wildcards oder ein eigenes Guard-Konzept. Fähigkeiten tragen explizite Namen und laufen über das Gate. Auch eigene Middleware und Blade-Direktiven bringt das Paket keine mit, denn Laravels can-Middleware und @can gehen ohnehin durch das Gate."
+                  "text": "Berechtigungen fließen ausschließlich über Rollen: Eine Direktvergabe an einzelne Benutzer gibt es nicht, ebenso wenig Wildcards oder ein eigenes Guard-Konzept. Fähigkeiten tragen explizite Namen und laufen über das Gate. Auch eigene Middleware und Blade-Direktiven bringt das Paket keine mit, denn Laravels can-Middleware und @can gehen ohnehin durch das Gate."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Wer von spatie/laravel-permission umsteigt, findet genau diese Unterschiede in einem eigenen Migrationsleitfaden ausgearbeitet, samt Artisan-Befehl für die Datenübernahme."
+                  "text": "Wer von spatie/laravel-permission umsteigt, findet diese Unterschiede in einem eigenen Migrationsleitfaden ausgearbeitet, samt Artisan-Befehl für die Datenübernahme."
                 }
               ]
             },
@@ -1394,11 +1394,11 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Permissions travel through roles only: there is deliberately no direct grant to individual users, no wildcard abilities, and no guard concept of its own. Abilities carry explicit names and resolve through the Gate. The package also ships no middleware and no Blade directives, since Laravel's can middleware and @can already go through the Gate."
+                  "text": "Permissions travel through roles only: there is no direct grant to individual users, no wildcard abilities, and no guard concept of its own. Abilities carry explicit names and resolve through the Gate. The package also ships no middleware and no Blade directives, since Laravel's can middleware and @can already go through the Gate."
                 },
                 {
                   "type": "paragraph",
-                  "text": "Coming from spatie/laravel-permission, exactly these differences are worked through in a dedicated migration guide, complete with an Artisan command that moves the data across."
+                  "text": "If you are coming from spatie/laravel-permission, a dedicated migration guide works through these differences, complete with an Artisan command that moves the data across."
                 }
               ]
             },
@@ -1430,7 +1430,7 @@
       "links": [],
       "i18n": {
         "de": {
-          "tagline": "Ergänzt die Linear-GitHub-Synchronisation",
+          "tagline": "Schließt die Lücken der Linear-GitHub-Synchronisation",
           "description": "Ein Cloudflare Worker, der nachträgt, was der eingebaute Abgleich zwischen Linear und GitHub nicht überträgt: von der Priorität bis zum Stand der Agenten-Arbeit.",
           "summary": [
             {
@@ -1464,15 +1464,15 @@
                     },
                     {
                       "term": "Quell-Repository als Linear-Label",
-                      "text": "synchronisierte Issues erhalten ein repo-Label mit Eigentümer und Name, abgeleitet aus dem Anhang des nativen Syncs."
+                      "text": "synchronisierte Issues erhalten ein repo-Label mit Eigentümer und Name, ohne zusätzliche Konfiguration."
                     },
                     {
                       "term": "Brücke zum Agenten-Workflow",
-                      "text": "ai-Labels auf GitHub spiegeln sich in Linear-Workflow-States und auf den verknüpften Pull Requests; abgeschlossene Issues räumen ihre ai-Labels auf beiden Seiten ab."
+                      "text": "ai-Labels, mit denen Coding-Agents ihren Bearbeitungsstand am GitHub-Issue markieren, spiegeln sich in Linear-Workflow-States und auf den verknüpften Pull Requests; abgeschlossene Issues räumen ihre ai-Labels auf beiden Seiten ab."
                     },
                     {
                       "term": "Webhook plus Backstop",
-                      "text": "ein Linear-Webhook gleicht Änderungen sofort ab, ein Lauf alle fünf Minuten fängt verlorene Ereignisse; einen eigenen Server gibt es nicht."
+                      "text": "ein Linear-Webhook gleicht Änderungen sofort ab, ein Lauf alle fünf Minuten fängt verlorene Ereignisse."
                     }
                   ]
                 }
@@ -1483,7 +1483,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Ersetzt den nativen Abgleich nicht, sondern setzt ihn voraus: Issues spiegelt weiterhin Linears eigene GitHub-Integration, und die Verknüpfung der beiden Seiten stellt der Worker nicht selbst her. Er liest sie nur und trägt nach, was auf dem Weg verloren geht."
+                  "text": "Ersetzt den nativen Abgleich nicht, sondern setzt ihn voraus: Issues spiegelt weiterhin Linears eigene GitHub-Integration, und die Verknüpfung der beiden Seiten stellt der Worker nicht selbst her. Er liest sie nur und holt nach, was auf dem Weg verloren geht."
                 }
               ]
             }
@@ -1524,15 +1524,15 @@
                     },
                     {
                       "term": "Source repository as a Linear label",
-                      "text": "synced issues get a repo label with owner and name, derived from the native sync's attachment."
+                      "text": "synced issues get a repo label with owner and name, with no extra configuration needed."
                     },
                     {
                       "term": "A bridge to the agent workflow",
-                      "text": "ai labels on GitHub are mirrored into Linear workflow states and onto the linked pull requests; finished issues have their ai labels cleaned up on both sides."
+                      "text": "ai labels, which coding agents use to mark their progress on a GitHub issue, are mirrored into Linear workflow states and onto the linked pull requests; finished issues have their ai labels cleaned up on both sides."
                     },
                     {
                       "term": "Webhook plus backstop",
-                      "text": "a Linear webhook reconciles changes immediately, a run every five minutes catches dropped events; there is no server to run."
+                      "text": "a Linear webhook reconciles changes immediately, a run every five minutes catches dropped events."
                     }
                   ]
                 }
@@ -1543,7 +1543,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "This does not replace the native sync, it depends on it. Mirroring issues remains the job of Linear's own GitHub integration, and the Worker never links the two sides itself; it reads the link the sync leaves behind and carries across what would otherwise be lost."
+                  "text": "This does not replace the native sync, it depends on it. Mirroring issues remains the job of Linear's own GitHub integration, and the Worker never links the two sides itself; it reads the link the sync leaves behind and recovers what would otherwise be lost."
                 }
               ]
             }
@@ -1589,7 +1589,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Eine SaaS-Anwendung beginnt selten bei der Fachlichkeit. Zuerst sind zwei Anwendungen aufzusetzen, ihre gemeinsamen Typen zu teilen, Docker-Images zu bauen und zwei verschiedene Ziele zu beliefern: Das Frontend geht auf ein CDN, das Backend auf einen Server. Diese Arbeit fällt bei jedem neuen Projekt wieder an."
+                  "text": "Eine SaaS-Anwendung beginnt selten bei der Fachlichkeit. Zuerst sind zwei Anwendungen aufzusetzen, Typen zwischen beiden zu teilen, Docker-Images zu bauen und zwei verschiedene Ziele zu beliefern: Das Frontend geht auf ein CDN, das Backend auf einen Server. Diese Arbeit fällt bei jedem neuen Projekt wieder an."
                 },
                 {
                   "type": "paragraph",
@@ -1605,7 +1605,7 @@
                   "items": [
                     {
                       "term": "Laravel und Nuxt in einem Repository",
-                      "text": "Services und Apps liegen nebeneinander statt in zwei Repositories, die man synchron halten muss."
+                      "text": "Services und Apps liegen nebeneinander statt in zwei Repositories, die man synchron halten muss; pnpm-Workspaces und Turborepo verdrahten die Abhängigkeiten zwischen den Teilen, sodass Builds in der richtigen Reihenfolge und gecacht laufen."
                     },
                     {
                       "term": "Geteilte Pakete",
@@ -1614,10 +1614,6 @@
                     {
                       "term": "Auslieferung vorbereitet",
                       "text": "Workflows bauen Docker-Images für die GitHub Container Registry; die Apps gehen nach Cloudflare Pages, der API-Service zu Laravel Forge, getrennt nach Entwicklung, Stage und Produktion."
-                    },
-                    {
-                      "term": "Monorepo-Werkzeuge eingerichtet",
-                      "text": "pnpm-Workspaces und Turborepo sind konfiguriert, einschließlich der Abhängigkeiten zwischen den Teilen."
                     }
                   ]
                 }
@@ -1628,7 +1624,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Die Vorlage bleibt als Referenz online, für den Zuschnitt eines Laravel-und-Nuxt-Monorepos und die Auslieferungswege, die dazugehören."
+                  "text": "Die Vorlage bleibt als Referenz online, für den Zuschnitt eines Laravel-und-Nuxt-Monorepos und die Auslieferungswege dazu; Abhängigkeiten und Workflows stehen auf dem Stand, zu dem die Weiterentwicklung endete, und werden seither nicht mehr aktualisiert."
                 }
               ]
             }
@@ -1665,7 +1661,7 @@
                   "items": [
                     {
                       "term": "Laravel and Nuxt in one repository",
-                      "text": "services and apps live side by side instead of in two repositories that have to be kept in step."
+                      "text": "services and apps live side by side instead of in two repositories that have to be kept in step; pnpm workspaces and Turborepo wire up the dependencies between them, so builds run in the right order and get cached."
                     },
                     {
                       "term": "Shared packages",
@@ -1674,10 +1670,6 @@
                     {
                       "term": "Delivery prepared",
                       "text": "workflows build Docker images for the GitHub Container Registry; the apps go to Cloudflare Pages, the API service to Laravel Forge, split into development, staging and production."
-                    },
-                    {
-                      "term": "Monorepo tooling in place",
-                      "text": "pnpm workspaces and Turborepo are configured, including the dependencies between the parts."
                     }
                   ]
                 }
@@ -1688,7 +1680,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "The template stays online as a reference, for the shape of a Laravel-and-Nuxt monorepo and the delivery paths that go with it."
+                  "text": "The template stays online as a reference for the shape of a Laravel-and-Nuxt monorepo and the delivery paths that go with it; dependencies and workflows are frozen at the point development stopped and have not been updated since."
                 }
               ]
             }
@@ -1728,7 +1720,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "scaffold bündelt diese Schicht in einem Template-Repository. Der Projektcode selbst darf alles sein, ob PHP, Go, Rust, Vue oder Shell, denn die Vorlage enthält keinen. Sie beantwortet nur die Frage, was ein Repository am ersten Tag mitbringen soll."
+                  "text": "scaffold bündelt diese Schicht in einem Template-Repository. Der Projektcode selbst darf alles sein, ob PHP, Go, Rust, Vue oder Shell, denn die Vorlage enthält keinen."
                 }
               ]
             },
@@ -1793,7 +1785,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Die Vorlage besitzt nur die Meta-Schicht. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben außen vor. Sonst wäre sie eine Vorlage für genau eine Art von Projekt statt für alle."
+                  "text": "scaffold wirkt beim Erzeugen eines Repositories, nicht danach: Eine Korrektur an der Vorlage erreicht bereits erzeugte Repositories nicht von selbst, jedes davon muss sie einzeln nachziehen. Anwendungscode, Framework-Entscheidungen und Projektstruktur bleiben außen vor, sonst wäre die Vorlage eine für genau eine Art von Projekt statt für alle."
                 }
               ]
             }
@@ -1818,7 +1810,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "scaffold bundles that layer into a template repository. The project code itself can be anything, be it PHP, Go, Rust, Vue or shell, because the template contains none. It answers only the question of what a repository should ship with on day one."
+                  "text": "scaffold bundles that layer into a template repository. The project code itself can be anything, be it PHP, Go, Rust, Vue or shell, because the template contains none."
                 }
               ]
             },
@@ -1883,7 +1875,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "The template owns the meta layer only. Application code, framework choices and project structure are left out. Otherwise it would be a template for exactly one kind of project instead of all of them."
+                  "text": "scaffold works at the moment a repository is created, not after: a fix to the template does not reach repositories already generated from it, each one has to pull it in on its own. Application code, framework choices and project structure are left out either way, otherwise it would be a template for exactly one kind of project instead of all of them."
                 }
               ]
             }
@@ -1942,7 +1934,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Ein Befehl, und jeder Skill des Bundles ist im Agenten auffindbar. Kein Manifest zu pflegen, keine Symlinks zu setzen. Den passenden zieht der Agent anhand der Beschreibung in der jeweiligen SKILL.md heran, sobald eine Aufgabe danach verlangt."
+                  "text": "Ein Befehl, und jeder Skill des Bundles ist im Agenten auffindbar. Kein Manifest zu pflegen, keine Symlinks zu setzen."
                 }
               ]
             },
@@ -1954,7 +1946,7 @@
                   "items": [
                     {
                       "term": "Vor der Installation lesbar",
-                      "text": "ein Skill besteht aus Text und höchstens einem kleinen Shell-Helfer, der die Repo-Konfiguration ausliest; was er den Agenten tun lässt, steht offen da, und ein einzelner lässt sich herausnehmen oder anpassen."
+                      "text": "ein Skill besteht aus Text und höchstens einem kleinen Shell-Helfer, der die Repo-Konfiguration ausliest; ein einzelner lässt sich herausnehmen oder anpassen."
                     },
                     {
                       "term": "Werkzeugübergreifend",
@@ -2049,7 +2041,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "One command, and every skill in the bundle is discoverable inside the agent. No manifest to edit, no symlinks to manage. The agent routes to the right one by each skill's description in its SKILL.md the moment a task warrants it."
+                  "text": "One command, and every skill in the bundle is discoverable inside the agent. No manifest to edit, no symlinks to manage."
                 }
               ]
             },
@@ -2061,7 +2053,7 @@
                   "items": [
                     {
                       "term": "Readable before you install",
-                      "text": "a skill is text plus at most a small shell helper that reads the repo config; what it makes the agent do is out in the open, and a single one can be lifted out or adapted."
+                      "text": "a skill is text plus at most a small shell helper that reads the repo config; a single one can be lifted out or adapted."
                     },
                     {
                       "term": "Tool-agnostic",
@@ -2149,11 +2141,11 @@
       "i18n": {
         "de": {
           "tagline": "OpenTofu-/Terraform-Provider für Discord",
-          "description": "Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen dabei als Namen im Code, nicht als Bitfelder.",
+          "description": "Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen als Namen im Code, nicht als Bitfelder.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen dabei als Namen im Code, nicht als Bitfelder."
+              "text": "Discord-Guild-Infrastruktur als Code verwalten: Rollen, Kanäle, Mitglieder, Webhooks, Events und Moderation in HCL. Berechtigungen stehen als Namen im Code, nicht als Bitfelder."
             }
           ],
           "sections": [
@@ -2166,7 +2158,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "In HCL ist die gesamte Berechtigungsvergabe als Ganzes lesbar. Der Provider übersetzt dabei benannte Berechtigungen in die Bitfelder, sodass im Code Namen stehen und keine Zahlen."
+                  "text": "In HCL ist die gesamte Berechtigungsvergabe als Ganzes lesbar. Der Provider übersetzt benannte Berechtigungen in die Bitfelder."
                 }
               ]
             },
@@ -2233,7 +2225,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "In HCL the entire grant reads as a single document. The provider translates named permissions into those bitfields, so the code holds names rather than numbers."
+                  "text": "In HCL the entire grant reads as a single document. The provider translates named permissions into those bitfields."
                 }
               ]
             },
@@ -2307,11 +2299,11 @@
       "i18n": {
         "de": {
           "tagline": "OpenTofu-/Terraform-Provider für Laravel Forge",
-          "description": "Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons, SSL und mehr. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan.",
+          "description": "Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons und SSL. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons, SSL und mehr. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan."
+              "text": "Den gesamten Laravel-Forge-Bestand als Code verwalten: Server, Sites, Datenbanken, Daemons und SSL. Was jemand direkt in Forge geändert hat, zeigt der nächste Plan."
             }
           ],
           "sections": [
@@ -2324,7 +2316,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Als Code beschrieben ist eine zweite Umgebung dieselbe Definition mit anderen Variablen. Und weil OpenTofu vor dem Anwenden vergleicht, wird sichtbar, was jemand zwischendurch direkt in Forge geändert hat."
+                  "text": "Als Code beschrieben ist eine zweite Umgebung dieselbe Definition mit anderen Variablen, und weil OpenTofu vor dem Anwenden vergleicht, deckt jeder Plan Abweichungen zum tatsächlichen Zustand auf."
                 }
               ]
             },
@@ -2356,7 +2348,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Bewusst ausgenommen sind reine Aktionen wie das Neustarten eines Servers oder das Anstoßen eines Deployments: Sie beschreiben keinen Zustand, den ein Plan abgleichen könnte."
+                  "text": "Ausgenommen sind reine Aktionen wie das Neustarten eines Servers oder das Anstoßen eines Deployments: Sie beschreiben keinen Zustand, den ein Plan abgleichen könnte."
                 }
               ]
             },
@@ -2374,11 +2366,11 @@
         },
         "en": {
           "tagline": "OpenTofu / Terraform provider for Laravel Forge",
-          "description": "Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons, SSL and more. Whatever someone changed directly in Forge shows up in the next plan.",
+          "description": "Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons and SSL. Whatever someone changed directly in Forge shows up in the next plan.",
           "summary": [
             {
               "type": "paragraph",
-              "text": "Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons, SSL and more. Whatever someone changed directly in Forge shows up in the next plan."
+              "text": "Manage your entire Laravel Forge estate as code: servers, sites, databases, daemons and SSL. Whatever someone changed directly in Forge shows up in the next plan."
             }
           ],
           "sections": [
@@ -2391,7 +2383,7 @@
                 },
                 {
                   "type": "paragraph",
-                  "text": "Described as code, a second environment is the same definition with different variables. And because OpenTofu diffs before it applies, anything changed directly in Forge in the meantime becomes visible."
+                  "text": "Described as code, a second environment is the same definition with different variables, and because OpenTofu diffs before it applies, every plan surfaces drift from the actual state."
                 }
               ]
             },
@@ -2414,7 +2406,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Nearly every entity Forge lets you manage has a resource: servers, sites, databases, daemons, scheduled jobs and SSL certificates, with data sources covering read access on top. The organization level is part of that, meaning teams, roles, recipes, storage providers and server credentials."
+                  "text": "Nearly every entity Forge lets you manage has a resource: servers, sites, databases, daemons, scheduled jobs and SSL certificates, with data sources covering read access on top. The organisation level is part of that, meaning teams, roles, recipes, storage providers and server credentials."
                 }
               ]
             },
@@ -2423,7 +2415,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Pure actions like rebooting a server or triggering a deployment are deliberately left out: they carry no state for a plan to reconcile."
+                  "text": "Pure actions like rebooting a server or triggering a deployment are left out: they carry no state for a plan to reconcile."
                 }
               ]
             },
@@ -2531,7 +2523,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Der Geltungsbereich ist bewusst die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt: Sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei."
+                  "text": "Der Geltungsbereich ist die Workspace-Konfiguration. Issues, Projekte, Initiativen, Dokumente und Kommentare sind Inhalt: Sie gehören in Linears Oberfläche und dessen API, nicht in eine State-Datei."
                 }
               ]
             },
@@ -2619,7 +2611,7 @@
               "blocks": [
                 {
                   "type": "paragraph",
-                  "text": "Scope is deliberately workspace configuration. Issues, projects, initiatives, documents and comments are content: they belong in Linear's UI and its API, not in a state file."
+                  "text": "The provider covers workspace configuration and stops there. Issues, projects, initiatives, documents and comments are content: they belong in Linear's UI and its API, not in a state file."
                 }
               ]
             },
