@@ -101,9 +101,17 @@ jobs:
           # in the OS argument-list limit, and `gh api -f content="$(...)"`
           # then fails with "Argument list too long" instead of committing.
           # `-f key=@file` reads the value from disk, which has no such cap.
+          #
+          # `printf '%s' "$(...)"` rather than a plain redirect: `base64 -w0`
+          # always appends a trailing newline, and command substitution is
+          # what used to strip it when the value was inlined into the argv.
+          # Read straight from the file, that newline rides along as part of
+          # the field value and GitHub rejects it with "content is not valid
+          # Base64" — the encoding is still correct, only the trailing
+          # newline is not part of it.
           file_sha=$(gh api "repos/$GH_REPO/contents/projects.json?ref=$branch" --jq '.sha')
           content_file="$RUNNER_TEMP/projects.json.b64"
-          base64 -w0 projects.json >"$content_file"
+          printf '%s' "$(base64 -w0 projects.json)" >"$content_file"
           gh api -X PUT "repos/$GH_REPO/contents/projects.json" \
             -f message="chore: sync projects.json" \
             -f branch="$branch" \
