@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06",
+  "generatedAt": "2026-08-08",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -11,7 +11,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-08",
       "archived": false,
       "repository": "https://github.com/TitusKirch/amber",
       "links": [],
@@ -318,7 +318,7 @@
       "technologies": ["typescript", "bun", "opentui"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-07",
       "archived": false,
       "repository": "https://github.com/TitusKirch/envprism",
       "links": [
@@ -538,7 +538,7 @@
       "technologies": ["typescript", "node", "github", "gitlab", "git"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-07",
       "archived": false,
       "repository": "https://github.com/TitusKirch/forgemap",
       "links": [
@@ -996,7 +996,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-08",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -1696,7 +1696,7 @@
       "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-07",
       "archived": false,
       "repository": "https://github.com/TitusKirch/scaffold",
       "links": [],
@@ -1891,7 +1891,7 @@
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-05",
+      "updatedAt": "2026-08-07",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -2283,7 +2283,7 @@
       "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-04",
+      "updatedAt": "2026-08-08",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
