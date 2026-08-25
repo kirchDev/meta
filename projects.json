@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21",
+  "generatedAt": "2026-08-25",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -318,7 +318,7 @@
       "technologies": ["typescript", "bun", "opentui"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-14",
+      "updatedAt": "2026-08-21",
       "archived": false,
       "repository": "https://github.com/TitusKirch/envprism",
       "links": [
@@ -996,7 +996,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-15",
+      "updatedAt": "2026-08-22",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -1696,7 +1696,7 @@
       "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-14",
+      "updatedAt": "2026-08-21",
       "archived": false,
       "repository": "https://github.com/TitusKirch/scaffold",
       "links": [],
@@ -1891,7 +1891,7 @@
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-14",
+      "updatedAt": "2026-08-24",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -2283,7 +2283,7 @@
       "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-15",
+      "updatedAt": "2026-08-22",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
