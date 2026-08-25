@@ -67,16 +67,49 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
+          # Two comparisons against main, asking two different questions.
+          #
           # `generatedAt` carries the build date, so it differs on every run
           # after midnight UTC. Comparing the file as a whole would therefore
           # open a pull request every single day with one changed line, and the
           # real changes would drown in that noise. Compare without it: the
           # stamp then says when the data last changed, not when it was checked.
-          if diff -q \
-            <(git show HEAD:projects.json | grep -v '"generatedAt"') \
-            <(grep -v '"generatedAt"' projects.json) >/dev/null; then
+          stamp='del(.generatedAt)'
+
+          # The second question is whether the change is worth a human's
+          # attention. Some of the fetched facts move on their own and say
+          # nothing when they do: `updatedAt` follows any commit in the
+          # repository, `stars` follows anyone's click, and inside `downloads`
+          # the version, URL and size rotate with every release without
+          # changing which installers the page offers. Compare with those gone
+          # as well, and what is left over is exactly what earns an assignee.
+          #
+          # The platform/format pairs stay in that comparison on purpose: the
+          # build only fails when *no* asset matches the platform table, so a
+          # release that quietly stopped shipping one installer would otherwise
+          # take a download button off the page unseen.
+          moving="$stamp | .projects |= map(
+            del(.updatedAt, .stars, .version)
+            | if .downloads then .downloads |= map({ platform, format }) else . end
+          )"
+
+          same() {
+            diff -q \
+              <(git show HEAD:projects.json | jq -S "$1") \
+              <(jq -S "$1" projects.json) >/dev/null
+          }
+
+          if same "$stamp"; then
             echo "No changes beyond the build date."
             exit 0
+          fi
+
+          assignee=
+          if same "$moving"; then
+            echo "Only push dates, stars and release URLs moved — leaving this one unassigned."
+          else
+            assignee=TitusKirch
+            echo "Something beyond the moving facts changed — assigning $assignee."
           fi
 
           branch=bot/sync-projects
@@ -136,9 +169,23 @@ jobs:
               --base main \
               --head "$branch" \
               --title "chore: sync projects.json" \
-              --body "Automated rebuild of \`projects.json\` from the curated entries under \`projects/\` plus live GitHub repository metadata." \
-              --assignee TitusKirch)
+              --body "Automated rebuild of \`projects.json\` from the curated entries under \`projects/\` plus live GitHub repository metadata.")
             echo "Opened $pr"
+          fi
+
+          # Assign after the fact rather than at creation, so a pull request an
+          # earlier run opened unassigned still picks one up once a later run
+          # finds something worth reading — the branch is re-pointed at main
+          # every time, so an open PR always carries the current diff. Nothing
+          # ever unassigns it again: that diff is judged against main, and a
+          # fact that earned a look does not stop having earned it.
+          #
+          # Auto-merge stays on either way. What an assignee is asked is "is
+          # this right?", not "should this land?", and the answer to a wrong
+          # entry is a commit under `projects/`, never a held pull request —
+          # which the next run would overwrite mid-read in any case.
+          if [ -n "$assignee" ]; then
+            gh pr edit "$pr" --add-assignee "$assignee" >/dev/null
           fi
 
           # Enabling auto-merge is a repository setting, so this is the one step
