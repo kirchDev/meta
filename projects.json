@@ -989,6 +989,213 @@
       }
     },
     {
+      "slug": "hike-recap",
+      "owner": "TitusKirch",
+      "kind": "oss",
+      "category": "cli",
+      "technologies": ["typescript", "vue", "vite", "vitest", "node", "pnpm"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-08-25",
+      "archived": false,
+      "repository": "https://github.com/TitusKirch/hike-recap",
+      "links": [],
+      "i18n": {
+        "de": {
+          "tagline": "Hochkant-Video aus GPX-Tracks",
+          "description": "Macht aus den GPX-Dateien eines Wanderurlaubs ein einziges Video im Hochformat, in dem sich jede Tour nacheinander auf eine Karte zeichnet.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Macht aus den GPX-Dateien eines Wanderurlaubs ein einziges Video im Hochformat, in dem sich jede Tour nacheinander auf eine Karte zeichnet."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Wer eine Wanderwoche zusammenfassen will, landet schnell bei einem Kartendienst. Deren kostenlose Stufen setzen entweder ein Logo ins Bild oder untersagen die Verwendung im Video, und die Nutzungsbedingungen sind das Uninteressanteste an einem Wanderfilm."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "hike-recap verzichtet deshalb ganz auf Kartenkacheln. Schummerung und Höhenlinien werden aus offenen Höhendaten gerechnet, Landbedeckung und Beschriftung kommen aus einem OpenStreetMap-Auszug, gezeichnet wird als SVG mit einer Canvas-Ebene darüber. Übrig bleibt eine kurze Zeile mit den Datenquellen, weil deren Lizenzen sie verlangen."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "pnpm fetch:geodata && pnpm ingest && pnpm render"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Drei Schritte auf einem Ordner voller GPX-Dateien: Geodaten holen, Touren einlesen, rendern. Am Ende steht eine MP4-Datei in 1080 × 1920."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Karte ohne Kartenserver",
+                      "text": "keine Kacheln, kein Schlüssel, kein Kontingent und kein fremdes Logo im Bild."
+                    },
+                    {
+                      "term": "Mitwachsender Ausschnitt",
+                      "text": "die Ansicht beginnt eng an der ersten Tour und zieht sich vor jeder weiteren so weit zurück, dass alles bereits Gezeichnete im Bild bleibt."
+                    },
+                    {
+                      "term": "Gleichmäßiges Tempo",
+                      "text": "die Zeichendauer richtet sich nach der Länge einer Tour, sodass der laufende Punkt überall gleich schnell bleibt."
+                    },
+                    {
+                      "term": "Nur bestiegene Gipfel",
+                      "text": "beschriftet wird ein Gipfel dann, wenn eine Tour ihn wirklich berührt; zugeordnet wird über die Koordinate, weil Gipfelnamen sich innerhalb einer Region wiederholen."
+                    },
+                    {
+                      "term": "Beliebige Region und Sprache",
+                      "text": "Zoomstufe, Höhenfarben und Streckenfarben ergeben sich aus den Daten, die Beschriftung kommt aus einer Sprachdatei."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "hike-recap ist kein Videoschnittprogramm und kein allgemeiner Kartenrenderer. Es erzeugt genau eine Form: mehrere Touren, die sich nacheinander auf eine gemeinsame Karte zeichnen. Schnitt, Musik, Übergänge oder Titelbilder gibt es nicht."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Auch die Kennzahlen kommen nicht aus den Tracks. Distanz, Auf- und Abstieg sowie Dauer stehen in einer Datei neben den GPX-Dateien, weil Exporte häufig gar keine Höhen mitliefern und ihre Distanzen auseinanderlaufen."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "git clone https://github.com/TitusKirch/hike-recap.git\ncd hike-recap\npnpm install\npnpm exec playwright install --with-deps chromium"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Vorausgesetzt werden Node ab 24, pnpm 11 und ffmpeg. Höhendaten und OpenStreetMap-Auszug liegen nicht im Repository, weil sie immer nur für eine Region gelten; der erste der drei Schritte oben baut sie aus den eigenen Tracks."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Portrait recap video from GPX tracks",
+          "description": "Turns the GPX files of a hiking holiday into a single portrait video in which every tour draws itself onto a map, one after another.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Turns the GPX files of a hiking holiday into a single portrait video in which every tour draws itself onto a map, one after another."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Anyone summarising a week of hiking reaches for a map service soon enough. Their free tiers either put a logo in the frame or forbid use in video, and the terms of service are the least interesting thing about a hiking film."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "So hike-recap uses no map tiles at all. Hillshade and contour lines are computed from public elevation data, land cover and labels come from an OpenStreetMap extract, and everything is drawn as SVG with one canvas layer on top. What remains is a short line naming the data sources, because their licences require it."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "pnpm fetch:geodata && pnpm ingest && pnpm render"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Three steps on a folder of GPX files: fetch the geodata, read the tours, render. What comes out is an MP4 at 1080 × 1920."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "A map without a map server",
+                      "text": "no tiles, no key, no quota and no foreign logo in the frame."
+                    },
+                    {
+                      "term": "A viewport that grows",
+                      "text": "the view opens tight on the first tour and pulls back before each later one, just far enough that everything already drawn still fits."
+                    },
+                    {
+                      "term": "Even pacing",
+                      "text": "draw time follows the length of a tour, so the moving head keeps the same speed everywhere."
+                    },
+                    {
+                      "term": "Only the summits you climbed",
+                      "text": "a summit is labelled when a tour actually touches it, matched by coordinate, because summit names repeat within a region."
+                    },
+                    {
+                      "term": "Any region, any language",
+                      "text": "zoom level, elevation colours and route colours follow the data, and the wording comes from a locale file."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "hike-recap is not a video editor and not a general map renderer. It produces exactly one shape: several tours drawing themselves onto one shared map, one after another. There is no cutting, no music, no transitions and no title cards."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The figures do not come from the tracks either. Distance, ascent, descent and duration live in a file beside the GPX files, because exports frequently carry no elevation at all and their distances drift."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "git clone https://github.com/TitusKirch/hike-recap.git\ncd hike-recap\npnpm install\npnpm exec playwright install --with-deps chromium"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Node 24 or newer, pnpm 11 and ffmpeg are required. Elevation data and the OpenStreetMap extract are not in the repository, because they only ever apply to one region; the first of the three steps above builds them from your own tracks."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "laravel-device-sessions",
       "owner": "kirchDev",
       "kind": "oss",
