@@ -2124,7 +2124,7 @@
       "category": "iac",
       "technologies": ["go", "terraform", "opentofu", "discord"],
       "license": "MIT",
-      "stars": 1,
+      "stars": 2,
       "updatedAt": "2026-08-18",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-discord",
@@ -2441,7 +2441,7 @@
       "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-17",
+      "updatedAt": "2026-08-25",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-linear",
       "links": [
