@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "cli",
+  "technologies": ["typescript", "vue", "vite", "vitest", "node", "pnpm"]
+}
