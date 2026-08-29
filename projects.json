@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25",
+  "generatedAt": "2026-08-29",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -538,7 +538,7 @@
       "technologies": ["typescript", "node", "github", "gitlab", "git"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-21",
+      "updatedAt": "2026-08-28",
       "archived": false,
       "repository": "https://github.com/TitusKirch/forgemap",
       "links": [
@@ -784,7 +784,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-20",
+      "updatedAt": "2026-08-27",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
       "version": "v0.12.2",
@@ -1203,7 +1203,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-08-27",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -1415,7 +1415,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-20",
+      "updatedAt": "2026-08-27",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -2098,7 +2098,7 @@
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-24",
+      "updatedAt": "2026-08-28",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -2648,7 +2648,7 @@
       "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-25",
+      "updatedAt": "2026-08-26",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-linear",
       "links": [
