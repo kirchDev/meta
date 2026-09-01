@@ -311,6 +311,244 @@
       }
     },
     {
+      "slug": "coverage-report",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "ci",
+      "technologies": [
+        "typescript",
+        "node",
+        "pnpm",
+        "github-actions",
+        "github"
+      ],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-09-01",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/coverage-report",
+      "links": [
+        {
+          "type": "npm",
+          "url": "https://www.npmjs.com/package/@kirchdev/coverage-report"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "Coverage am Pull Request, aus den Reports der eigenen CI",
+          "description": "Meldet Gesamt-, Patch- und Delta-Coverage als einen dauerhaften Kommentar samt Check Run, gelesen aus den Coverage-Dateien, die der Lauf ohnehin schreibt.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Meldet Gesamt-, Patch- und Delta-Coverage als einen dauerhaften Kommentar samt Check Run, gelesen aus den Coverage-Dateien, die der Lauf ohnehin schreibt."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Kommentare mit Coverage gibt es als fertige Action mehrfach. Die erste Aufgabe war deshalb nicht, noch eine zu bauen, sondern die vorhandenen an einem echten Repository laufen zu lassen, mit Vitest und Pest nebeneinander und einem echten Pull Request. Vier Lücken kamen zurück, und die sind der ganze Umfang: Jede liest nur eine Formatfamilie, keine führt zwei Suiten zu einer Zahl zusammen, keine holt sich den Vergleichswert des Zielbranches selbst, und keine rechnet Patch-Coverage. Was die vorhandenen als geänderte Dateien anbieten, filtert nach Datei und listet darin dann doch jede unabgedeckte Zeile."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Ein Dienst von außen ist dafür nicht nötig. Die Zahlen entstehen im Workflow und verlassen ihn nicht."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "yaml",
+                  "code": "- uses: kirchDev/coverage-report@v0.3.0\n  with:\n    reports: |\n      coverage/lcov.info\n      coverage.xml\n    min-patch: '80'"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Zwei Suiten, eine Zahl, ein Kommentar am Pull Request."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Vier Formate in einem Lauf",
+                      "text": "lcov, Cobertura, Clover und Istanbul, erkannt am Inhalt statt am Dateinamen, weil coverage.xml im Laravel-Repository Clover ist und im .NET-Repository Cobertura."
+                    },
+                    {
+                      "term": "Eine Zahl für ein Monorepo",
+                      "text": "der Report aus JavaScript und der aus PHP werden zusammengeführt, und eine Zeile, die beide Suiten treffen, zählt einmal."
+                    },
+                    {
+                      "term": "Patch-Coverage, die das Wort verdient",
+                      "text": "das Diff wird auf die Trefferzeilen abgebildet, sodass die offenen Zeilen die sind, die diese Änderung angefasst hat, nicht die anderen vierhundert derselben Datei."
+                    },
+                    {
+                      "term": "Der Vergleichswert bleibt im Repository",
+                      "text": "die Coverage des Integrationsbranches liegt in einem verwaisten Branch, also braucht das Delta weder einen Dienst noch ein Artefakt mit Ablaufdatum."
+                    },
+                    {
+                      "term": "Kommentar und Check Run",
+                      "text": "der Kommentar wird über eine Marke wiedergefunden und bearbeitet statt gestapelt, dazu ein Check Run, auf den ein Branch-Schutz zugreifen kann."
+                    },
+                    {
+                      "term": "Schwellen, die greifen oder schweigen",
+                      "text": "mit einer Untergrenze scheitert der Lauf, ohne sie endet der Check neutral statt mit einem grünen Haken, den niemand verdient hat."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Gemessen wird nichts. Die Coverage-Dateien schreibt weiterhin die eigene Test-Suite, und ohne einen solchen Report hat die Action nichts zu lesen. Codecov ersetzt sie dort, wo es um Kommentar, Delta und Schwellen geht, und sonst nirgends: Es gibt keine Historie über Monate, keinen Blick über mehrere Repositories hinweg und keine Oberfläche außerhalb des Pull Requests."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "yaml",
+                  "code": "- uses: kirchDev/coverage-report@v0.3.0"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Dieselben Zahlen lokal, als CLI ohne die GitHub-Hälfte. Das macht eine Abweichung zwischen der Prüfung auf dem eigenen Rechner und dem Kommentar am Pull Request überhaupt erst nachvollziehbar."
+                },
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add -D @kirchdev/coverage-report"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
+                  "code": "npm install -D @kirchdev/coverage-report"
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Coverage on the pull request, from the reports your CI already writes",
+          "description": "Reports total, patch and delta coverage as one sticky comment plus a check run, read from the coverage files the run produces anyway.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Reports total, patch and delta coverage as one sticky comment plus a check run, read from the coverage files the run produces anyway."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Coverage comments already exist as ready-made actions, several times over. So the first task was not to build another one but to run the existing ones against a real repository, with Vitest and Pest side by side and a real pull request. Four gaps came back, and they are the whole scope: each reads one format family, none merges two suites into a single number, none fetches the target branch's baseline itself, and none computes patch coverage. What the existing ones offer as changed files filters by file and then still lists every uncovered line inside it."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "No outside service is needed for any of it. The numbers are produced inside the workflow and never leave it."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "yaml",
+                  "code": "- uses: kirchDev/coverage-report@v0.3.0\n  with:\n    reports: |\n      coverage/lcov.info\n      coverage.xml\n    min-patch: '80'"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Two suites, one number, one comment on the pull request."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Four formats in one run",
+                      "text": "lcov, Cobertura, Clover and Istanbul, detected by content rather than by file name, because coverage.xml is Clover in a Laravel repository and Cobertura in a .NET one."
+                    },
+                    {
+                      "term": "One number for a monorepo",
+                      "text": "the JavaScript report and the PHP report merge, and a line both suites hit counts once."
+                    },
+                    {
+                      "term": "Patch coverage that means it",
+                      "text": "the diff is mapped onto line hits, so the open lines are the ones this change touched, not the other four hundred in the same file."
+                    },
+                    {
+                      "term": "The baseline stays in the repository",
+                      "text": "the integration branch's coverage lives on an orphan branch, so the delta needs neither a service nor an artifact with an expiry date."
+                    },
+                    {
+                      "term": "A comment and a check run",
+                      "text": "the comment is found again by a marker and edited rather than piled up, plus a check run for branch protection to gate on."
+                    },
+                    {
+                      "term": "Thresholds that bite or stay quiet",
+                      "text": "with a floor the run fails; without one the check concludes neutral rather than showing a green tick nobody earned."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Nothing here measures. The coverage files still come from your own test suite, and without such a report the action has nothing to read. It replaces Codecov where comment, delta and thresholds are concerned, and nowhere else: there is no history across months, no view spanning several repositories, and no interface outside the pull request."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "yaml",
+                  "code": "- uses: kirchDev/coverage-report@v0.3.0"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The same numbers locally, as a CLI without the GitHub half. That is what makes a disagreement between a check on your own machine and the comment on the pull request debuggable at all."
+                },
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add -D @kirchdev/coverage-report"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
+                  "code": "npm install -D @kirchdev/coverage-report"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "envprism",
       "owner": "TitusKirch",
       "kind": "oss",
@@ -769,6 +1007,194 @@
       }
     },
     {
+      "slug": "gitignore-sync",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "cli",
+      "technologies": ["typescript", "node", "pnpm", "git"],
+      "maturity": "wip",
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-09-01",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/gitignore-sync",
+      "links": [],
+      "i18n": {
+        "de": {
+          "tagline": "CLI, die eine .gitignore pflegt statt sie zu erzeugen",
+          "description": "Hält kuratierte Blöcke in einer Region, die das Werkzeug besitzt, und rendert sie auf Zuruf neu. Alles außerhalb dieser Region bleibt unberührt.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Hält kuratierte Blöcke in einer Region, die das Werkzeug besitzt, und rendert sie auf Zuruf neu. Alles außerhalb dieser Region bleibt unberührt."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Die verbreiteten Werkzeuge holen und kippen aus: Man zieht sich einmal eine Vorlage, fügt sie ein und driftet von da an ab. Keines davon gleicht später noch einmal ab, und so wächst eine .gitignore zu ein paar hundert Zeilen Ballast, an die sich niemand mehr herantraut."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "gitignore-sync hält stattdessen eine verwaltete Region in der Datei und rendert sie neu, so oft man will. Der Rest ist eine freie Zone, in die das Werkzeug nie schreibt. Genau das macht den zweiten Lauf ungefährlich und den hundertsten langweilig."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "gitignore-sync init   # erkennen, bestätigen, Region schreiben\ngitignore-sync sync   # neu rendern, beliebig oft\ngitignore-sync check  # in der CI: Fehlercode bei Drift"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Erkannt wird nur beim ersten Befehl. Ein später hinzugekommenes package.json schreibt die Datei nie von selbst um."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Gleicht ab, statt neu auszukippen",
+                      "text": "der Abgleich ist idempotent und gehört damit in eine Gewohnheit, einen Hook oder einen Cron statt in ein einmaliges Ritual."
+                    },
+                    {
+                      "term": "Eigene Zeilen gehen nie verloren",
+                      "text": "eine handgeschriebene Zeile innerhalb eines verwalteten Blocks wandert in die freie Zone, statt gelöscht zu werden. Diese Regel ist es, die den zweiten Lauf ungefährlich macht."
+                    },
+                    {
+                      "term": "Entdoppelung, die git kennt",
+                      "text": "exakte Dubletten fallen weg, aber .idea und .idea/ und /.idea sind für git drei verschiedene Muster und werden deshalb gemeldet, nie stillschweigend zusammengezogen."
+                    },
+                    {
+                      "term": "Fängt den Fehler ab, der Ausnahmen aushebelt",
+                      "text": "ein verirrter Eintrag neben einer Ausnahmeregel schaltet diese still ab, weil git in ein ignoriertes Verzeichnis nicht hineinschaut. Dafür gibt es eine eigene Warnung."
+                    },
+                    {
+                      "term": "Klappt im Editor zusammen",
+                      "text": "die Region ist als Faltbereich ausgezeichnet, sodass ein vierzig Zeilen langer Block auf eine Zeile einklappt."
+                    },
+                    {
+                      "term": "Ein echtes Tor für die CI",
+                      "text": "die Prüfung meldet Drift und Dubletten und endet mit einem Fehlercode, sodass ein veralteter Block den Build scheitern lässt statt zu verrotten."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Es gibt bisher weder ein Release noch ein veröffentlichtes Paket, die Version steht auf 0.0.0. Die Befehle oben laufen heute aus einem Klon, nicht aus einer Installation."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Über die Datei hinaus reicht das Werkzeug ohnehin nicht: Was ignoriert wird, entscheidet weiterhin git allein, und eine Datei, die bereits versioniert ist, holt kein Eintrag zurück."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "A CLI that maintains a .gitignore rather than generating one",
+          "description": "Keeps curated blocks inside a region the tool owns and re-renders them on demand. Everything outside that region is left alone.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Keeps curated blocks inside a region the tool owns and re-renders them on demand. Everything outside that region is left alone."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The common tools fetch and dump: you pull a template once, paste it in, and drift from there. None of them reconciles later, so a .gitignore grows into a few hundred lines of ballast nobody dares touch."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "gitignore-sync keeps a managed region inside the file instead and re-renders it as often as you like. The rest is a free zone the tool never writes to. That is what makes the second run safe and the hundredth boring."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "gitignore-sync init   # detect, confirm, write the region\ngitignore-sync sync   # re-render, as often as you like\ngitignore-sync check  # in CI: non-zero on drift"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Detection happens on the first command only. A package.json that shows up later never rewrites the file by itself."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Reconciles instead of re-dumping",
+                      "text": "the sync is idempotent, so it belongs in a habit, a hook or a cron rather than a one-off ritual."
+                    },
+                    {
+                      "term": "Your own lines are never lost",
+                      "text": "a hand-written line found inside a managed block moves to the free zone instead of being deleted. That rule is what makes the second run safe."
+                    },
+                    {
+                      "term": "Deduplication that knows git",
+                      "text": "exact duplicates go, but .idea and .idea/ and /.idea are three different patterns to git and are therefore reported, never quietly merged."
+                    },
+                    {
+                      "term": "Catches the mistake that disables exceptions",
+                      "text": "a stray entry beside an exception rule silently switches it off, because git never looks inside an ignored directory. That gets a warning of its own."
+                    },
+                    {
+                      "term": "Folds in the editor",
+                      "text": "the region is marked as a folding range, so a forty-line block collapses to a single line."
+                    },
+                    {
+                      "term": "A real gate for CI",
+                      "text": "the check reports drift and duplicates and exits non-zero, so a stale block fails the build instead of rotting."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "There is no release and no published package yet, and the version still reads 0.0.0. The commands above run from a clone today, not from an installation."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Beyond the file the tool does not reach anyway: what gets ignored is still git's decision alone, and a file already under version control is not brought back by any entry."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "glimpse",
       "owner": "TitusKirch",
       "kind": "oss",
@@ -784,7 +1210,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-27",
+      "updatedAt": "2026-09-01",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
       "version": "v0.12.2",
@@ -1203,7 +1629,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-31",
+      "updatedAt": "2026-09-01",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -1415,7 +1841,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-31",
+      "updatedAt": "2026-09-01",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -2490,7 +2916,7 @@
       "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-22",
+      "updatedAt": "2026-09-01",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
@@ -2829,6 +3255,407 @@
                   "type": "code",
                   "language": "hcl",
                   "code": "terraform {\n  required_providers {\n    linear = {\n      source  = \"kirchdev/linear\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"linear\" {\n  token = var.linear_token # or set LINEAR_TOKEN\n}"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "vite-plugin-iconify-bundle",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "library",
+      "technologies": ["typescript", "vite", "node", "vitest", "pnpm"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-08-31",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/vite-plugin-iconify-bundle",
+      "links": [
+        {
+          "type": "npm",
+          "url": "https://www.npmjs.com/package/@kirchdev/vite-plugin-iconify-bundle"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "Vite-Plugin, das nur die benutzten Iconify-Icons bündelt",
+          "description": "Durchsucht den Quelltext nach Icon-Namen, löst jeden zur Bauzeit gegen die installierten Collections auf und legt genau diese Icons ins Bundle. Zur Laufzeit wird die Iconify-API nicht mehr gefragt.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Durchsucht den Quelltext nach Icon-Namen, löst jeden zur Bauzeit gegen die installierten Collections auf und legt genau diese Icons ins Bundle. Zur Laufzeit wird die Iconify-API nicht mehr gefragt."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Die übliche Einbindung holt die Icon-Daten zur Laufzeit von der Iconify-API. Das scheitert offline, rendert unter serverseitigem Rendern nichts und macht den Build unvorhersehbar. Stattdessen ganze Collections mitzuliefern tauscht das gegen Megabyte an Icons, die niemand benutzt."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Das Plugin geht den dritten Weg. Es sucht im Quelltext nach Zeichenketten der Form Präfix und Name, löst jede gegen die installierten Collections auf und erzeugt daraus ein virtuelles Modul, das genau diese Icons registriert. Im Bundle liegt danach, was tatsächlich im Code steht."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "ts",
+                  "code": "import 'virtual:iconify-bundle';"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Ein einziger Import ohne Rückgabewert registriert jedes gefundene Icon. Danach funktionieren sie offline, rendern serverseitig und kosten keine Anfrage."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Nur die benutzten Icons",
+                      "text": "im Bundle liegt, was der Scan gefunden hat, nicht die vollständige Collection."
+                    },
+                    {
+                      "term": "Ein Scan, keine Analyse",
+                      "text": "gesucht wird über alle drei Zeichenketten-Begrenzer, ein Name im Kommentar zählt also mit. Das ist Absicht, denn so fällt ein falscher Name laut auf, statt still nichts zu rendern."
+                    },
+                    {
+                      "term": "Unbekannte Namen halten den Build an",
+                      "text": "ein Icon, das die installierte Collection nicht kennt, lässt den Build scheitern, statt eine Lücke auszuliefern."
+                    },
+                    {
+                      "term": "Fünf Optionen",
+                      "text": "alles Weitere ist Konvention."
+                    },
+                    {
+                      "term": "Überlebt Hot Module Replacement",
+                      "text": "wird eine Quelldatei bearbeitet, verfällt das virtuelle Modul, und ein neu geschriebener Icon-Name erscheint ohne Neustart."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Der Scan ist zugleich die Grenze. Namen, die erst zur Laufzeit zusammengesetzt werden, findet er nicht, eigenes SVG nimmt das Plugin nicht auf, die Icon-Daten verändert es nicht, und andere Bundler als Vite bedient es nicht."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Auf Nuxt ist die dortige Icon-Integration die passendere Wahl: Sie bringt denselben Scan bereits mit und fällt für eine nicht installierte Collection auf die API zurück, wo dieses Plugin den Build scheitern lässt."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add -D @kirchdev/vite-plugin-iconify-bundle @iconify-json/lucide"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
+                  "code": "npm install -D @kirchdev/vite-plugin-iconify-bundle @iconify-json/lucide"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Je Collection, die gescannt werden soll, ein eigenes Datenpaket; das Plugin liest deren Daten zur Bauzeit von der Platte. Die Voreinstellung listet zwei Collections und ist mit einiger Sicherheit nicht die richtige, weshalb ein Präfix ohne Eintrag gar nicht erst gescannt wird."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "A Vite plugin that bundles only the Iconify icons you use",
+          "description": "Scans your source for icon names, resolves each one against the installed collections at build time, and puts exactly those icons in the bundle. The Iconify API is never asked at runtime.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Scans your source for icon names, resolves each one against the installed collections at build time, and puts exactly those icons in the bundle. The Iconify API is never asked at runtime."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The usual integration fetches icon data from the Iconify API at runtime. That fails offline, renders nothing under server-side rendering, and makes the build unpredictable. Shipping whole collections instead trades that for megabytes of icons nobody uses."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "This plugin takes the third route. It searches the source for strings of the form prefix and name, resolves each against the installed collections, and emits a virtual module registering exactly those icons. What ends up in the bundle is what is actually written in the code."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "ts",
+                  "code": "import 'virtual:iconify-bundle';"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "A single side-effect import registers every icon the scan found. From then on they work offline, render on the server, and cost no request."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Only the icons in use",
+                      "text": "the bundle carries what the scan found, not the complete collection."
+                    },
+                    {
+                      "term": "A scan, not an analysis",
+                      "text": "the search covers all three string delimiters, so a name in a comment counts too. That is deliberate: a wrong name then fails loudly instead of quietly rendering nothing."
+                    },
+                    {
+                      "term": "Unknown names stop the build",
+                      "text": "an icon the installed collection does not know fails the build rather than shipping a gap."
+                    },
+                    {
+                      "term": "Five options",
+                      "text": "everything else is convention."
+                    },
+                    {
+                      "term": "Survives hot module replacement",
+                      "text": "editing a source file invalidates the virtual module, so a newly written icon name shows up without a restart."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The scan is also the boundary. Names assembled at runtime are invisible to it, the plugin takes no custom SVG, it does not transform the icon data, and it serves no bundler other than Vite."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "On Nuxt the icon integration there is the better fit: it already carries the same scan and falls back to the API for a collection you have not installed, where this plugin fails the build."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add -D @kirchdev/vite-plugin-iconify-bundle @iconify-json/lucide"
+                },
+                {
+                  "type": "code",
+                  "language": "npm",
+                  "code": "npm install -D @kirchdev/vite-plugin-iconify-bundle @iconify-json/lucide"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "One data package per collection you want scanned; the plugin reads their data off disk at build time. The default lists two collections and is almost certainly not yours, which is why a prefix with no entry never reaches the scan at all."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "workflows",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "ci",
+      "technologies": ["github-actions", "github", "typescript", "node"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-09-01",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/workflows",
+      "links": [],
+      "i18n": {
+        "de": {
+          "tagline": "Wiederverwendbare GitHub-Actions-Workflows für eine ganze Estate",
+          "description": "Der Rumpf eines Workflows liegt einmal zentral, jedes andere Repository trägt nur noch einen Aufruf samt Auslöser. Ein Fix wird einmal geschrieben, und alle übernehmen ihn beim nächsten Bump.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Der Rumpf eines Workflows liegt einmal zentral, jedes andere Repository trägt nur noch einen Aufruf samt Auslöser. Ein Fix wird einmal geschrieben, und alle übernehmen ihn beim nächsten Bump."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Die kanonischen Workflows lagen vorher in einer Vorlage und wurden in jedes neue Repository kopiert, wo sie sofort auseinanderliefen. Über die 27 Repositories beider Eigentümer gemessen: Der CI-Workflow existierte in 25 Repositories als 24 Varianten, der zum Landen der Queue in 26 Repositories als 8 Varianten zwischen 189 und 397 Zeilen, die Code-Analyse in 18 als 15."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Den Punkt beweist der Ausreißer: Ein Workflow lag in 20 Repositories byte-identisch, 760 Zeilen für eine einzige Sache. Ein Fix bedeutete zwanzig Commits, und nichts sagte einem, welches Repository man dabei übersehen hatte. Ein Aufruf hat dieses Problem nicht, weil der Rumpf nur an einer Stelle steht."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "yaml",
+                  "code": "jobs:\n  promotion-pr:\n    uses: kirchDev/workflows/.github/workflows/_promotion-pr.yml@9f3c1a2"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Der Aufruf im Repository trägt den Auslöser und sonst nichts. Acht Zeilen, an denen nichts mehr driften kann."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Rumpf und Aufruf getrennt",
+                      "text": "der Auslöser bleibt in dem Repository, in dem er feuert, die Logik liegt zentral und wird dort einmal gepflegt."
+                    },
+                    {
+                      "term": "Die Topologie ist die Konfiguration",
+                      "text": "der Promotion-Pull-Request findet sein Ziel selbst, indem er prüft, ob ein Stage-Branch existiert. Kein Schalter, keine zweite Variante."
+                    },
+                    {
+                      "term": "Auf einen Commit festgenagelt",
+                      "text": "Aufrufer pinnen einen SHA, ein Push in die Rümpfe erreicht also niemanden, bevor ein Bump geprüft und gemerged ist."
+                    },
+                    {
+                      "term": "Benannte Secrets",
+                      "text": "ein Aufruf reicht genau das durch, was sein Rumpf braucht, statt pauschal alles zu vererben."
+                    },
+                    {
+                      "term": "Am eigenen Futter geprüft",
+                      "text": "dieses Repository trägt denselben Aufruf wie alle anderen und ruft die eigenen Rümpfe über lokale Pfade auf, ein kaputter Rumpf fällt also hier zuerst auf."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Keine allgemeine Sammlung von Actions. Die Rümpfe kodieren die Branch-Topologie dieser Estate, die Ablage der Secrets je Eigentümer und die hauseigene Coverage-Action; wer sie einbindet, übernimmt diese Konventionen mit."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Im aufrufenden Repository bleibt außerdem, was dorthin gehört: die Deploy-Jobs und der manuelle Auslöser, der eine Queue landet. Ein wiederverwendbarer Workflow lässt sich nicht dispatchen, weshalb genau dieser menschliche Halt nachweislich in dem Repository liegt, das er schützt."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Reusable GitHub Actions workflows for a whole estate",
+          "description": "A workflow's body lives centrally, once; every other repository carries nothing but a call and its trigger. A fix is written once, and everyone picks it up on their next bump.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "A workflow's body lives centrally, once; every other repository carries nothing but a call and its trigger. A fix is written once, and everyone picks it up on their next bump."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The canonical workflows used to live in a template and were copied into every new repository, where they began to drift immediately. Measured across the 27 repositories of both owners: the CI workflow existed in 25 repositories as 24 variants, the one landing the queue in 26 repositories as 8 variants between 189 and 397 lines, the code analysis in 18 as 15."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The outlier proves the point: one workflow sat byte-identical in 20 repositories, 760 lines for a single thing. A fix meant twenty commits, and nothing told you which repository you had missed. A call does not have that problem, because the body sits in one place only."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "yaml",
+                  "code": "jobs:\n  promotion-pr:\n    uses: kirchDev/workflows/.github/workflows/_promotion-pr.yml@9f3c1a2"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The call in the repository carries the trigger and nothing else. Eight lines, with nothing left to drift."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Body and call kept apart",
+                      "text": "the trigger stays in the repository it fires in, while the logic lives centrally and is maintained there once."
+                    },
+                    {
+                      "term": "The topology is the configuration",
+                      "text": "the promotion pull request finds its own target by checking whether a stage branch exists. No switch, no second variant."
+                    },
+                    {
+                      "term": "Pinned to a commit",
+                      "text": "callers pin a SHA, so a push into the bodies reaches nobody before a bump has been reviewed and merged."
+                    },
+                    {
+                      "term": "Named secrets",
+                      "text": "a call hands over exactly what its body needs instead of inheriting everything wholesale."
+                    },
+                    {
+                      "term": "Checked against its own diet",
+                      "text": "this repository carries the same call as everyone else and invokes its own bodies by local path, so a broken body fails here first."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Not a general collection of actions. The bodies encode this estate's branch topology, the per-owner layout of its secrets and its in-house coverage action; adopting them means adopting those conventions too."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "What belongs in the calling repository stays there as well: the deploy jobs, and the manual trigger that lands a queue. A reusable workflow cannot be dispatched, which is why that particular human gate provably sits in the repository it protects."
                 }
               ]
             }
