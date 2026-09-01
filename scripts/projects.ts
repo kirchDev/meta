@@ -56,6 +56,7 @@ export const LANGUAGES = [
   'hcl',
   'ts',
   'json',
+  'yaml',
   'pnpm',
   'npm',
   'yarn',

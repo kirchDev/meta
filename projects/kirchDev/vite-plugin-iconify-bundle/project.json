@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../schema/project.schema.json",
+  "kind": "oss",
+  "category": "library",
+  "technologies": ["typescript", "vite", "node", "vitest", "pnpm"],
+  "links": [
+    {
+      "type": "npm",
+      "url": "https://www.npmjs.com/package/@kirchdev/vite-plugin-iconify-bundle"
+    }
+  ]
+}

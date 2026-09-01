@@ -21,6 +21,8 @@
         "desktop",
         "app",
         "laravel",
+        "library",
+        "ci",
         "iac",
         "template",
         "ai",
