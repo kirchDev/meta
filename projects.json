@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01",
+  "generatedAt": "2026-09-05",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -11,7 +11,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-15",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/amber",
       "links": [],
@@ -324,7 +324,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/coverage-report",
       "links": [
@@ -556,7 +556,7 @@
       "technologies": ["typescript", "bun", "opentui"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-21",
+      "updatedAt": "2026-09-04",
       "archived": false,
       "repository": "https://github.com/TitusKirch/envprism",
       "links": [
@@ -776,7 +776,7 @@
       "technologies": ["typescript", "node", "github", "gitlab", "git"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-30",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/forgemap",
       "links": [
@@ -1015,7 +1015,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/gitignore-sync",
       "links": [],
@@ -1210,7 +1210,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-03",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
       "version": "v0.12.2",
@@ -1422,7 +1422,7 @@
       "technologies": ["typescript", "vue", "vite", "vitest", "node", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-25",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/hike-recap",
       "links": [],
@@ -1629,7 +1629,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -1841,7 +1841,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -2329,7 +2329,7 @@
       "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-30",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/scaffold",
       "links": [],
@@ -2524,7 +2524,7 @@
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-28",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -2758,7 +2758,7 @@
       "technologies": ["go", "terraform", "opentofu", "discord"],
       "license": "MIT",
       "stars": 2,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-discord",
       "links": [
@@ -2916,7 +2916,7 @@
       "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-05",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
@@ -3074,7 +3074,7 @@
       "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-linear",
       "links": [
@@ -3270,7 +3270,7 @@
       "technologies": ["typescript", "vite", "node", "vitest", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-31",
+      "updatedAt": "2026-09-02",
       "archived": false,
       "repository": "https://github.com/kirchDev/vite-plugin-iconify-bundle",
       "links": [
@@ -3492,7 +3492,7 @@
       "technologies": ["github-actions", "github", "typescript", "node"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-05",
       "archived": false,
       "repository": "https://github.com/kirchDev/workflows",
       "links": [],
