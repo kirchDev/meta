@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01",
+  "generatedAt": "2026-09-10",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -11,7 +11,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-15",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/TitusKirch/amber",
       "links": [],
@@ -324,7 +324,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-10",
       "archived": false,
       "repository": "https://github.com/kirchDev/coverage-report",
       "links": [
@@ -549,6 +549,217 @@
       }
     },
     {
+      "slug": "duxt",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "library",
+      "technologies": [
+        "typescript",
+        "nuxt",
+        "vue",
+        "tailwind-css",
+        "shadcn-vue",
+        "pnpm"
+      ],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-09-10",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/duxt",
+      "links": [
+        {
+          "type": "npm",
+          "url": "https://www.npmjs.com/package/@kirchdev/duxt"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "Versionsübergreifende Dokumentation für Nuxt-Projekte",
+          "description": "Eine Nuxt-Schicht für Dokumentation aus mehreren Repositories und Versionen. Eine Quellenliste erzeugt Collections, URLs, Versionswechsel und Navigation, ohne dass jedes Projekt diese Struktur selbst aufbauen muss.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Eine Nuxt-Schicht für Dokumentation aus mehreren Repositories und Versionen. Eine Quellenliste erzeugt Collections, URLs, Versionswechsel und Navigation, ohne dass jedes Projekt diese Struktur selbst aufbauen muss."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Nuxt Content kann ein Repository schon an einem Branch oder Tag laden und cachen. Was bei mehreren Quellen und Versionen bleibt, ist dieselbe wiederholte Arbeit: Collections je Repository und Version, ein URL-Schema, Redirects und ein Wechsel, der nur Seiten anbietet, die dort wirklich existieren."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "duxt macht daraus eine Quellenliste. Aus ihr entstehen Collections, Präfixe, Sitemap, Versionswechsel und die Navigation der Dokumentation."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "ts",
+                  "code": "export default defineNuxtConfig({\n  extends: ['@kirchdev/duxt']\n});"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Danach werden Markdown-Dateien aus dem Verzeichnis docs zu einer Dokumentationsseite mit Suche, Navigation und Inhaltsverzeichnis."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Quellen statt Collections",
+                      "text": "eine kompakte Deklaration ersetzt eine Collection pro Repository und Version."
+                    },
+                    {
+                      "term": "Versionswechsel mit Kontext",
+                      "text": "URLs und verfügbare Versionen folgen der Quelle; eine Seite verweist nicht auf eine Version, in der sie fehlt."
+                    },
+                    {
+                      "term": "Git als Quelle",
+                      "text": "Branches, Tags, private Repositories und Cache-Verhalten nutzen die Repository-Unterstützung von Nuxt Content."
+                    },
+                    {
+                      "term": "Lesbare und maschinenlesbare Dokumentation",
+                      "text": "Suche, Inhaltsverzeichnis, Sitemap, llms.txt und ein MCP-Server entstehen aus denselben Collections."
+                    },
+                    {
+                      "term": "Prüfbarer Build",
+                      "text": "ein Validator erkennt kollidierende URLs, leere Collections, defekte Links und fehlende Titel vor der Auslieferung."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "duxt ist eine Schicht für Nuxt Content, kein allgemeines CMS und kein Dokumentationsdienst. Inhalte, Deployment und die Entscheidung, welche Quellen sichtbar sind, bleiben im jeweiligen Projekt."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add -D @kirchdev/duxt"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Die Schicht wird über extends in der Nuxt-Konfiguration eingebunden. Weitere Quellen und Versionen stehen unter dem Schlüssel duxt in app.config.ts."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Versioned documentation for Nuxt projects",
+          "description": "A Nuxt layer for documentation from multiple repositories and versions. One source list generates collections, URLs, version switching and navigation, without every project rebuilding that structure.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "A Nuxt layer for documentation from multiple repositories and versions. One source list generates collections, URLs, version switching and navigation, without every project rebuilding that structure."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Nuxt Content can already load and cache a repository at a branch or tag. What remains with multiple sources and versions is the same repeated work: collections per repository and version, a URL scheme, redirects and a switcher that offers only pages that actually exist there."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "duxt turns that into a source list. It generates collections, prefixes, the sitemap, version switching and the documentation navigation from it."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "ts",
+                  "code": "export default defineNuxtConfig({\n  extends: ['@kirchdev/duxt']\n});"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Markdown files in the docs directory then become a documentation site with search, navigation and a table of contents."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Sources instead of collections",
+                      "text": "one compact declaration replaces one collection per repository and version."
+                    },
+                    {
+                      "term": "Contextual version switching",
+                      "text": "URLs and available versions follow the source; a page never points to a version where it is absent."
+                    },
+                    {
+                      "term": "Git-native sourcing",
+                      "text": "branches, tags, private repositories and caching use Nuxt Content's repository support."
+                    },
+                    {
+                      "term": "Human and machine-readable documentation",
+                      "text": "search, table of contents, sitemap, llms.txt and an MCP server come from the same collections."
+                    },
+                    {
+                      "term": "A verifiable build",
+                      "text": "a validator detects colliding URLs, empty collections, broken links and missing titles before delivery."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "duxt is a layer for Nuxt Content, not a general CMS or documentation service. Content, deployment and the decision of which sources are visible remain with the individual project."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add -D @kirchdev/duxt"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The layer is included through extends in the Nuxt configuration. Further sources and versions live under the duxt key in app.config.ts."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "envprism",
       "owner": "TitusKirch",
       "kind": "oss",
@@ -556,7 +767,7 @@
       "technologies": ["typescript", "bun", "opentui"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-21",
+      "updatedAt": "2026-09-10",
       "archived": false,
       "repository": "https://github.com/TitusKirch/envprism",
       "links": [
@@ -776,7 +987,7 @@
       "technologies": ["typescript", "node", "github", "gitlab", "git"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-30",
+      "updatedAt": "2026-09-10",
       "archived": false,
       "repository": "https://github.com/TitusKirch/forgemap",
       "links": [
@@ -1015,7 +1226,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-10",
       "archived": false,
       "repository": "https://github.com/kirchDev/gitignore-sync",
       "links": [],
@@ -1210,34 +1421,34 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-10",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
-      "version": "v0.12.2",
+      "version": "v0.15.1",
       "downloads": [
         {
           "platform": "linux",
           "format": "rpm",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse-0.12.2-1.x86_64.rpm",
-          "size": 8028346
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse-0.15.1-1.x86_64.rpm",
+          "size": 8583018
         },
         {
           "platform": "linux",
           "format": "appimage",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse_0.12.2_amd64.AppImage",
-          "size": 82090488
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_amd64.AppImage",
+          "size": 83094008
         },
         {
           "platform": "linux",
           "format": "deb",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse_0.12.2_amd64.deb",
-          "size": 8029728
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_amd64.deb",
+          "size": 8580492
         },
         {
           "platform": "windows",
           "format": "exe",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.12.2/glimpse_0.12.2_x64-setup.exe",
-          "size": 4875312
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_x64-setup.exe",
+          "size": 5292560
         }
       ],
       "links": [],
@@ -1422,7 +1633,7 @@
       "technologies": ["typescript", "vue", "vite", "vitest", "node", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-25",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/TitusKirch/hike-recap",
       "links": [],
@@ -1629,7 +1840,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -1834,6 +2045,218 @@
       }
     },
     {
+      "slug": "laravel-notification-delivery",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "laravel",
+      "technologies": ["php", "laravel", "pest"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-09-08",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/laravel-notification-delivery",
+      "links": [
+        {
+          "type": "packagist",
+          "url": "https://packagist.org/packages/kirchdev/laravel-notification-delivery"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "Zustellregeln und Inbox für Laravel-Benachrichtigungen",
+          "description": "Ergänzt Laravels Benachrichtigungen um eine persistente Inbox, Lesezustand und Zustellpräferenzen je Empfänger. Eine Kette von Regeln entscheidet vor via(), über welche Kanäle eine Nachricht ankommt.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Ergänzt Laravels Benachrichtigungen um eine persistente Inbox, Lesezustand und Zustellpräferenzen je Empfänger. Eine Kette von Regeln entscheidet vor via(), über welche Kanäle eine Nachricht ankommt."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Sobald eine Anwendung eine Benachrichtigungsglocke braucht, baut sie Speicherung, Lesezustand und Präferenzen selbst. Die Ergebnisse unterscheiden sich, obwohl Laravels Notifications, Kanäle und Notification::send() schon der passende Rahmen bleiben."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Dieses Paket ergänzt nur die fehlende Zustellschicht. Nachrichten haben weiterhin ihre Laravel-Typen und Kanäle, aber die Entscheidung über Inbox, Live-Hinweis, E-Mail und spätere Zustellung folgt einer nachvollziehbaren Regelkette."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "php",
+                  "code": "class User extends Authenticatable\n{\n    use HasNotificationDelivery;\n    use RoutesNotifications;\n}"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Das Trait ersetzt Laravels Datenbank-Notifications auf dem Empfänger. Danach werden Migrationen und Konfiguration veröffentlicht, bevor die erste Zustellung gespeichert wird."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Persistente Inbox",
+                      "text": "Benachrichtigungen bleiben mit Gelesen-Status erhalten, damit Empfänger sie auch später noch finden."
+                    },
+                    {
+                      "term": "Präferenzen auf drei Ebenen",
+                      "text": "ein Typ, seine Gruppe oder die Vorgabe des Typs bestimmen die Kanäle; neue Typen brauchen kein Backfill."
+                    },
+                    {
+                      "term": "Regeln vor via()",
+                      "text": "Verfügbarkeit, gesperrte Kanäle, Empfängerwahl und eine eigene Unterdrückungsregel entscheiden in fester Reihenfolge."
+                    },
+                    {
+                      "term": "Erweiterbare Kanäle",
+                      "text": "Inbox, Live und E-Mail sind enthalten; Push, SMS und weitere Kanäle bleiben eigene Implementierungen."
+                    },
+                    {
+                      "term": "Aufschiebbare Zustellung",
+                      "text": "zurückgehaltene Kanäle prüft ein Job später erneut und sendet nur, wenn die Nachricht dann noch ungelesen ist."
+                    },
+                    {
+                      "term": "Konfigurierbares Schema",
+                      "text": "Modelle, Tabellennamen, Morph-Schlüssel und Schlüsseltypen lassen sich an die Anwendung anpassen."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Das Paket liefert weder eine fertige Oberfläche noch Routen. Listen, Markieren und Präferenzen werden über die Actions und Modelle in die vorhandenen Controller und das eigene Frontend eingebunden."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "composer require kirchdev/laravel-notification-delivery\nphp artisan vendor:publish --tag=notification-delivery-migrations\nphp artisan migrate"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Vor der Migration müssen Konfiguration und Schlüssel veröffentlicht werden, weil die Migrationen ihre Tabellen- und Schlüsseltypen zur Laufzeit daraus lesen."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Delivery rules and an inbox for Laravel notifications",
+          "description": "Adds a persistent inbox, read state and recipient-specific delivery preferences to Laravel notifications. A chain of rules decides which channels deliver a notification before via() runs.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Adds a persistent inbox, read state and recipient-specific delivery preferences to Laravel notifications. A chain of rules decides which channels deliver a notification before via() runs."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Once an application needs a notification bell, it builds storage, read state and preferences itself. The results vary, although Laravel notifications, channels and Notification::send() are already the right frame."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "This package adds only the missing delivery layer. Notifications keep their Laravel types and channels, while the decision over inbox, live notice, mail and deferred delivery follows a traceable rule chain."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "php",
+                  "code": "class User extends Authenticatable\n{\n    use HasNotificationDelivery;\n    use RoutesNotifications;\n}"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The trait replaces Laravel's database notifications on the recipient. Migrations and configuration are then published before the first delivery is stored."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Persistent inbox",
+                      "text": "notifications remain with their read state, so recipients can still find them later."
+                    },
+                    {
+                      "term": "Preferences at three levels",
+                      "text": "a type, its group or the type default determines the channels; new types need no backfill."
+                    },
+                    {
+                      "term": "Rules before via()",
+                      "text": "availability, locked channels, the recipient's choice and a custom suppression rule decide in a fixed order."
+                    },
+                    {
+                      "term": "Extensible channels",
+                      "text": "inbox, live and mail are included; push, SMS and more channels remain your own implementations."
+                    },
+                    {
+                      "term": "Deferred delivery",
+                      "text": "a job checks held-back channels later and sends only when the notification is still unread."
+                    },
+                    {
+                      "term": "Configurable schema",
+                      "text": "models, table names, morph keys and key types can be adapted to the application."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The package ships neither a ready-made interface nor routes. Listing, marking and preferences are integrated through its actions and models in the existing controllers and frontend."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "bash",
+                  "code": "composer require kirchdev/laravel-notification-delivery\nphp artisan vendor:publish --tag=notification-delivery-migrations\nphp artisan migrate"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Configuration and keys must be published before migrating because the migrations read their table and key types from them at run time."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "laravel-pbac",
       "owner": "kirchDev",
       "kind": "oss",
@@ -1841,7 +2264,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -2185,6 +2608,210 @@
       }
     },
     {
+      "slug": "pinia-colada-plugin-laravel-echo",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "library",
+      "technologies": ["typescript", "vue", "laravel", "pnpm"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-09-10",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/pinia-colada-plugin-laravel-echo",
+      "links": [
+        {
+          "type": "npm",
+          "url": "https://www.npmjs.com/package/@kirchdev/pinia-colada-plugin-laravel-echo"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "Live-Cache für Pinia Colada mit Laravel Echo",
+          "description": "Verbindet Pinia-Colada-Queries mit Laravel Echo. Ereignisse halten den Cache aktuell, und nach einer unterbrochenen WebSocket-Verbindung wird er einmal zuverlässig erneuert.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Verbindet Pinia-Colada-Queries mit Laravel Echo. Ereignisse halten den Cache aktuell, und nach einer unterbrochenen WebSocket-Verbindung wird er einmal zuverlässig erneuert."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Eine Query an einen Echo-Kanal zu binden, bedeutet sonst wiederholt: beim Mount abonnieren, im Handler den Cache ändern, beim Unmount verlassen und eine getrennte Verbindung behandeln. Der letzte Teil fehlt leicht, obwohl der Cache danach Daten enthält, die aktuell aussehen, aber Ereignisse verpasst haben."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Das Plugin macht den Verbindungszustand zur Cache-Regel. Solange Echo verbunden ist, halten Ereignisse die Query aktuell. Nach einer Trennung greift ihr normales Refetch-Verhalten wieder, nach der Rückkehr wird sie einmal invalidiert."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "ts",
+                  "code": "useQuery({\n  key: ['notifications', 'list'],\n  query: () => $fetch('/me/notifications'),\n  echo: {\n    channel: () => `App.Models.User.${userId.value}`,\n    listen: {\n      '.NotificationBroadcasted': (payload, { setQueryData }) =>\n        setQueryData((old) => [payload, ...(old ?? [])])\n    }\n  }\n});"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Das Abo lebt so lange wie der Cache-Eintrag. Fällt die Verbindung aus und kommt zurück, lädt die Query die verpassten Änderungen nach."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Abonnement folgt dem Cache",
+                      "text": "ein Kanal wird beim Anlegen des Eintrags betreten und beim Entfernen wieder verlassen."
+                    },
+                    {
+                      "term": "Verbindungsbewusste Gültigkeit",
+                      "text": "nach einer Trennung gilt wieder die normale staleTime; nach der Rückkehr wird genau einmal invalidiert."
+                    },
+                    {
+                      "term": "Referenzgezählte Kanäle",
+                      "text": "mehrere Queries auf einem Kanal halten ihn offen, bis auch die letzte entfernt ist."
+                    },
+                    {
+                      "term": "Keine Vorgabe für Nutzdaten",
+                      "text": "Handler erhalten das Echo-Payload und einen Cache-Zugriff; wie Daten eingefügt oder ersetzt werden, entscheidet die Anwendung."
+                    },
+                    {
+                      "term": "Jeder Echo-Transport",
+                      "text": "Reverb, Pusher, Ably und Socket.io funktionieren über die Abstraktion von Laravel Echo."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Das Plugin synchronisiert keine Datenmodelle und legt keine Events fest. Es verwaltet nur die Verbindung zwischen einer opt-in Query und dem Echo-Kanal; Authentifizierung, Backend und die Bedeutung eines Ereignisses bleiben Sache der Anwendung."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add @kirchdev/pinia-colada-plugin-laravel-echo"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "@pinia/colada, laravel-echo und vue sind Peer-Abhängigkeiten. Die Echo-Instanz wird beim Einrichten von Pinia Colada an das Plugin übergeben."
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "Live cache for Pinia Colada with Laravel Echo",
+          "description": "Connects Pinia Colada queries to Laravel Echo. Events keep the cache current, and a dropped WebSocket connection reliably refreshes it once when it returns.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Connects Pinia Colada queries to Laravel Echo. Events keep the cache current, and a dropped WebSocket connection reliably refreshes it once when it returns."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Binding a query to an Echo channel otherwise repeats the same work: subscribe on mount, change the cache in the handler, leave on unmount and handle a disconnected connection. The last part is easy to miss, although the cache then holds data that looks current but missed events."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The plugin makes connection state a cache rule. While Echo is connected, events keep the query current. After a disconnect its normal refetch behaviour applies again, and after reconnecting it is invalidated once."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "ts",
+                  "code": "useQuery({\n  key: ['notifications', 'list'],\n  query: () => $fetch('/me/notifications'),\n  echo: {\n    channel: () => `App.Models.User.${userId.value}`,\n    listen: {\n      '.NotificationBroadcasted': (payload, { setQueryData }) =>\n        setQueryData((old) => [payload, ...(old ?? [])])\n    }\n  }\n});"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "The subscription lives as long as the cache entry does. If the connection drops and returns, the query fetches the changes it missed."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Subscription follows the cache",
+                      "text": "a channel is joined when the entry is created and left when it is removed."
+                    },
+                    {
+                      "term": "Connection-aware validity",
+                      "text": "after a disconnect normal staleTime applies again; after reconnecting the entry is invalidated exactly once."
+                    },
+                    {
+                      "term": "Reference-counted channels",
+                      "text": "several queries on one channel keep it open until the last one is removed."
+                    },
+                    {
+                      "term": "No payload opinion",
+                      "text": "handlers receive Echo's payload and cache access; the application decides how data is inserted or replaced."
+                    },
+                    {
+                      "term": "Every Echo transport",
+                      "text": "Reverb, Pusher, Ably and Socket.io work through Laravel Echo's abstraction."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The plugin neither synchronizes data models nor defines events. It manages only the connection between an opt-in query and its Echo channel; authentication, the backend and the meaning of an event remain the application's concern."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "pnpm",
+                  "code": "pnpm add @kirchdev/pinia-colada-plugin-laravel-echo"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "@pinia/colada, laravel-echo and vue are peer dependencies. The Echo instance is passed to the plugin when Pinia Colada is set up."
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "saas-template",
       "owner": "TitusKirch-archive",
       "kind": "oss",
@@ -2329,7 +2956,7 @@
       "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-30",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/TitusKirch/scaffold",
       "links": [],
@@ -2524,7 +3151,7 @@
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-08-28",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -2758,7 +3385,7 @@
       "technologies": ["go", "terraform", "opentofu", "discord"],
       "license": "MIT",
       "stars": 2,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-09",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-discord",
       "links": [
@@ -2916,7 +3543,7 @@
       "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-06",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
@@ -3073,8 +3700,8 @@
       "category": "iac",
       "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
-      "stars": 1,
-      "updatedAt": "2026-09-01",
+      "stars": 2,
+      "updatedAt": "2026-09-06",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-linear",
       "links": [
@@ -3270,7 +3897,7 @@
       "technologies": ["typescript", "vite", "node", "vitest", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-08-31",
+      "updatedAt": "2026-09-08",
       "archived": false,
       "repository": "https://github.com/kirchDev/vite-plugin-iconify-bundle",
       "links": [
@@ -3492,7 +4119,7 @@
       "technologies": ["github-actions", "github", "typescript", "node"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-01",
+      "updatedAt": "2026-09-09",
       "archived": false,
       "repository": "https://github.com/kirchDev/workflows",
       "links": [],
