@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10",
+  "generatedAt": "2026-09-15",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -563,7 +563,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-09-15",
       "archived": false,
       "repository": "https://github.com/kirchDev/duxt",
       "links": [
@@ -1421,34 +1421,34 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-09-13",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
-      "version": "v0.15.1",
+      "version": "v0.16.0",
       "downloads": [
         {
           "platform": "linux",
           "format": "rpm",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse-0.15.1-1.x86_64.rpm",
-          "size": 8583018
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse-0.16.0-1.x86_64.rpm",
+          "size": 9368432
         },
         {
           "platform": "linux",
           "format": "appimage",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_amd64.AppImage",
-          "size": 83094008
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse_0.16.0_amd64.AppImage",
+          "size": 83782136
         },
         {
           "platform": "linux",
           "format": "deb",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_amd64.deb",
-          "size": 8580492
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse_0.16.0_amd64.deb",
+          "size": 9367050
         },
         {
           "platform": "windows",
           "format": "exe",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_x64-setup.exe",
-          "size": 5292560
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse_0.16.0_x64-setup.exe",
+          "size": 6140992
         }
       ],
       "links": [],
@@ -2052,7 +2052,7 @@
       "technologies": ["php", "laravel", "pest"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-09-14",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-notification-delivery",
       "links": [
@@ -3150,8 +3150,8 @@
       "category": "ai",
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
-      "stars": 1,
-      "updatedAt": "2026-09-08",
+      "stars": 2,
+      "updatedAt": "2026-09-13",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -3385,7 +3385,7 @@
       "technologies": ["go", "terraform", "opentofu", "discord"],
       "license": "MIT",
       "stars": 2,
-      "updatedAt": "2026-09-09",
+      "updatedAt": "2026-09-15",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-discord",
       "links": [
@@ -4119,7 +4119,7 @@
       "technologies": ["github-actions", "github", "typescript", "node"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-09",
+      "updatedAt": "2026-09-15",
       "archived": false,
       "repository": "https://github.com/kirchDev/workflows",
       "links": [],
