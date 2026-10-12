@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10",
+  "generatedAt": "2026-10-12",
   "locales": ["de", "en"],
   "projects": [
     {
@@ -11,7 +11,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-03",
       "archived": false,
       "repository": "https://github.com/TitusKirch/amber",
       "links": [],
@@ -324,7 +324,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-03",
       "archived": false,
       "repository": "https://github.com/kirchDev/coverage-report",
       "links": [
@@ -563,7 +563,7 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-11",
       "archived": false,
       "repository": "https://github.com/kirchDev/duxt",
       "links": [
@@ -767,7 +767,7 @@
       "technologies": ["typescript", "bun", "opentui"],
       "license": "MIT",
       "stars": 1,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/envprism",
       "links": [
@@ -987,7 +987,7 @@
       "technologies": ["typescript", "node", "github", "gitlab", "git"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/forgemap",
       "links": [
@@ -1226,7 +1226,7 @@
       "maturity": "wip",
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-05",
       "archived": false,
       "repository": "https://github.com/kirchDev/gitignore-sync",
       "links": [],
@@ -1421,34 +1421,34 @@
       ],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-08",
       "archived": false,
       "repository": "https://github.com/TitusKirch/glimpse",
-      "version": "v0.15.1",
+      "version": "v0.16.0",
       "downloads": [
         {
           "platform": "linux",
           "format": "rpm",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse-0.15.1-1.x86_64.rpm",
-          "size": 8583018
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse-0.16.0-1.x86_64.rpm",
+          "size": 9368432
         },
         {
           "platform": "linux",
           "format": "appimage",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_amd64.AppImage",
-          "size": 83094008
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse_0.16.0_amd64.AppImage",
+          "size": 83782136
         },
         {
           "platform": "linux",
           "format": "deb",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_amd64.deb",
-          "size": 8580492
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse_0.16.0_amd64.deb",
+          "size": 9367050
         },
         {
           "platform": "windows",
           "format": "exe",
-          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.15.1/glimpse_0.15.1_x64-setup.exe",
-          "size": 5292560
+          "url": "https://github.com/TitusKirch/glimpse/releases/download/v0.16.0/glimpse_0.16.0_x64-setup.exe",
+          "size": 6140992
         }
       ],
       "links": [],
@@ -1633,7 +1633,7 @@
       "technologies": ["typescript", "vue", "vite", "vitest", "node", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-06",
       "archived": false,
       "repository": "https://github.com/TitusKirch/hike-recap",
       "links": [],
@@ -1840,7 +1840,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-03",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-device-sessions",
       "links": [
@@ -2052,7 +2052,7 @@
       "technologies": ["php", "laravel", "pest"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-03",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-notification-delivery",
       "links": [
@@ -2264,7 +2264,7 @@
       "technologies": ["php", "laravel"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-08",
       "archived": false,
       "repository": "https://github.com/kirchDev/laravel-pbac",
       "links": [
@@ -2615,7 +2615,7 @@
       "technologies": ["typescript", "vue", "laravel", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-10-04",
       "archived": false,
       "repository": "https://github.com/kirchDev/pinia-colada-plugin-laravel-echo",
       "links": [
@@ -2956,7 +2956,7 @@
       "technologies": ["javascript", "node", "pnpm", "oxc", "github-actions"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-02",
       "archived": false,
       "repository": "https://github.com/TitusKirch/scaffold",
       "links": [],
@@ -3150,8 +3150,8 @@
       "category": "ai",
       "technologies": ["typescript", "node", "pnpm", "claude-code", "opencode"],
       "license": "MIT",
-      "stars": 1,
-      "updatedAt": "2026-09-08",
+      "stars": 2,
+      "updatedAt": "2026-10-11",
       "archived": false,
       "repository": "https://github.com/TitusKirch/skills",
       "links": [
@@ -3385,7 +3385,7 @@
       "technologies": ["go", "terraform", "opentofu", "discord"],
       "license": "MIT",
       "stars": 2,
-      "updatedAt": "2026-09-09",
+      "updatedAt": "2026-10-11",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-discord",
       "links": [
@@ -3536,6 +3536,194 @@
       }
     },
     {
+      "slug": "terraform-provider-hetznerrobot",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "iac",
+      "technologies": ["go", "terraform", "opentofu"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-10-12",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/terraform-provider-hetznerrobot",
+      "links": [
+        {
+          "type": "terraform",
+          "url": "https://registry.terraform.io/providers/kirchDev/hetznerrobot"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "OpenTofu-/Terraform-Provider für Hetzner Robot",
+          "description": "Dedizierte Server bei Hetzner als Code verwalten: IPs, Failover, rDNS, Firewalls, vSwitches, Storage Boxes und Bestellungen, abgeglichen durch OpenTofu.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Dedizierte Server bei Hetzner als Code verwalten: IPs, Failover, rDNS, Firewalls, vSwitches, Storage Boxes und Bestellungen, abgeglichen durch OpenTofu."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Für die Hetzner Cloud gibt es den offiziellen Provider hcloud, die dedizierten Server in Robot deckt er nicht ab. Deren rDNS-Einträge, Firewall-Regeln und vSwitches werden deshalb in der Robot-Oberfläche gepflegt und existieren nur dort."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Als Code steht die Konfiguration eines Servers an einer Stelle, und jeder Plan zeigt, was sich in Robot seitdem verändert hat."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "resource \"hetznerrobot_failover\" \"vip\" {\n  ip               = \"88.99.1.10\"\n  active_server_ip = data.hetznerrobot_server.standby.server_ip\n}"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Eine Failover-IP auf den Standby-Server umlegen, als Änderung im Code statt als Klick in Robot."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Vorsichtig mit Geld und Maschinen",
+                      "text": "eine Bestellung wird gespeichert, sobald Robot sie annimmt, und bei einem Timeout nie erneut ausgelöst; das Entfernen eines Servers oder einer Storage Box vergisst ihn nur, gekündigt wird über eine eigene Ressource."
+                    },
+                    {
+                      "term": "Einmalige Aktionen als Ressourcen",
+                      "text": "Resets und Wake on LAN laufen beim Anlegen und erneut, wenn sich ihre Trigger ändern; eine Boot-Konfiguration übersteht den Neustart, der sie verbraucht, ohne dass der nächste Plan sie wieder aktivieren will."
+                    },
+                    {
+                      "term": "Import über den natürlichen Schlüssel",
+                      "text": "Servernummer, IP, Fingerprint oder Transaktions-ID, wie sie in Robot stehen."
+                    },
+                    {
+                      "term": "Hält sich an Robots Grenzen",
+                      "text": "fehlgeschlagene Logins werden nie wiederholt, weil Robot die IP nach drei Fehlversuchen für zehn Minuten sperrt, und Schreibzugriffe auf Storage Boxes halten den geforderten Abstand ein."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Der Provider deckt den Robot-Webservice ab und nicht die Hetzner Cloud; die bleibt bei hcloud. Storage Boxes verwaltet er nur, soweit Robot sie führt, also die inklusive BX10. Ein Snapshot-Rollback einer ganzen Box ist bewusst keine Ressource, weil er als Nebenwirkung eines Plans zu folgenreich wäre."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    hetznerrobot = {\n      source  = \"kirchdev/hetznerrobot\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"hetznerrobot\" {} # HETZNER_ROBOT_USER / HETZNER_ROBOT_PASSWORD"
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "OpenTofu / Terraform provider for Hetzner Robot",
+          "description": "Manage your Hetzner dedicated servers as code: IPs, failover, rDNS, firewalls, vSwitches, Storage Boxes and orders, reconciled by OpenTofu.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Manage your Hetzner dedicated servers as code: IPs, failover, rDNS, firewalls, vSwitches, Storage Boxes and orders, reconciled by OpenTofu."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The Hetzner Cloud has the official hcloud provider, but it does not cover the dedicated servers in Robot. Their rDNS entries, firewall rules and vSwitches are therefore maintained in the Robot UI and exist only there."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "As code a server's configuration sits in one place, and every plan shows what has changed in Robot since."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "resource \"hetznerrobot_failover\" \"vip\" {\n  ip               = \"88.99.1.10\"\n  active_server_ip = data.hetznerrobot_server.standby.server_ip\n}"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Routing a failover IP to the standby server, as a change in code instead of a click in Robot."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Careful with money and machines",
+                      "text": "an order is saved the moment Robot accepts it and never re-sent on a timeout; destroying a server or a Storage Box only forgets it, and cancelling is a resource of its own."
+                    },
+                    {
+                      "term": "One-shot actions as resources",
+                      "text": "resets and Wake on LAN run on create and again whenever their triggers change; a boot configuration survives the reboot that consumes it without the next plan wanting to re-activate it."
+                    },
+                    {
+                      "term": "Import by natural key",
+                      "text": "server number, IP, fingerprint or transaction id, as Robot shows them."
+                    },
+                    {
+                      "term": "Respects Robot's limits",
+                      "text": "failed logins are never retried, since Robot blocks the IP for ten minutes after three of them, and Storage Box writes keep the spacing Robot requires."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The provider covers the Robot webservice, not the Hetzner Cloud; that stays with hcloud. Storage Boxes are managed only as far as Robot holds them, which means the inclusive BX10. Rolling a whole box back to a snapshot is deliberately not a resource, because it would be too drastic as a side effect of a plan."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    hetznerrobot = {\n      source  = \"kirchdev/hetznerrobot\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"hetznerrobot\" {} # HETZNER_ROBOT_USER / HETZNER_ROBOT_PASSWORD"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "terraform-provider-laravelforge",
       "owner": "kirchDev",
       "kind": "oss",
@@ -3543,7 +3731,7 @@
       "technologies": ["go", "terraform", "opentofu", "laravel-forge"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-06",
+      "updatedAt": "2026-10-11",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-laravelforge",
       "links": [
@@ -3701,7 +3889,7 @@
       "technologies": ["go", "terraform", "opentofu", "linear"],
       "license": "MIT",
       "stars": 2,
-      "updatedAt": "2026-09-06",
+      "updatedAt": "2026-10-11",
       "archived": false,
       "repository": "https://github.com/kirchDev/terraform-provider-linear",
       "links": [
@@ -3890,6 +4078,194 @@
       }
     },
     {
+      "slug": "terraform-provider-tcpshield",
+      "owner": "kirchDev",
+      "kind": "oss",
+      "category": "iac",
+      "technologies": ["go", "terraform", "opentofu"],
+      "license": "MIT",
+      "stars": 0,
+      "updatedAt": "2026-10-11",
+      "archived": false,
+      "repository": "https://github.com/kirchDev/terraform-provider-tcpshield",
+      "links": [
+        {
+          "type": "terraform",
+          "url": "https://registry.terraform.io/providers/kirchDev/tcpshield"
+        }
+      ],
+      "i18n": {
+        "de": {
+          "tagline": "OpenTofu-/Terraform-Provider für TCPShield",
+          "description": "Den DDoS-Schutz von TCPShield als Code verwalten: Netzwerke, Domains, Backend-Sets, Firewalls sowie Bedrock- und Sentry-Tunnel, abgeglichen durch OpenTofu.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Den DDoS-Schutz von TCPShield als Code verwalten: Netzwerke, Domains, Backend-Sets, Firewalls sowie Bedrock- und Sentry-Tunnel, abgeglichen durch OpenTofu."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Welche Domain auf welches Backend zeigt und welche Adressen, ASNs oder Länder gesperrt sind, wird bei TCPShield im Panel eingestellt. Wer mehrere Netzwerke betreibt, richtet dieselbe Struktur dort für jedes von Hand ein."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Als Code ist ein Netzwerk mit Backends, Domains und Firewall eine Definition, und der Plan zeigt vor jeder Änderung, was sie bewirkt."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "resource \"tcpshield_domain\" \"play\" {\n  network_id     = tcpshield_network.main.id\n  name           = \"play.example.com\"\n  backend_set_id = tcpshield_backend_set.lobby.id\n}"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Eine Domain, die auf ein Backend-Set zeigt, mit Verweisen statt kopierter IDs aus dem Panel."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Gegen die echte API geprüft",
+                      "text": "die offizielle Spezifikation ist bei den Datenformen ungenau; der Provider folgt dem tatsächlichen Verhalten, etwa PATCH-Aufrufen, die wie PUT wirken, oder still ignorierten Nullwerten, und fängt solche Fallen schon beim Plan ab."
+                    },
+                    {
+                      "term": "Firewall auf drei Ebenen",
+                      "text": "Regeln nach CIDR, ASN und Land, jeweils als eigene Ressource."
+                    },
+                    {
+                      "term": "Alles importierbar",
+                      "text": "über die Netzwerk- oder Tunnel-ID und die ID des Objekts lässt sich ein bestehendes Setup übernehmen."
+                    },
+                    {
+                      "term": "Nur echte Änderungen",
+                      "text": "Einstellungen, die in der Konfiguration fehlen, behalten ihren aktuellen Wert, statt bei jedem Plan als Abweichung aufzutauchen."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Zugangsdaten verwaltet der Provider nicht: E-Mail, Passwort und API-Key des Kontos gehören nicht in eine State-Datei, und den Key neu zu erzeugen würde dem Provider mitten im Apply die eigene Berechtigung entziehen."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    tcpshield = {\n      source  = \"kirchdev/tcpshield\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"tcpshield\" {\n  api_key = var.tcpshield_api_key # oder TCPSHIELD_API_KEY\n}"
+                }
+              ]
+            }
+          ]
+        },
+        "en": {
+          "tagline": "OpenTofu / Terraform provider for TCPShield",
+          "description": "Manage your TCPShield DDoS protection as code: networks, domains, backend sets, firewalls, and Bedrock and Sentry tunnels, reconciled by OpenTofu.",
+          "summary": [
+            {
+              "type": "paragraph",
+              "text": "Manage your TCPShield DDoS protection as code: networks, domains, backend sets, firewalls, and Bedrock and Sentry tunnels, reconciled by OpenTofu."
+            }
+          ],
+          "sections": [
+            {
+              "key": "why",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "Which domain points at which backend, and which addresses, ASNs or countries are blocked, is set in the TCPShield panel. Running several networks means setting up the same structure there by hand for each one."
+                },
+                {
+                  "type": "paragraph",
+                  "text": "As code a network with its backends, domains and firewall is one definition, and the plan shows what a change does before it happens."
+                }
+              ]
+            },
+            {
+              "key": "quickstart",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "resource \"tcpshield_domain\" \"play\" {\n  network_id     = tcpshield_network.main.id\n  name           = \"play.example.com\"\n  backend_set_id = tcpshield_backend_set.lobby.id\n}"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "A domain pointing at a backend set, with references instead of IDs copied out of the panel."
+                }
+              ]
+            },
+            {
+              "key": "features",
+              "blocks": [
+                {
+                  "type": "list",
+                  "items": [
+                    {
+                      "term": "Verified against the live API",
+                      "text": "the official spec is loose about shapes; the provider follows what the API actually does, such as PATCHes that behave like PUTs or zero values silently ignored, and catches those traps at plan time."
+                    },
+                    {
+                      "term": "Firewall on three levels",
+                      "text": "rules by CIDR, ASN and country, each a resource of its own."
+                    },
+                    {
+                      "term": "Import everything",
+                      "text": "an existing setup is adopted by network or tunnel id plus the object's id."
+                    },
+                    {
+                      "term": "Only real changes",
+                      "text": "settings left out of the configuration keep their live value instead of showing up as drift on every plan."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "key": "scope",
+              "blocks": [
+                {
+                  "type": "paragraph",
+                  "text": "The provider does not manage credentials: the account's email, password and API key do not belong in a state file, and regenerating the key would pull the provider's own access out from under it in the middle of an apply."
+                }
+              ]
+            },
+            {
+              "key": "install",
+              "blocks": [
+                {
+                  "type": "code",
+                  "language": "hcl",
+                  "code": "terraform {\n  required_providers {\n    tcpshield = {\n      source  = \"kirchdev/tcpshield\"\n      version = \"~> 0.1\"\n    }\n  }\n}\n\nprovider \"tcpshield\" {\n  api_key = var.tcpshield_api_key # or set TCPSHIELD_API_KEY\n}"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
       "slug": "vite-plugin-iconify-bundle",
       "owner": "kirchDev",
       "kind": "oss",
@@ -3897,7 +4273,7 @@
       "technologies": ["typescript", "vite", "node", "vitest", "pnpm"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-08",
+      "updatedAt": "2026-10-03",
       "archived": false,
       "repository": "https://github.com/kirchDev/vite-plugin-iconify-bundle",
       "links": [
@@ -4119,7 +4495,7 @@
       "technologies": ["github-actions", "github", "typescript", "node"],
       "license": "MIT",
       "stars": 0,
-      "updatedAt": "2026-09-09",
+      "updatedAt": "2026-10-11",
       "archived": false,
       "repository": "https://github.com/kirchDev/workflows",
       "links": [],
